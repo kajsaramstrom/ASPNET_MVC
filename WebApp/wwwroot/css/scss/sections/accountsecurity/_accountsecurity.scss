@@ -1,0 +1,174 @@
+#account-security {
+
+    .container {
+        display: flex;
+        justify-content: space-evenly;
+        gap: 185px;
+
+        .content-left {
+            position: relative;
+            width: 318px;
+            padding: 0 10px 0 0;
+
+            .profile {
+                text-align: center;
+
+                img {
+                    margin: 38px 0 10px 0;
+                }
+
+                p {
+                    color: $gray-700;
+                    margin: 0 0 35px 0;
+                }
+            }
+
+            nav {
+
+                .btn-theme {
+                    text-decoration: none;
+                    padding: 10px 15px;
+                    color: $gray-800;
+                    font-weight: 600;
+                    background-color: #FFFFFF;
+                    justify-content: left;
+
+                    i {
+                        color: $gray-600;
+                        margin-right: 5px;
+                    }
+
+                    &.active {
+                        background-color: $theme;
+                        color: #FFFFFF;
+            
+                        i {
+                            color: #FFFFFF;
+                        }
+                    }
+                }
+            }
+
+            .line {
+                position: absolute;
+                top: 0;
+                left: 260px;
+                border-right: 1px solid $gray-400;
+                height: 1185px;
+                width: 1px;
+            }
+        }
+
+        .content-right {
+            padding: 0 0 0 20px;
+
+            .new-password {
+
+                h2 {
+                    margin: 52px 0 30px 0;
+                }
+
+                h5 {
+                    color: $theme;
+                    margin: 0 0 20px 0;
+                }
+
+                form {
+                    display: flex;
+                    flex-direction: column;
+
+                    .currentpassword {
+                        display: flex;
+                        flex-direction: column;
+                        width: 416px;
+                    }
+
+                    .password {
+                        display: flex;
+                        justify-content: space-between;
+
+                        .newpassword {
+                            display: flex;
+                            flex-direction: column;
+                            width: 416px;
+                        }
+    
+                        .confirmnewpassword {
+                            display: flex;
+                            flex-direction: column;
+                            width: 416px;
+                        }
+                    }
+        
+                    label {
+                        font-weight: 600;
+
+                        span {
+                            color: $gray-600;
+                        }
+                    }
+        
+                    input {
+                        border: 1px solid $gray-400;
+                        outline: 1px solid $gray-400;
+                        border-radius: 6px;
+                        padding: 10px;
+                        margin: 0 0 24px 0;
+        
+                        &::placeholder {
+                            color: $gray-500;
+                        }
+                    }
+
+                    .buttons {
+                        display: flex;
+                        grid-area: button;
+                        margin: 0 0 40px 0;
+                        gap: 20px;
+                    }
+                }
+
+                .under-line {
+                    border-bottom: 1px solid $gray-400;
+                    width: 856px;
+                }
+            }
+
+            .delete-account {
+                margin: 40px 0 0 0;
+
+                h5 {
+                    color: $theme;
+                    margin: 0 0 20px 0;
+                }
+
+                p {
+                    margin: 10px 0 20px 0;
+                }
+
+                .checkbox {
+
+                    input {
+                        width: 15px;
+                        height: 15px;
+                        border: 2px solid $gray-500;
+                        border-radius: 4px;
+                        outline: none;
+                        margin: 0 5px 24px 0;
+
+                        &:checked {
+                            background-color: $theme;
+                            border-color: $theme;
+                        }
+                    }
+                }
+
+                .btn-theme {
+                    display: inline-block;
+                    background-color: $danger;
+                    margin: 20px 0 40px 0;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,122 @@
+.light-and-dark-mode {
+
+    .content {
+        display: flex;
+        justify-content: center;
+        position: relative;
+
+        .computer {
+            position: absolute;
+            z-index: 1;
+            top: 60px;
+            height: 75%;
+            width: 75%;
+
+            @include md {
+                top: 60px;
+                width: 60%;
+            }
+
+            @include lg {
+                top: 105px;
+                width: 60%;
+            }
+
+            @include xl {
+                top: 90px;
+                width: 60%;
+            }
+
+            @include xxl {
+                top: 231px;
+                width: 60%;
+            }
+        }
+
+        .arrow {
+            position: absolute;
+            z-index: 2;
+            top: 180px;
+            width: 5%;
+
+            @include md {
+                top: 200px;
+                width: 5%;
+            }
+
+            @include lg {
+                top: 450px;
+                width: auto;
+            }
+
+            @include xl {
+                top: 480px;
+                width: auto;
+            }
+
+            @include xxl {
+                top: 600px;
+                width: auto;
+            }
+        }
+
+        .content-left {
+            background: $gray-900;
+            width: 50%;
+            padding: 30px 0 300px 0;
+            position: relative;
+
+            @include lg {
+                padding: 40px 0 700px 0;
+            }
+
+            @include xl {
+                padding: 110px 0 250px 0;
+            }
+
+            @include xxl {
+                padding: 110px 0 1000px 0;
+            }
+
+            h1 {
+                @include h6;
+                color: #FFFFFF;
+                position: absolute;
+                right: 5px;
+
+                @include lg {
+                    @include h1;
+                    color: #FFFFFF;
+                    position: absolute;
+                    right: 10px;
+                }
+            }
+        }
+
+        .content-right {
+            padding-top: 30px;
+            position: relative;
+            width: 50%;
+
+            @include lg {
+                padding: 40px 0 700px 0;
+            }
+
+            @include xl {
+                padding-top: 110px;
+            }
+
+            h1 {
+                @include h6;
+                color: $gray-900;
+                margin-left: 5px;
+
+                @include lg {
+                    @include h1;
+                    color: $gray-900;
+                    margin-left: 10px;
+                }
+            }
+        }
+    }
+}

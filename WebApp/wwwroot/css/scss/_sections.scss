@@ -1,0 +1,35 @@
+// Page Home
+@import './sections/_header.scss';
+@import './sections/homesections/showcase';
+@import './sections/homesections/features';
+@import './sections/homesections/light-and-dark-mode';
+@import './sections/homesections/manage-your-work';
+@import './sections/homesections/download-our-app';
+@import './sections/homesections/integrate-top-work-tools';
+@import './sections/homesections/sign-up-for-newsletters';
+@import './sections/_footer.scss';
+
+// Page Courses
+@import './sections/coursessections/courses-section';
+@import './sections/coursessections/work-with-us';
+
+// Page Singlecourse
+@import './sections/singlecoursesections/showcase-singlecourse';
+@import './sections/singlecoursesections/course-description';
+@import './sections/singlecoursesections/program-details';
+@import './sections/singlecoursesections/author';
+
+// Page Contact
+@import './sections/contactsections/contact-us';
+
+// Page Sign In
+@import './sections/signinsections/signin';
+
+// Page Sign Up
+@import './sections/signupsections/signup';
+
+// Page Accout Details
+@import './sections/accountdetailssection/account-details';
+
+// Page Account Security
+@import './sections/accountsecurity/accountsecurity';

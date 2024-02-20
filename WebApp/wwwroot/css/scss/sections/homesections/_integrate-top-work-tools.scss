@@ -1,0 +1,66 @@
+.integrate-top-work-tools {
+
+    .container {
+        padding: 40px 0 0 0;
+
+        @include lg {
+            padding: 80px 0 0 0;
+        }
+
+        h1 {
+            text-align: center;
+            @include h2;
+
+            @include lg {
+                @include h1;
+            }
+        }
+
+        p {
+            margin: 20px 0 0 0;
+            @include text-lg;
+            max-width: 856px;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            margin: 50px 0 90px 0;
+            gap: 40px;
+
+            @include xl {
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+                margin: 50px 0 90px 0;
+                gap: 40px;
+            }
+
+            .box {
+                margin-left: 10px;
+                text-decoration: none;
+
+                @include lg {
+                    margin-left: 0;
+                }
+
+                p {
+                    text-align: start;
+                    color: $gray-700;
+                    margin: 20px 0 0 0;
+
+                    @include lg {
+                        width: 258px;
+                    }
+                }
+
+                &:hover {
+                    transition: all 0.15s ease-in-out;
+                    cursor: pointer;
+                    @include shadow-m;
+                }
+            }
+        }
+    }
+}
