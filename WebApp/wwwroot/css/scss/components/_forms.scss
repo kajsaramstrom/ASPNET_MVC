@@ -44,6 +44,17 @@ form {
         font-weight: 700;
     }
 
+    span {
+
+        &.field-validation-error {
+            position: absolute;
+            top: 0;
+            right: 0;
+            @include text-s;
+            color: $danger !important;
+        }
+    }
+
     input {
         padding: 1rem;
         border-radius: 0.5rem !important;
@@ -59,17 +70,6 @@ form {
 
             &::placeholder {
                 color: $danger;
-            }
-        }
-
-        span {
-
-            &.field-validation-error {
-                position: absolute;
-                top: 0;
-                right: 0;
-                @include text-s;
-                color: $danger !important;
             }
         }
     }
