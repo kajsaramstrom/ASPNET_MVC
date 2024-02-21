@@ -6,6 +6,21 @@ form {
         display: grid;
     }
 
+    .checkbox {
+
+        span {
+            display: block;
+
+            &.field-validation-error {
+                position: static;
+                top: 0;
+                right: 0;
+                @include text-s;
+                color: $danger;
+            }
+        }
+    }
+
     .checkbox-group {
         display: flex;
         justify-content: start;
@@ -29,6 +44,17 @@ form {
         font-weight: 700;
     }
 
+    span {
+
+        &.field-validation-error {
+            position: absolute;
+            top: 0;
+            right: 0;
+            @include text-s;
+            color: $danger !important;
+        }
+    }
+
     input {
         padding: 1rem;
         border-radius: 0.5rem !important;
@@ -43,17 +69,6 @@ form {
             color: $danger;
 
             &::placeholder {
-                color: $danger;
-            }
-        }
-
-        span {
-
-            &.field-validation-error {
-                position: absolute;
-                top: 0;
-                right: 0;
-                @include text-s;
                 color: $danger;
             }
         }
