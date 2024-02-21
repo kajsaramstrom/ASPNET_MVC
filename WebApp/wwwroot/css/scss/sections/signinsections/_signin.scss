@@ -1,96 +1,63 @@
 #sign-in {
-    
+    height: 100%;
+
     .container {
         display: flex;
         justify-content: center;
         align-items: center;
+        height: 100%;
 
-        .box {
+        @include lg {
+            width: 60%;
+        }
+
+        @include xl {
+            width: 40%;
+        }
+
+        form {
+            padding: 24px 24px;
+
+            @include lg {
+                padding: 137px 0 60px 0;
+            }
+
+            .error {
+                text-align: center;
+                color: $danger;
+            }
 
             h1 {
-                margin: 40px 0 16px 0;
-
                 @include lg {
-                    margin: 139px 0 16px 0;
+                    margin: 0 0 16px 0;
                 }
             }
-    
-            .sign-up {
-                display: flex;
-                gap: 3px;
 
-                a {
-                    text-decoration: underline;
+            p {
+                @include lg {
+                    margin: 0 0 25px 0;
                 }
             }
-    
-            form {
-                display: flex;
-                flex-direction: column;
-                max-width: 526px;
-    
-    
-                label {
-                    font-weight: 600;
-                }
-    
-                input {
-                    border: 1px solid $gray-400;
-                    outline: 1px solid $gray-400;
-                    border-radius: 6px;
-                    padding: 10px;
-                    margin: 0 0 24px 0;
-    
-                    &::placeholder {
-                        color: $gray-500;
-                    }
-                }
-    
-                .checkbox {
-                    display: flex;
-                    justify-content: baseline;
-                    align-items: baseline;
 
-                    input {
-                        width: 15px;
-                        height: 15px;
-                        border: 2px solid $gray-500;
-                        border-radius: 4px;
-                        outline: none;
-                        margin: 0 5px 24px 0;
+            .content {
+                display: grid;
+                gap: 24px;
+                grid-template-columns: 1fr;
 
-                        &:checked {
-                            background-color: $theme;
-                            border-color: $theme;
-                        }
-                    }
+                #form-email {
                 }
-    
-                .btn-theme {
-                    background-color: #ffffff;
-                    color: $theme
+
+                #form-password {
                 }
-            }
-    
-            .line {
-                border: 1px solid $gray-300;
-                width: 526px;
-                margin: 24px 0;
-            }
-    
-            .signinwithfacebook-google {
-                display: block;
-                text-align: center;
-    
-                h6 {
-                    margin: 0 0 24px 0;
+
+                #form-remember {
                 }
-    
-                .button {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    gap: 24px;
+
+                #form-button {
+                }
+
+                #form-forgot-password {
+                    text-align: center;
                 }
             }
         }
