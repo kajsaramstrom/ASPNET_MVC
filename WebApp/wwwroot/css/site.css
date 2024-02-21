@@ -394,6 +394,17 @@ form label {
   margin-bottom: 0.188rem;
   font-weight: 700;
 }
+form span.field-validation-error {
+  position: absolute;
+  top: 0;
+  right: 0;
+  line-height: 160%;
+  font-weight: 400;
+  color: #565973;
+  font-family: "Manrope", sans-serif;
+  font-size: 14px !important;
+  color: #EF4444 !important;
+}
 form input {
   padding: 1rem;
   border-radius: 0.5rem !important;
@@ -408,17 +419,6 @@ form input.input-validation-error {
 }
 form input.input-validation-error::placeholder {
   color: #EF4444;
-}
-form input span.field-validation-error {
-  position: absolute;
-  top: 0;
-  right: 0;
-  line-height: 160%;
-  font-weight: 400;
-  color: #565973;
-  font-family: "Manrope", sans-serif;
-  font-size: 14px !important;
-  color: #EF4444 !important;
 }
 
 header .container {
@@ -2260,82 +2260,54 @@ footer .container .social-media {
   height: 864px;
 }
 
+#sign-in {
+  height: 100%;
+}
 #sign-in .container {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-#sign-in .container .box h1 {
-  margin: 40px 0 16px 0;
+  height: 100%;
 }
 @media (min-width: 992px) {
-  #sign-in .container .box h1 {
-    margin: 139px 0 16px 0;
+  #sign-in .container {
+    width: 60%;
   }
 }
-#sign-in .container .box .sign-up {
-  display: flex;
-  gap: 3px;
+@media (min-width: 1200px) {
+  #sign-in .container {
+    width: 40%;
+  }
 }
-#sign-in .container .box .sign-up a {
-  text-decoration: underline;
+#sign-in .container form {
+  padding: 24px 24px;
 }
-#sign-in .container .box form {
-  display: flex;
-  flex-direction: column;
-  max-width: 526px;
+@media (min-width: 992px) {
+  #sign-in .container form {
+    padding: 137px 0 60px 0;
+  }
 }
-#sign-in .container .box form label {
-  font-weight: 600;
-}
-#sign-in .container .box form input {
-  border: 1px solid #D4D7E5;
-  outline: 1px solid #D4D7E5;
-  border-radius: 6px;
-  padding: 10px;
-  margin: 0 0 24px 0;
-}
-#sign-in .container .box form input::placeholder {
-  color: #B4B7C9;
-}
-#sign-in .container .box form .checkbox {
-  display: flex;
-  justify-content: baseline;
-  align-items: baseline;
-}
-#sign-in .container .box form .checkbox input {
-  width: 15px;
-  height: 15px;
-  border: 2px solid #B4B7C9;
-  border-radius: 4px;
-  outline: none;
-  margin: 0 5px 24px 0;
-}
-#sign-in .container .box form .checkbox input:checked {
-  background-color: #6366F1;
-  border-color: #6366F1;
-}
-#sign-in .container .box form .btn-theme {
-  background-color: #ffffff;
-  color: #6366F1;
-}
-#sign-in .container .box .line {
-  border: 1px solid #E2E5F1;
-  width: 526px;
-  margin: 24px 0;
-}
-#sign-in .container .box .signinwithfacebook-google {
-  display: block;
+#sign-in .container form .error {
   text-align: center;
+  color: #EF4444;
 }
-#sign-in .container .box .signinwithfacebook-google h6 {
-  margin: 0 0 24px 0;
+@media (min-width: 992px) {
+  #sign-in .container form h1 {
+    margin: 0 0 16px 0;
+  }
 }
-#sign-in .container .box .signinwithfacebook-google .button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+@media (min-width: 992px) {
+  #sign-in .container form p {
+    margin: 0 0 25px 0;
+  }
+}
+#sign-in .container form .content {
+  display: grid;
   gap: 24px;
+  grid-template-columns: 1fr;
+}
+#sign-in .container form .content #form-forgot-password {
+  text-align: center;
 }
 
 #sign-up {
