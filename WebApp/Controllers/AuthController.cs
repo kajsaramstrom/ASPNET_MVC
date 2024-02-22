@@ -19,7 +19,7 @@ public class AuthController : Controller
         if (!ModelState.IsValid)
             return View(viewModel);
 
-        return RedirectToAction("Sign In", "Auth");
+        return RedirectToAction("SignIn", "Auth");
     }
 
 
