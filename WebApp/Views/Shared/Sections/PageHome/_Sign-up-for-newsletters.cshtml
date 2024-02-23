@@ -1,55 +1,62 @@
-﻿<section class="sign-up-for-newsletters">
+﻿@model NewsletterViewModel
+
+<section class="sign-up-for-newsletters">
     <div class="container">
         <div class="title">
             <h1>Don't Want to Miss Anything?</h1>
             <img src="images/icon/arrows.svg" alt="arrow pointing down">
         </div>
 
-        <div class="signup">
-            <h5>Sign up for Newsletters</h5>
+        <form method="post" asp-controller="Home" asp-action="Index" novalidate>
+            <div class="signup">
+                <h5>Sign up for Newsletters</h5>
 
-            <div class="checkbox-group">
-                <div>
-                    <input type="checkbox" id="daily-newsletter" name="daily-newsletter">
-                    <label for="daily-newsletter">Daily Newsletter</label>
-                </div>
+                <div class="checkbox-group">
+                    <div>
+                        <input asp-for="Newsletter.CheckboxOne" />
+                        <label asp-for="Newsletter.CheckboxOne"></label>
+                    </div>
 
-                <div>
-                    <input type="checkbox" id="advertising-updates" name="advertising-updates">
-                    <label for="advertising-updates">Advertising Updates</label>
-                </div>
+                    <div>
+                        <input asp-for="Newsletter.CheckboxTwo" />
+                        <label asp-for="Newsletter.CheckboxTwo"></label>
+                    </div>
 
-                <div>
-                    <input type="checkbox" id="week-in-review" name="week-in-review">
-                    <label for="week-in-review">Week in Review</label>
-                </div>
+                    <div>
+                        <input asp-for="Newsletter.CheckboxThree" />
+                        <label asp-for="Newsletter.CheckboxThree"></label>
+                    </div>
 
-                <div>
-                    <input type="checkbox" id="event-updates" name="event-updates">
-                    <label for="event-updates">Event Updates</label>
-                </div>
+                    <div>
+                        <input asp-for="Newsletter.CheckboxFour" />
+                        <label asp-for="Newsletter.CheckboxFour"></label>
+                    </div>
 
-                <div>
-                    <input type="checkbox" id="startups-weekly" name="startups-weekly">
-                    <label for="startups-weekly">Startups Weekly</label>
-                </div>
+                    <div>
+                        <input asp-for="Newsletter.CheckboxFive" />
+                        <label asp-for="Newsletter.CheckboxFive"></label>
+                    </div>
 
-                <div>
-                    <input type="checkbox" id="podcasts" name="podcasts">
-                    <label for="podcasts">Podcasts</label>
+                    <div>
+                        <input asp-for="Newsletter.CheckboxSix" />
+                        <label asp-for="Newsletter.CheckboxSix"></label>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="subscribe">
-            <i class='fa-regular fa-envelope'></i>
-            <form>
-                <input type="text" id="email" name="email" title="email" placeholder="Your Email">
-                <a class="btn-theme-s" href="#">Subscribe *</a>
-            </form>
-        </div>
-        <div class="text-under">
-            <p><span>*</span> Yes, I agree to the <a class="blue-link" href="#">terms</a> and <a class="blue-link" href="#">privacy policy</a>.</p>
-        </div>
+            <div class="subscribe">
+                <i class='fa-regular fa-envelope'></i>
+                <div class="input">
+                    <span asp-validation-for="Newsletter.Email"></span>
+                    <input asp-for="Newsletter.Email" />
+                    <button class="btn-theme-s" type="submit">Subscribe *</button>
+                </div>
+            </div>
+            <div class="text-under">
+                <p><span>*</span> Yes, I agree to the <a class="blue-link" href="#">terms</a> and <a class="blue-link" href="#">privacy policy</a>.</p>
+            </div>
+        </form>
     </div>
 </section>
+
+@await Html.PartialAsync("_ValidationScriptPartial")

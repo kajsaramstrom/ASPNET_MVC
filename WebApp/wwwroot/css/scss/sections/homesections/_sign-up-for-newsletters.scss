@@ -14,12 +14,12 @@
 
             h1 {
                 @include h3;
-    
+
                 @include lg {
                     @include h1;
                 }
             }
-    
+
             img {
                 margin: 10px 0 0 15px;
 
@@ -29,117 +29,130 @@
             }
         }
 
-        .signup {
-            display: block;
-            align-items: center;
-            margin: 25px 0 30px 0;
+        form {
 
-            @include lg {
-                display: flex;
-                margin: 50px 0 60px 0;
-            }
-
-            h5 {
-                width: 196px;
-            }
-
-            .checkbox-group {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                margin-top: 20px;
-
-                @include lg {
-                    grid-template-columns: 1fr 1fr 1fr;
-                    margin-top: 0;
-
-                }
-
-                div {
-                    margin-right: 20px;
-
-                    input {
-                        width: 15px;
-                        height: 15px;
-                        border: 2px solid $gray-500;
-                        border-radius: 4px;
-                        outline: none;
-    
-                        &:checked {
-                            background-color: $theme;
-                            border-color: $theme;
-                        }
-                    }
-    
-                    label {
-                        margin-left: 5px;
-                        @include text-s;
-                        color: $gray-700;
-                    }
-                }
-            }
-        }
-
-        .subscribe {
-            position: relative;
-
-            i{
-                position: absolute;
-                color: $gray-500;
-                left: 10px;
-                top: 8px;
-
-                @include lg {
-                    left: 10px;
-                    top: 14px;
-                }
-            }
-
-            form {
+            .signup {
                 display: block;
+                align-items: center;
+                margin: 25px 0 30px 0;
 
                 @include lg {
                     display: flex;
+                    margin: 50px 0 60px 0;
                 }
 
-                input {
-                    width: 100%;
-                    border: 1px solid $gray-400;
-                    color: $gray-500;
-                    outline: $gray-500;
-                    border-radius: 6px;
-
-                    @include lg {
-                        width: 688px;
-                    }
-    
-                    &::placeholder {
-                        color: $gray-500;
-                        padding-left: 30px;
-                    }
+                h5 {
+                    width: 196px;
                 }
-    
-                a {
-                    margin-top: 15px;
+
+                .checkbox-group {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    margin-top: 20px;
 
                     @include lg {
-                        margin-left: 20px;
+                        grid-template-columns: 1fr 1fr 1fr;
                         margin-top: 0;
+                    }
+
+                    div {
+                        margin-right: 20px;
+
+                        input {
+                            width: 15px;
+                            height: 15px;
+                            border: 2px solid $gray-500;
+                            border-radius: 4px;
+                            outline: none;
+
+                            &:checked {
+                                background-color: $theme;
+                                border-color: $theme;
+                            }
+                        }
+
+                        label {
+                            margin-left: 5px;
+                            @include text-s;
+                            color: $gray-700;
+                        }
                     }
                 }
             }
-        }
 
-        .text-under {
-            margin: 10px;
+            .subscribe {
+                position: relative;
 
-            p {
+                i {
+                    position: absolute;
+                    color: $gray-500;
+                    left: 10px;
+                    top: 8px;
 
-                span {
-                    color: $theme;
+                    @include lg {
+                        left: 20px;
+                        top: 20px;
+                    }
                 }
 
-                .blue-link {
-                    text-decoration: underline;
+                .input {
+                    display: block;
+
+                    @include lg {
+                        display: flex;
+                    }
+
+                    span {
+
+                        &.field-validation-error {
+                            position: absolute;
+                            top: -20px;
+                            left: 0;
+                            @include text-s;
+                            color: $danger !important;
+                        }
+                    }
+
+                    input {
+                        width: 100%;
+                        border: 1px solid $gray-400;
+                        color: $gray-500;
+                        outline: $gray-500;
+                        border-radius: 6px;
+                        padding-left: 50px;
+
+                        @include lg {
+                            width: 688px;
+                        }
+
+                        &::placeholder {
+                            color: $gray-500;
+                        }
+                    }
+
+                    a {
+                        margin-top: 15px;
+
+                        @include lg {
+                            margin-left: 20px;
+                            margin-top: 0;
+                        }
+                    }
+                }
+            }
+
+            .text-under {
+                margin: 10px;
+
+                p {
+
+                    span {
+                        color: $theme;
+                    }
+
+                    .blue-link {
+                        text-decoration: underline;
+                    }
                 }
             }
         }
