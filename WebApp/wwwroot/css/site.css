@@ -466,13 +466,13 @@ header .container .btn-switch {
     display: block;
   }
 }
-header .container .account-buttons {
+header .container #account-buttons {
   grid-area: buttons;
   display: none;
   gap: 15px;
 }
 @media (min-width: 1200px) {
-  header .container .account-buttons {
+  header .container #account-buttons {
     display: flex;
   }
 }
@@ -1141,46 +1141,46 @@ header .container .btn-mobile {
     margin: 10px 0 0 25px;
   }
 }
-.sign-up-for-newsletters .container .signup {
+.sign-up-for-newsletters .container form .signup {
   display: block;
   align-items: center;
   margin: 25px 0 30px 0;
 }
 @media (min-width: 992px) {
-  .sign-up-for-newsletters .container .signup {
+  .sign-up-for-newsletters .container form .signup {
     display: flex;
     margin: 50px 0 60px 0;
   }
 }
-.sign-up-for-newsletters .container .signup h5 {
+.sign-up-for-newsletters .container form .signup h5 {
   width: 196px;
 }
-.sign-up-for-newsletters .container .signup .checkbox-group {
+.sign-up-for-newsletters .container form .signup .checkbox-group {
   display: grid;
   grid-template-columns: 1fr 1fr;
   margin-top: 20px;
 }
 @media (min-width: 992px) {
-  .sign-up-for-newsletters .container .signup .checkbox-group {
+  .sign-up-for-newsletters .container form .signup .checkbox-group {
     grid-template-columns: 1fr 1fr 1fr;
     margin-top: 0;
   }
 }
-.sign-up-for-newsletters .container .signup .checkbox-group div {
+.sign-up-for-newsletters .container form .signup .checkbox-group div {
   margin-right: 20px;
 }
-.sign-up-for-newsletters .container .signup .checkbox-group div input {
+.sign-up-for-newsletters .container form .signup .checkbox-group div input {
   width: 15px;
   height: 15px;
   border: 2px solid #B4B7C9;
   border-radius: 4px;
   outline: none;
 }
-.sign-up-for-newsletters .container .signup .checkbox-group div input:checked {
+.sign-up-for-newsletters .container form .signup .checkbox-group div input:checked {
   background-color: #6366F1;
   border-color: #6366F1;
 }
-.sign-up-for-newsletters .container .signup .checkbox-group div label {
+.sign-up-for-newsletters .container form .signup .checkbox-group div label {
   margin-left: 5px;
   line-height: 160%;
   font-weight: 400;
@@ -1189,61 +1189,72 @@ header .container .btn-mobile {
   font-size: 14px !important;
   color: #565973;
 }
-.sign-up-for-newsletters .container .subscribe {
+.sign-up-for-newsletters .container form .subscribe {
   position: relative;
 }
-.sign-up-for-newsletters .container .subscribe i {
+.sign-up-for-newsletters .container form .subscribe i {
   position: absolute;
   color: #B4B7C9;
   left: 10px;
   top: 8px;
 }
 @media (min-width: 992px) {
-  .sign-up-for-newsletters .container .subscribe i {
-    left: 10px;
-    top: 14px;
+  .sign-up-for-newsletters .container form .subscribe i {
+    left: 20px;
+    top: 20px;
   }
 }
-.sign-up-for-newsletters .container .subscribe form {
+.sign-up-for-newsletters .container form .subscribe .input {
   display: block;
 }
 @media (min-width: 992px) {
-  .sign-up-for-newsletters .container .subscribe form {
+  .sign-up-for-newsletters .container form .subscribe .input {
     display: flex;
   }
 }
-.sign-up-for-newsletters .container .subscribe form input {
+.sign-up-for-newsletters .container form .subscribe .input span.field-validation-error {
+  position: absolute;
+  top: -20px;
+  left: 0;
+  line-height: 160%;
+  font-weight: 400;
+  color: #565973;
+  font-family: "Manrope", sans-serif;
+  font-size: 14px !important;
+  color: #EF4444 !important;
+}
+.sign-up-for-newsletters .container form .subscribe .input input {
   width: 100%;
   border: 1px solid #D4D7E5;
   color: #B4B7C9;
   outline: #B4B7C9;
   border-radius: 6px;
+  padding-left: 50px;
 }
 @media (min-width: 992px) {
-  .sign-up-for-newsletters .container .subscribe form input {
+  .sign-up-for-newsletters .container form .subscribe .input input {
     width: 688px;
   }
 }
-.sign-up-for-newsletters .container .subscribe form input::placeholder {
+.sign-up-for-newsletters .container form .subscribe .input input::placeholder {
   color: #B4B7C9;
-  padding-left: 30px;
 }
-.sign-up-for-newsletters .container .subscribe form a {
+.sign-up-for-newsletters .container form .subscribe .input a {
   margin-top: 15px;
 }
 @media (min-width: 992px) {
-  .sign-up-for-newsletters .container .subscribe form a {
+  .sign-up-for-newsletters .container form .subscribe .input a {
     margin-left: 20px;
     margin-top: 0;
   }
 }
-.sign-up-for-newsletters .container .text-under {
+.sign-up-for-newsletters .container form .text-under {
   margin: 10px;
 }
-.sign-up-for-newsletters .container .text-under p span {
+.sign-up-for-newsletters .container form .text-under p span {
   color: #6366F1;
 }
-.sign-up-for-newsletters .container .text-under p .blue-link {
+.sign-up-for-newsletters .container form .text-under p .blue-link {
   text-decoration: underline;
 }
 
