@@ -2,7 +2,7 @@
     <div class="container">
         <a id="logo" asp-controller="Home" asp-action="Index"><img src="~/images/logotypes/solid.svg" alt="header-logotype"></a>
 
-        <div id="menu">
+        <div id="menu" class="hide">
             <nav>
                 <a class="menu-link" href="#showcase">Overview</a>
                 <a class="menu-link" href="#features">Features</a>
@@ -19,13 +19,13 @@
             <label>Dark</label>
         </div>
 
-        <div id="account-buttons">
+        <div id="account-buttons" class="hide">
             <a class="btn-gray" asp-controller="Auth" asp-action="SignIn"><i class="fa-solid fa-right-to-bracket"></i><span>Sign In</span></a>
             <a class="btn-theme" asp-controller="Auth" asp-action="SignUp"><i class="fa-regular fa-user"></i><span>Sign Up</span></a>
         </div>
 
-        <div class="btn-mobile">
-            <a class="btn"><i class="fa-solid fa-bars"></i></a>
-        </div>
+        <button onclick="toggleMenu()" class="btn-mobile">
+            <i class="fa-solid fa-bars"></i>
+        </button>
     </div>
 </header>
