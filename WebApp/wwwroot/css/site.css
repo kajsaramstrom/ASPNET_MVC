@@ -384,11 +384,27 @@ form .checkbox-group {
 form .checkbox-group input[type=checkbox] {
   height: 1.2rem;
   width: 1.2rem;
-  border: 0.063rem solid red;
+  border: 1px solid red;
 }
 form .checkbox-group label {
   margin: 0;
   font-weight: 400;
+}
+form textarea {
+  padding: 1rem;
+  border-radius: 6px !important;
+  border: 1px solid #D4D7E5;
+  resize: none;
+}
+form textarea::placeholder {
+  opacity: 0.4;
+}
+form textarea.input-valid-error {
+  border: 1px solid #EF4444 !important;
+  color: #EF4444;
+}
+form textarea.input-valid-error::placeholder {
+  color: #EF4444;
 }
 form label {
   margin-bottom: 0.188rem;
@@ -407,14 +423,14 @@ form span.field-validation-error {
 }
 form input {
   padding: 1rem;
-  border-radius: 0.5rem !important;
-  border: 0.063rem solid #D4D7E5;
+  border-radius: 6px !important;
+  border: 1px solid #D4D7E5;
 }
 form input::placeholder {
   opacity: 0.4;
 }
 form input.input-validation-error {
-  border: 0.063rem solid #EF4444 !important;
+  border: 1px solid #EF4444 !important;
   color: #EF4444;
 }
 form input.input-validation-error::placeholder {
@@ -2392,27 +2408,30 @@ footer .container .social-media {
   }
 }
 
-#account-details .container {
+#account-details {
   display: flex;
-  justify-content: space-evenly;
-  gap: 110px;
+  gap: 50px;
+  margin: 0 0 70px 0;
 }
-#account-details .container .content-left {
-  position: relative;
-  width: 318px;
-  padding: 0 10px 0 0;
+@media (min-width: 992px) {
+  #account-details {
+    gap: 150px;
+  }
 }
-#account-details .container .content-left .profile {
+#account-details aside {
+  border-right: 1px solid #D4D7E5;
+  padding: 0 20px 0 0;
+}
+#account-details aside .profile {
   text-align: center;
 }
-#account-details .container .content-left .profile img {
+#account-details aside .profile img {
   margin: 38px 0 10px 0;
 }
-#account-details .container .content-left .profile p {
-  color: #565973;
+#account-details aside .profile p {
   margin: 0 0 35px 0;
 }
-#account-details .container .content-left nav .btn-theme {
+#account-details aside nav .btn-theme {
   text-decoration: none;
   padding: 10px 15px;
   color: #33354D;
@@ -2420,137 +2439,110 @@ footer .container .social-media {
   background-color: #FFFFFF;
   justify-content: left;
 }
-#account-details .container .content-left nav .btn-theme i {
+#account-details aside nav .btn-theme i {
   color: #9397AD;
   margin-right: 5px;
 }
-#account-details .container .content-left nav .btn-theme.active {
+#account-details aside nav .btn-theme.active {
   background-color: #6366F1;
   color: #FFFFFF;
 }
-#account-details .container .content-left nav .btn-theme.active i {
+#account-details aside nav .btn-theme.active i {
   color: #FFFFFF;
 }
-#account-details .container .content-left .line {
-  position: absolute;
-  top: 0;
-  left: 318px;
-  border-right: 1px solid #D4D7E5;
-  height: 1185px;
-  width: 1px;
+#account-details .details {
+  width: 100%;
 }
-#account-details .container .content-right .first h2 {
+#account-details .details form {
+  padding: 24px;
+}
+#account-details .details form h2 {
   margin: 52px 0 30px 0;
 }
-#account-details .container .content-right .first h5 {
+#account-details .details form h5 {
   color: #6366F1;
-  margin: 0 0 20px 0;
 }
-#account-details .container .content-right .first form {
-  display: flex;
-  flex-direction: column;
+#account-details .details form .content {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1fr;
 }
-#account-details .container .content-right .first form .fullname {
-  display: flex;
-  justify-content: space-between;
+@media (min-width: 992px) {
+  #account-details .details form .content {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "firstname lastname" "email phone" "bio bio" "buttons buttons";
+  }
+  #account-details .details form .content #form-firstname {
+    grid-area: firstname;
+  }
+  #account-details .details form .content #form-lastname {
+    grid-area: lastname;
+  }
+  #account-details .details form .content #form-email {
+    grid-area: email;
+  }
+  #account-details .details form .content #form-phone {
+    grid-area: phone;
+  }
+  #account-details .details form .content #form-bio {
+    grid-area: bio;
+  }
+  #account-details .details form .content #form-bio span {
+    color: #9397AD;
+    font-weight: 600;
+  }
+  #account-details .details form .content .form-buttons {
+    grid-area: buttons;
+    margin: 24px 0 40px 0;
+    display: flex;
+    gap: 20px;
+  }
 }
-#account-details .container .content-right .first form .fullname .firstname {
-  display: flex;
-  flex-direction: column;
-}
-#account-details .container .content-right .first form .fullname .lastname {
-  display: flex;
-  flex-direction: column;
-}
-#account-details .container .content-right .first form .contact-info {
-  display: flex;
-  justify-content: space-between;
-}
-#account-details .container .content-right .first form .contact-info .email {
-  display: flex;
-  flex-direction: column;
-}
-#account-details .container .content-right .first form .contact-info .phone {
-  display: flex;
-  flex-direction: column;
-}
-#account-details .container .content-right .first form label {
-  font-weight: 600;
-}
-#account-details .container .content-right .first form label span {
-  color: #9397AD;
-}
-#account-details .container .content-right .first form input {
-  border: 1px solid #D4D7E5;
-  outline: 1px solid #D4D7E5;
-  border-radius: 6px;
-  padding: 10px;
-  margin: 0 0 24px 0;
-}
-#account-details .container .content-right .first form input::placeholder {
-  color: #B4B7C9;
-}
-#account-details .container .content-right .first form textarea {
-  border: 1px solid #D4D7E5;
-  outline: 1px solid #D4D7E5;
-  border-radius: 6px;
-  height: 104px;
-  margin: 0 0 24px 0;
-}
-#account-details .container .content-right .first form textarea::placeholder {
-  color: #B4B7C9;
-}
-#account-details .container .content-right .first form .buttons {
-  display: flex;
-  grid-area: button;
-  margin: 0 0 40px 0;
-  gap: 20px;
-}
-#account-details .container .content-right .first .under-line {
-  border-bottom: 1px solid #D4D7E5;
-  width: 856px;
-}
-#account-details .container .content-right .address-info {
+#account-details .details form .address-info {
   margin: 40px 0 0 0;
 }
-#account-details .container .content-right .address-info h5 {
+#account-details .details form .address-info form {
+  padding: 24px;
+}
+#account-details .details form .address-info form h5 {
   color: #6366F1;
-  margin: 0 0 20px 0;
 }
-#account-details .container .content-right .address-info form {
-  display: flex;
-  flex-direction: column;
+#account-details .details form .address-info form .content {
+  display: grid;
+  gap: 24px;
+  grid-auto-columns: 1fr;
 }
-#account-details .container .content-right .address-info form .post-city {
-  display: flex;
-  justify-content: space-between;
-}
-#account-details .container .content-right .address-info form .post-city .postalcode {
-  display: flex;
-  flex-direction: column;
-}
-#account-details .container .content-right .address-info form .post-city .city {
-  display: flex;
-  flex-direction: column;
-}
-#account-details .container .content-right .address-info form label {
-  font-weight: 600;
-}
-#account-details .container .content-right .address-info form input {
-  border: 1px solid #D4D7E5;
-  outline: 1px solid #D4D7E5;
-  border-radius: 6px;
-  padding: 10px;
-  margin: 0 0 24px 0;
-}
-#account-details .container .content-right .address-info form input::placeholder {
-  color: #B4B7C9;
-}
-#account-details .container .content-right .address-info form .buttons {
-  display: flex;
-  grid-area: button;
-  margin: 0 0 40px 0;
-  gap: 20px;
+@media (min-width: 992px) {
+  #account-details .details form .address-info form .content {
+    display: grid;
+    gap: 24px;
+    grid-auto-columns: 1fr 1fr;
+    grid-template-areas: "line_1 line_1" "line_2 line_2" "post city" "buttons buttons";
+  }
+  #account-details .details form .address-info form .content #form-addressline-1 {
+    grid-area: line_1;
+  }
+  #account-details .details form .address-info form .content #form-addressline-2 {
+    grid-area: line_2;
+  }
+  #account-details .details form .address-info form .content #form-addressline-2 span {
+    color: #9397AD;
+    font-weight: 600;
+  }
+  #account-details .details form .address-info form .content #form-postalcode {
+    grid-area: post;
+  }
+  #account-details .details form .address-info form .content #form-city {
+    grid-area: city;
+  }
+  #account-details .details form .address-info form .content .form-buttons {
+    grid-area: buttons;
+    margin: 24px 0 40px 0;
+    display: flex;
+    gap: 20px;
+  }
 }
 
 #account-security .container {
