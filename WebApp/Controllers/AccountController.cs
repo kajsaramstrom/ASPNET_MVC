@@ -35,4 +35,27 @@ public class AccountController : Controller
         //_accountService.SaveAddressInfo(viewModel.AddressInfo);
         return RedirectToAction(nameof(Details));
     }
+
+
+    [Route("/security")]
+    public IActionResult Security()
+    {
+        var viewModel = new AccountSecurityViewModel();
+
+        return View(viewModel);
+    }
+
+    [HttpPost]
+    public IActionResult Password(AccountDetailsViewModel viewModel)
+    {
+        //_accountService.SavePassword(viewModel.Password);
+        return RedirectToAction(nameof(Security));
+    }
+
+    [HttpPost]
+    public IActionResult Delete(AccountDetailsViewModel viewModel)
+    {
+        //_accountService.SaveDelete(viewModel.Delete);
+        return RedirectToAction(nameof(Security));
+    }
 }
