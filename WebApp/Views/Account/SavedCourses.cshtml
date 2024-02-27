@@ -1,0 +1,102 @@
+﻿@model AccountSavedCoursesViewModel
+
+<div class="container">
+    <section id="account-savedcourses">
+        <aside>
+            <div class="profile">
+                <img src="@Model.BasicInfo.ProfileImage" alt="@($"{Model.BasicInfo.FirstName} {Model.BasicInfo.LastName}")" />
+                <h5>@Model.BasicInfo.FirstName @Model.BasicInfo.LastName</h5>
+                <p>@Model.BasicInfo.Email</p>
+            </div>
+
+            <nav>
+                <a class="btn-theme" asp-controller="Account" asp-action="Details"><i class="fa-regular fa-gear"></i> Account Details</a>
+                <a class="btn-theme" asp-controller="Account" asp-action="Security"><i class="fa-regular fa-lock"></i> Security</a>
+                <a class="btn-theme active" asp-controller="Account" asp-action="Saved"><i class="fa-regular fa-bookmark"></i> Saved Courses</a>
+                <a class="btn-theme" asp-controller="Account" asp-action="SignOut"><i class="fa-regular fa-arrow-right-from-bracket"></i> Sign out</a>
+            </nav>
+        </aside>
+
+        <div class="details">
+            <section class="basic-info">
+
+                <form method="post" asp-controller="Account" asp-action="SavedCourses" novalidate>
+
+                    <div class="title-button">
+                        <h2>Saved Items</h2>
+
+                        <div class="button">
+                            <button class="btn-red" type="submit"><i class="fa-regular fa-trash"></i> Delete all</button>
+                        </div>
+                    </div>
+
+                    <div class="content">
+
+                        <div class="box-remove">
+                            <a href="#">
+                                <img class="icon" src="images/icon/icon-saved-blue.svg" />
+                                <img class="icon-hand" src="~/images/icon/icon-hand.svg" />
+                                <img class="icon-remove" src="~/images/icon/remove.svg" />
+                                <img class="image" src="images/images/courses-image-7.svg" />
+
+                                <div class="info">
+                                    <h5>Blender Character Creator v2.0 for Video Games Design</h5>
+                                    <p class="author">By Ralph Edwards</p>
+                                    <p class="price">$18.99</p>
+
+                                    <div class="line"></div>
+
+                                    <div class="info-under">
+                                        <p><i class="fa-regular fa-clock"></i> 160 hours</p>
+                                        <p><i class="fa-regular fa-thumbs-up"></i> 92% (3.1K)</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="box">
+                            <a href="#">
+                                <img class="bestseller" src="images/icon/bestseller-icon.svg">
+                                <img class="icon" src="images/icon/courses-icon.svg">
+                                <img class="image" src="images/images/courses-image-1.svg">
+
+                                <div class="info">
+                                    <h5>Fullstack Web Developer Course from Scratch</h5>
+                                    <p class="author">By Robert Fox</p>
+                                    <p class="price">$12.50</p>
+
+                                    <div class="line"></div>
+
+                                    <div class="info-under">
+                                        <p><i class="fa-regular fa-clock"></i> 220 hours</p>
+                                        <p><i class="fa-regular fa-thumbs-up"></i> 94% (4.2K)</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="box">
+                            <a href="#">
+                                <img class="icon" src="images/icon/courses-icon.svg">
+                                <img class="image" src="images/images/courses-image-9.svg">
+
+                                <div class="info">
+                                    <h5>Learn JMETER from Scratch on Live Apps-Performance Testing</h5>
+                                    <p class="author">By Jenny Wilson</p>
+                                    <p class="price">$14.50</p>
+
+                                    <div class="line"></div>
+
+                                    <div class="info-under">
+                                        <p><i class="fa-regular fa-clock"></i> 160 hours</p>
+                                        <p><i class="fa-regular fa-thumbs-up"></i> 92% (3.1K)</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </form>
+            </section>        
+        </div>
+    </section>
+</div>
