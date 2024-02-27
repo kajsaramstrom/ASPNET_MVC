@@ -58,4 +58,19 @@ public class AccountController : Controller
         //_accountService.SaveDelete(viewModel.Delete);
         return RedirectToAction(nameof(Security));
     }
+
+    [Route("/saved")]
+    public IActionResult SavedCourses()
+    {
+        var viewModel = new AccountSavedCoursesViewModel();
+
+        return View(viewModel);
+    }
+
+    [HttpPost]
+    public IActionResult Courses (AccountSavedCoursesViewModel viewModel)
+    {
+        //_accountService.SavePassword(viewModel.Password);
+        return RedirectToAction(nameof(SavedCourses));
+    }
 }

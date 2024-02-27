@@ -1,0 +1,259 @@
+﻿#account-savedcourses {
+    display: flex;
+    gap: 50px;
+    margin: 0 0 70px 0;
+
+    @include lg {
+        gap: 150px;
+    }
+
+    aside {
+        border-right: 1px solid $gray-400;
+        padding: 0 20px 0 0;
+
+        .profile {
+            text-align: center;
+
+            img {
+                margin: 38px 0 10px 0;
+            }
+
+            p {
+                margin: 0 0 35px 0;
+            }
+        }
+
+        nav {
+
+            .btn-theme {
+                text-decoration: none;
+                padding: 10px 15px;
+                color: $gray-800;
+                font-weight: 600;
+                background-color: #FFFFFF;
+                justify-content: left;
+
+                i {
+                    color: $gray-600;
+                    margin-right: 5px;
+                }
+
+                &.active {
+                    background-color: $theme;
+                    color: #FFFFFF;
+
+                    i {
+                        color: #FFFFFF;
+                    }
+                }
+            }
+        }
+    }
+
+    .details {
+        width: 100%;
+
+        form {
+            padding: 24px;
+
+            .title-button {
+                display: flex;
+                justify-content: space-between;
+                align-items: baseline;
+
+                h2 {
+                    margin: 52px 0 30px 0;
+                }
+
+                .button {
+
+                    .btn-red {
+                        background-color: white;
+                        color: $danger;
+                        border: 1px solid $danger;
+                    }
+                }
+            }
+
+            .content {
+                display: grid;
+                grid-template-columns: 1fr;
+
+                @include lg {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                }
+
+                .box-remove {
+                    position: relative;
+                    margin: 45px 0 0 0;
+
+                    @include xl {
+                        max-width: 416px;
+                    }
+
+                    a {
+                        text-decoration: none;
+
+                        .bestseller {
+                            position: absolute;
+                            top: 15px;
+                            left: 10px;
+                        }
+
+                        .icon-remove {
+                            position: absolute;
+                            top: -35px;
+                            right: -15px;
+                        }
+
+                        .icon {
+                            position: absolute;
+                            top: 5px;
+                            right: 0;
+                        }
+
+                        .icon-hand {
+                            position: absolute;
+                            top: 40px;
+                            right: 15px;
+                        }
+
+                        .image {
+                            height: auto;
+                            width: 100%;
+                        }
+
+                        .info {
+                            width: 385px;
+                            padding-left: 15px;
+
+                            h5 {
+                                margin: 25px 0 0 0;
+                                color: $gray-800;
+                            }
+
+                            .author {
+                                @include text-s;
+                                margin: 10px 0 0 0;
+                                color: $gray-700;
+                            }
+
+                            .price {
+                                font-size: 18px;
+                                font-weight: 700;
+                                color: $theme;
+                                margin: 10px 0 10px 0;
+                            }
+
+                            .line {
+                                border: 1px solid $gray-300;
+                                width: 368px;
+                            }
+
+                            .info-under {
+                                display: flex;
+                                gap: 20px;
+                                margin: 25px 0 0 0;
+
+                                p {
+                                    @include text-s;
+                                    color: $gray-600;
+                                }
+
+                                i {
+                                    color: $gray-600;
+                                }
+                            }
+                        }
+                    }
+
+                    &:hover {
+                        transition: all 0.15s ease-in-out;
+                        cursor: pointer;
+                        @include shadow-m;
+                    }
+                }
+
+                .box {
+                    position: relative;
+                    margin: 45px 0 0 0;
+
+                    @include xl {
+                        max-width: 416px;
+                    }
+
+                    a {
+                        text-decoration: none;
+
+                        .bestseller {
+                            position: absolute;
+                            top: 15px;
+                            left: 10px;
+                        }
+
+                        .icon {
+                            position: absolute;
+                            top: 15px;
+                            right: 10px;
+                        }
+
+                        .image {
+                            height: auto;
+                            width: 100%;
+                        }
+
+                        .info {
+                            width: 385px;
+                            padding-left: 15px;
+
+                            h5 {
+                                margin: 25px 0 0 0;
+                                color: $gray-800;
+                            }
+
+                            .author {
+                                @include text-s;
+                                margin: 10px 0 0 0;
+                                color: $gray-700;
+                            }
+
+                            .price {
+                                font-size: 18px;
+                                font-weight: 700;
+                                color: $theme;
+                                margin: 10px 0 10px 0;
+                            }
+
+                            .line {
+                                border: 1px solid $gray-300;
+                                width: 368px;
+                            }
+
+                            .info-under {
+                                display: flex;
+                                gap: 20px;
+                                margin: 25px 0 0 0;
+
+                                p {
+                                    @include text-s;
+                                    color: $gray-600;
+                                }
+
+                                i {
+                                    color: $gray-600;
+                                }
+                            }
+                        }
+                    }
+
+                    &:hover {
+                        transition: all 0.15s ease-in-out;
+                        cursor: pointer;
+                        @include shadow-m;
+                    }
+                }
+            }
+        }
+    }
+}
