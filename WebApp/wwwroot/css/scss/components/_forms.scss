@@ -30,12 +30,32 @@ form {
         input[type="checkbox"] {
             height: 1.2rem;
             width: 1.2rem;
-            border: 0.063rem solid red;
+            border: 1px solid red;
         }
 
         label {
             margin: 0;
             font-weight: 400;
+        }
+    }
+
+    textarea {
+        padding: 1rem;
+        border-radius: 6px !important;
+        border: 1px solid $gray-400;
+        resize: none;
+
+        &::placeholder {
+            opacity: 0.4;
+        }
+
+        &.input-valid-error {
+            border: 1px solid $danger !important;
+            color: $danger;
+
+            &::placeholder {
+                color: $danger;
+            }
         }
     }
 
@@ -57,15 +77,15 @@ form {
 
     input {
         padding: 1rem;
-        border-radius: 0.5rem !important;
-        border: 0.063rem solid $gray-400;
+        border-radius: 6px !important;
+        border: 1px solid $gray-400;
 
         &::placeholder {
             opacity: 0.4;
         }
 
         &.input-validation-error {
-            border: 0.063rem solid $danger !important;
+            border: 1px solid $danger !important;
             color: $danger;
 
             &::placeholder {
