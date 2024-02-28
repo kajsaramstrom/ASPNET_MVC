@@ -1,0 +1,90 @@
+﻿@model ContactViewModel
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<section id="contact-us">
+    <div class="container">
+        <div class="links">
+            <div class="gray-link">
+                <a class="gray-link" asp-controller="Home" asp-action="Index"><i class="fa-regular fa-house"></i> Home</a>
+            </div>
+
+            <img src="images/icon/Vector.svg">
+
+            <div class="blue-link">
+                <a class="blue-link" asp-controller="About" asp-action="Contact">Contact</a>
+            </div>
+        </div>
+
+        <div class="content-right-left">
+
+            <div class="content-left">
+                <h1>Contact Us</h1>
+
+                <div class="content-info">
+                    <div class="content">
+                        <div class="circle">
+                            <img src="images/icon/mailicon.svg">
+                        </div>
+
+                        <div class="info">
+                            <h4>Email us</h4>
+                            <p>Please feel free to drop us a line. We will respond as soon as possible.</p>
+                            <a href="#">Leave a message <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="content">
+                        <div class="circle">
+                            <img src="images/icon/iconhuman.svg">
+                        </div>
+
+                        <div class="info">
+                            <h4>Careers</h4>
+                            <p>Sit ac ipsum leo lorem magna nunc mattis maecenas non vestibulum.</p>
+                            <a href="#">Send an application <i class="fa-solid fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-right">
+                <div class="box">
+                    <h2>Get In Contact With Us</h2>
+
+                    <form method="post" asp-controller="About" asp-action="Contact">
+                        <div class="input-group">
+                            <label asp-for="Contact.FullName"></label>
+                            <span asp-validation-for="Contact.FullName"></span>
+                            <input asp-for="Contact.FullName" />
+                        </div>
+
+                        <div class="input-group">
+                            <label asp-for="Contact.Email"></label>
+                            <span asp-validation-for="Contact.Email"></span>
+                            <input asp-for="Contact.Email" />
+                        </div>
+
+                        <label class="form-input" class="forms-label" for="service">Service <span>(optional)</span></label>
+                        <select class="select">
+                            <option class="placeholder" disabled selected tabindex="3">Choose the service you are interested in <i class="fa-regular fa-chevron-down"></i></option>
+                        </select>
+
+                        <div class="input-group">
+                            <label asp-for="Contact.Message"></label>
+                            <span asp-validation-for="Contact.Message"></span>
+                            <input asp-for="Contact.Message" />
+                        </div>
+
+                        <button class="btn-theme-s" type="submit">Send Contact Request</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="map">
+        <iframe class="map-image" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12621.583970472453!2d-122.40883544109059!3d37.73385320192759!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808f7f02449cda7b%3A0x56b4d414afddd65!2sSilver%20Terrace%2C%20San%20Francisco%2C%20Kalifornien%2094124%2C%20USA!5e0!3m2!1ssv!2sse!4v1708282218670!5m2!1ssv!2sse" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+</section>

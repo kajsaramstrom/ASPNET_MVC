@@ -8,7 +8,7 @@ public class SignUpModel
 {
     [Display(Name = "First name", Prompt = "Enter your first name", Order = 0)]
     [Required(ErrorMessage = "First name is required")]
-    [MinLength(2, ErrorMessage = "Enter your lastname")]
+    [MinLength(2, ErrorMessage = "Enter your firstname")]
     public string FirstName { get; set; } = null!;
 
     [Display(Name = "Last name", Prompt = "Enter your last name", Order = 1)]
