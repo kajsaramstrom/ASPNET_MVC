@@ -27,6 +27,7 @@ const emailValidator = (element) => {
     formErrorHandler(element, regEx.test(element.value))
 }
 
+
 const passwordValidator = (element) => {
     if (element.dataset.valEqualtoOther !== undefined) {
         let password = document.getElementsByName(element.dataset.valEqualtoOther.replace('*', 'Form'))[0].value

@@ -6,7 +6,7 @@ public class AccountSecurityViewModel
 {
     public string Title { get; set; } = "Account Security";
 
-    public AccountSecurityPasswordModel Password { get; set; } = new AccountSecurityPasswordModel();
+    public AccountSecurityPasswordModel Form { get; set; } = new AccountSecurityPasswordModel();
 
     public AccountSecutiryDeleteModel Delete { get; set; } = new AccountSecutiryDeleteModel();
 

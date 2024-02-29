@@ -23,7 +23,7 @@
         <div class="details">
             <section class="basic-info">
 
-                <form method="post" asp-controller="Account" asp-action="BasicInfo" novalidate>
+                <form method="post" asp-controller="Account" asp-action="Details" novalidate>
 
                     <h2>Account Details</h2>
                     <h5>Basic Info</h5>
@@ -72,7 +72,7 @@
 
             <section class="address-info">
 
-                <form method="post" asp-controller="Account" asp-action="AddressInfo" novalidate>
+                <form method="post" asp-controller="Account" asp-action="Details" novalidate>
 
                     <h5>Address Info</h5>
 
@@ -113,4 +113,5 @@
     </section>
 </div>
 
+@await Html.PartialAsync("_ValidationScriptPartial")
 

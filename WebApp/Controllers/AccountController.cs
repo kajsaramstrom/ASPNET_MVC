@@ -22,16 +22,24 @@ public class AccountController : Controller
         return View(viewModel);
     }
 
+    [Route("/account")]
     [HttpPost]
     public IActionResult BasicInfo(AccountDetailsViewModel viewModel)
     {
+        if (!ModelState.IsValid)
+            return View(viewModel);
+
         //_accountService.SaveBasicInfo(viewModel.BasicInfo);
         return RedirectToAction(nameof(Details));
     }
 
+    [Route("/account")]
     [HttpPost]
     public IActionResult AddressInfo(AccountDetailsViewModel viewModel)
     {
+        if (!ModelState.IsValid)
+            return View(viewModel);
+
         //_accountService.SaveAddressInfo(viewModel.AddressInfo);
         return RedirectToAction(nameof(Details));
     }
@@ -48,6 +56,9 @@ public class AccountController : Controller
     [HttpPost]
     public IActionResult Password(AccountDetailsViewModel viewModel)
     {
+        if (!ModelState.IsValid)
+            return View(viewModel);
+
         //_accountService.SavePassword(viewModel.Password);
         return RedirectToAction(nameof(Security));
     }
@@ -55,6 +66,9 @@ public class AccountController : Controller
     [HttpPost]
     public IActionResult Delete(AccountDetailsViewModel viewModel)
     {
+        if (!ModelState.IsValid)
+            return View(viewModel);
+
         //_accountService.SaveDelete(viewModel.Delete);
         return RedirectToAction(nameof(Security));
     }

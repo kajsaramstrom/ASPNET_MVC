@@ -9,10 +9,12 @@ public class AccountDetailsBasicInfoModel
 
     [Display(Name = "First name", Prompt = "Enter your first name", Order = 0)]
     [Required(ErrorMessage = "First name is required")]
+    [MinLength(2, ErrorMessage = "Enter your firstname")]
     public string FirstName { get; set; } = null!;
 
     [Display(Name = "Last name", Prompt = "Enter your last name", Order = 1)]
     [Required(ErrorMessage = "Last name is required.")]
+    [MinLength(2, ErrorMessage = "Enter your lastname")]
     public string LastName { get; set; } = null!;
 
     [Display(Name = "Email address", Prompt = "Enter your email address", Order = 2)]
@@ -24,7 +26,7 @@ public class AccountDetailsBasicInfoModel
     [Display(Name = "Phone", Prompt = "Enter your phone", Order = 3)]
     [DataType(DataType.PhoneNumber)]
     [Required(ErrorMessage = "Phone is required.")]
-    [RegularExpression(@"^\d{3}-\d{7}$", ErrorMessage = "Please enter a valid phone number in the format 000-0000000.")]
+    [RegularExpression(@"^[0-9]+$", ErrorMessage = "The phone number can only contain numbers")]
     public string PhoneNumber { get; set; } = null!;
 
     [Display(Name = "Bio", Prompt = "Add a short bio...", Order = 4)]

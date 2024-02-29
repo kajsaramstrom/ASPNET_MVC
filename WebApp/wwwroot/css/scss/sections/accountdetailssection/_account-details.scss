@@ -69,6 +69,10 @@
                 gap: 24px;
                 grid-template-columns: 1fr;
 
+                #BasicInfo_Biography {
+                    padding-bottom: 66px;
+                }
+
                 @include lg {
                     display: grid;
                     gap: 24px;
