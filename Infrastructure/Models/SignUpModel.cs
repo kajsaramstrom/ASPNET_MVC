@@ -1,8 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Diagnostics.Metrics;
-using WebApp.Helpers;
+﻿using Infrastructure.Helpers;
+using System.ComponentModel.DataAnnotations;
 
-namespace WebApp.Models;
+namespace Infrastructure.Models;
 
 public class SignUpModel
 {

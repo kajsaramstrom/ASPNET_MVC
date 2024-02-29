@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34511.84
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp", "WebApp\WebApp.csproj", "{40E2079C-ACE1-464F-BF5A-4254C0BE1E9C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApp", "WebApp\WebApp.csproj", "{40E2079C-ACE1-464F-BF5A-4254C0BE1E9C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{2364EFDA-E726-43E7-8194-AAF65D97F9D4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{40E2079C-ACE1-464F-BF5A-4254C0BE1E9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40E2079C-ACE1-464F-BF5A-4254C0BE1E9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40E2079C-ACE1-464F-BF5A-4254C0BE1E9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2364EFDA-E726-43E7-8194-AAF65D97F9D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2364EFDA-E726-43E7-8194-AAF65D97F9D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2364EFDA-E726-43E7-8194-AAF65D97F9D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2364EFDA-E726-43E7-8194-AAF65D97F9D4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
