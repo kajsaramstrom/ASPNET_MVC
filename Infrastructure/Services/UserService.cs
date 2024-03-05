@@ -11,27 +11,27 @@ public class UserService(UserRepository repository, AddressService addressServic
     public readonly UserRepository _repository = repository;
     public readonly AddressService _addressService = addressService;
 
-    public async Task<ResponseResult> CreateUserAsync (SignUpModel model)
-    {
-        try
-        {
-            var exists = await _repository.AlreadyExistsAsync(x => x.Email == model.Email);
+    //public async Task<ResponseResult> CreateUserAsync (SignUpViewModel model)
+    //{
+    //    try
+    //    {
+    //        var exists = await _repository.AlreadyExistsAsync(x => x.Email == model.Email);
 
-            if (exists.StatusCode == StatusCode.EXISTS)
-                return exists;
+    //        if (exists.StatusCode == StatusCode.EXISTS)
+    //            return exists;
 
-            var result = await _repository.CreateOneAsync(UserFactory.Create(model));
+    //        var result = await _repository.CreateOneAsync(UserFactory.Create(model));
 
-            if (result.StatusCode != StatusCode.OK)
-                return result;
+    //        if (result.StatusCode != StatusCode.OK)
+    //            return result;
 
-            return ResponseFactory.Ok("User was created successfully.");
-        }
-        catch (Exception ex)
-        {
-            return ResponseFactory.Error(ex.Message);
-        }
-    }
+    //        return ResponseFactory.Ok("User was created successfully.");
+    //    }
+    //    catch (Exception ex)
+    //    {
+    //        return ResponseFactory.Error(ex.Message);
+    //    }
+    //}
 
     //public async Task<ResponseResult> SignInUserAsync(SignInModel model)
     //{

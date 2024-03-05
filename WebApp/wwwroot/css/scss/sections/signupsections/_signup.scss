@@ -22,6 +22,11 @@
                 padding: 139px 0 60px 0;
             }
 
+            .error {
+                text-align: center;
+                color: $danger;
+            }
+
             h1 {
                 @include lg {
                     margin: 0 0 16px 0;

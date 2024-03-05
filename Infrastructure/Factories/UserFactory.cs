@@ -27,31 +27,31 @@ public class UserFactory
         return null!;
     }
 
-    public static UserEntity Create(SignUpModel model)
-    {
-        try
-        {
-            var date = DateTime.Now;
-            var (password, securityKey) = PasswordHasher.GenerateSecurePassword(model.Password);
+    //public static UserEntity Create(SignUpModel model)
+    //{
+    //    try
+    //    {
+    //        var date = DateTime.Now;
+    //        var (password, securityKey) = PasswordHasher.GenerateSecurePassword(model.Password);
 
-            return new UserEntity()
-            {
-                Id = Guid.NewGuid().ToString(),
-                FirstName = model.FirstName,
-                LastName = model.LastName,
-                Email = model.Email,
-                //Password = password,
-                //SecurityKey = securityKey,
-                //Created = date,
-                //Modified = date
-            };
-        }
-        catch
-        {
+    //        return new UserEntity()
+    //        {
+    //            Id = Guid.NewGuid().ToString(),
+    //            FirstName = model.FirstName,
+    //            LastName = model.LastName,
+    //            Email = model.Email,
+    //            //Password = password,
+    //            //SecurityKey = securityKey,
+    //            //Created = date,
+    //            //Modified = date
+    //        };
+    //    }
+    //    catch
+    //    {
 
-        }
+    //    }
 
-        return null!;
-    }
+    //    return null!;
+    //}
 
 }

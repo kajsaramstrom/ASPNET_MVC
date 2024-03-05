@@ -2441,6 +2441,10 @@ footer .container .social-media {
     padding: 139px 0 60px 0;
   }
 }
+#sign-up .container form .error {
+  text-align: center;
+  color: #EF4444;
+}
 @media (min-width: 992px) {
   #sign-up .container form h1 {
     margin: 0 0 16px 0;
