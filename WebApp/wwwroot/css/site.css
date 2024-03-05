@@ -1245,6 +1245,7 @@ header .container .btn-mobile {
 @media (min-width: 992px) {
   .sign-up-for-newsletters .container form .subscribe .input {
     display: flex;
+    gap: 20px;
   }
 }
 .sign-up-for-newsletters .container form .subscribe .input span.field-validation-error {
@@ -2261,44 +2262,84 @@ footer .container .social-media {
   display: flex;
   flex-direction: column;
 }
-#contact-us .container .content-right-left .content-right .box form label {
+#contact-us .container .content-right-left .content-right .box form .content label {
   font-weight: 600;
 }
-#contact-us .container .content-right-left .content-right .box form label span {
+#contact-us .container .content-right-left .content-right .box form .content span {
   color: #9397AD;
 }
-#contact-us .container .content-right-left .content-right .box form input {
+#contact-us .container .content-right-left .content-right .box form .content span.field-validation-error {
+  position: absolute;
+  top: 0;
+  right: 0;
+  line-height: 160%;
+  font-weight: 400;
+  color: #565973;
+  font-family: "Manrope", sans-serif;
+  font-size: 14px !important;
+  color: #EF4444 !important;
+}
+#contact-us .container .content-right-left .content-right .box form .content input {
   border: 1px solid #D4D7E5;
   outline: 1px solid #D4D7E5;
   padding: 10px;
   margin: 0 0 30px 0;
 }
-#contact-us .container .content-right-left .content-right .box form input::placeholder {
+#contact-us .container .content-right-left .content-right .box form .content input::placeholder {
   color: #B4B7C9;
 }
-#contact-us .container .content-right-left .content-right .box form select {
+#contact-us .container .content-right-left .content-right .box form .content input.input-validation-error {
+  border: 1px solid #EF4444 !important;
+  color: #EF4444;
+}
+#contact-us .container .content-right-left .content-right .box form .content input.input-validation-error::placeholder {
+  color: #EF4444;
+}
+#contact-us .container .content-right-left .content-right .box form .content select {
+  display: flex;
+  flex-direction: column;
   padding: 10px;
   margin: 0 0 30px 0;
+  width: 100%;
 }
-#contact-us .container .content-right-left .content-right .box form select option {
+#contact-us .container .content-right-left .content-right .box form .content select option {
   border: 1px solid #D4D7E5;
   outline: 1px solid #D4D7E5;
   padding: 10px;
+  border-radius: 6px;
 }
-#contact-us .container .content-right-left .content-right .box form select option::placeholder {
+#contact-us .container .content-right-left .content-right .box form .content select option::placeholder {
   color: #B4B7C9;
 }
-#contact-us .container .content-right-left .content-right .box form textarea {
+#contact-us .container .content-right-left .content-right .box form .content textarea {
   border: 1px solid #D4D7E5;
   outline: 1px solid #D4D7E5;
   padding: 10px;
   height: 199px;
   margin: 0 0 30px 0;
 }
-#contact-us .container .content-right-left .content-right .box form textarea::placeholder {
+#contact-us .container .content-right-left .content-right .box form .content textarea::placeholder {
   color: #B4B7C9;
 }
-#contact-us .container .content-right-left .content-right .box form .btn-theme-s {
+#contact-us .container .content-right-left .content-right .box form .content textarea.field-validation-error {
+  position: absolute;
+  top: 0;
+  right: 0;
+  line-height: 160%;
+  font-weight: 400;
+  color: #565973;
+  font-family: "Manrope", sans-serif;
+  font-size: 14px !important;
+  color: #EF4444 !important;
+}
+#contact-us .container .content-right-left .content-right .box form .content textarea.input-validation-error {
+  border: 1px solid #EF4444 !important;
+  color: #EF4444;
+}
+#contact-us .container .content-right-left .content-right .box form .content textarea.input-validation-error::placeholder {
+  color: #EF4444;
+}
+#contact-us .container .content-right-left .content-right .box form .content .btn-theme-s {
   max-width: 237px;
 }
 #contact-us .map .map-image {

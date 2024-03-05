@@ -1,4 +1,6 @@
-﻿using Infrastructure.Factories;
+﻿using Infrastructure.Entities;
+using Infrastructure.Factories;
+using Infrastructure.Helpers;
 using Infrastructure.Models;
 using Infrastructure.Repositories;
 
@@ -31,8 +33,25 @@ public class UserService(UserRepository repository, AddressService addressServic
         }
     }
 
-    public async Task SignInUserAsync(SignInModel form)
+    public async Task<ResponseResult> SignInUserAsync(SignInModel model)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var result = await _repository.GetOneAsync(x => x.Email == model.Email);
+
+            if (result.StatusCode == StatusCode.OK && result.ContentResult != null)
+            {
+                var userEntity = (UserEntity)result.ContentResult;
+
+                if (PasswordHasher.ValidateSecurePassword(model.Password, userEntity.SecurityKey, userEntity.Password))
+                    return ResponseFactory.Ok();
+            }
+
+            return ResponseFactory.Error("Incorrect email or password.");
+        }
+        catch (Exception ex)
+        {
+            return ResponseFactory.Error(ex.Message);
+        }
     }
 }

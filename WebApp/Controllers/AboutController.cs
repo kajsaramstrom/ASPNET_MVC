@@ -14,8 +14,12 @@ namespace WebApp.Controllers
         }
 
         [HttpPost]
+        [Route("/contact")]
         public IActionResult Contact(ContactViewModel viewModel)
         {
+            if (!ModelState.IsValid)
+                return View(viewModel);
+
             return RedirectToAction(nameof(Contact));
         }
     }

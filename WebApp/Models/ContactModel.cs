@@ -17,7 +17,8 @@ public class ContactModel
 
     public string? Service { get; set; }
 
-    [DataType(DataType.MultilineText)]
+    [DataType(DataType.Text)]
     [Required(ErrorMessage = "Message is required.")]
+    [MinLength(2, ErrorMessage = "Enter your message")]
     public string Message { get; set; } = null!;
 }
