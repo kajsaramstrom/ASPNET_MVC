@@ -31,5 +31,13 @@ namespace WebApp.Controllers
 
             return RedirectToAction("Index");
         }
+
+        [Route("/error")]
+        public IActionResult Error()
+        {
+            ViewData["Title"] = "Page not found";
+
+            return View();
+        }
     }
 }
