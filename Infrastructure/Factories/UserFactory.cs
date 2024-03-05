@@ -15,8 +15,8 @@ public class UserFactory
             return new UserEntity()
             {
                 Id = Guid.NewGuid().ToString(),
-                Created = date,
-                Modified = date
+                //Created = date,
+                //Modified = date
             };
         }
         catch
@@ -40,10 +40,10 @@ public class UserFactory
                 FirstName = model.FirstName,
                 LastName = model.LastName,
                 Email = model.Email,
-                Password = password,
-                SecurityKey = securityKey,
-                Created = date,
-                Modified = date
+                //Password = password,
+                //SecurityKey = securityKey,
+                //Created = date,
+                //Modified = date
             };
         }
         catch
