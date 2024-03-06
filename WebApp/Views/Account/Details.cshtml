@@ -1,15 +1,15 @@
 ﻿@model AccountDetailsViewModel
 @{
-    ViewData["Title"] = $"{Model.BasicInfo.FirstName} {Model.BasicInfo.LastName} profile";
+    ViewData["Title"] = $"{Model.User.FirstName} {Model.User.LastName}";
 }
 
 <div class="container">
     <section id="account-details">
         <aside>
             <div class="profile">
-                <img src="@Model.BasicInfo.ProfileImage" alt="@($"{Model.BasicInfo.FirstName} {Model.BasicInfo.LastName}")" />
-                <h5>@Model.BasicInfo.FirstName @Model.BasicInfo.LastName</h5>
-                <p>@Model.BasicInfo.Email</p>
+                <img src="@Model.User.ProfileImage" alt="@($"{Model.User.FirstName} {Model.User.LastName}")" />
+                <h5>@Model.User.FirstName @Model.User.LastName</h5>
+                <p>@Model.User.Email</p>
             </div>
 
             <nav>
@@ -31,33 +31,33 @@
                     <div class="content">
 
                         <div id="form-firstname" class="input-group">
-                            <label asp-for="BasicInfo.FirstName"></label>
-                            <span asp-validation-for="BasicInfo.FirstName"></span>
-                            <input asp-for="BasicInfo.FirstName" />
+                            <label asp-for="User.FirstName"></label>
+                            <span asp-validation-for="User.FirstName"></span>
+                            <input asp-for="User.FirstName" />
                         </div>
 
                         <div id="form-lastname" class="input-group">
-                            <label asp-for="BasicInfo.LastName"></label>
-                            <span asp-validation-for="BasicInfo.LastName"></span>
-                            <input asp-for="BasicInfo.LastName" />
+                            <label asp-for="User.LastName"></label>
+                            <span asp-validation-for="User.LastName"></span>
+                            <input asp-for="User.LastName" />
                         </div>
 
                         <div id="form-email" class="input-group">
-                            <label asp-for="BasicInfo.Email"></label>
-                            <span asp-validation-for="BasicInfo.Email"></span>
-                            <input asp-for="BasicInfo.Email" />
+                            <label asp-for="User.Email"></label>
+                            <span asp-validation-for="User.Email"></span>
+                            <input asp-for="User.Email" />
                         </div>
 
                         <div id="form-phone" class="input-group">
-                            <label asp-for="BasicInfo.PhoneNumber"></label>
-                            <span asp-validation-for="BasicInfo.PhoneNumber"></span>
-                            <input asp-for="BasicInfo.PhoneNumber" />
+                            <label asp-for="User.PhoneNumber"></label>
+                            <span asp-validation-for="User.PhoneNumber"></span>
+                            <input asp-for="User.PhoneNumber" />
                         </div>
 
                         <div id="form-bio" class="input-group">
                             <label>Biography <span>(optional)</span></label>
-                            <span asp-validation-for="BasicInfo.Biography"></span>
-                            <textarea asp-for="BasicInfo.Biography"></textarea>
+                            <span asp-validation-for="User.Bio"></span>
+                            <textarea asp-for="User.Bio"></textarea>
                         </div>
 
                         <div class="form-buttons">

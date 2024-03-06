@@ -9,28 +9,28 @@ public class AddressService(AddressRepository repository)
 {
     public readonly AddressRepository _repository = repository;
 
-    public async Task<ResponseResult> GetOrCreateAddressAsync (string streetName, string postalCode, string city)
-    {
-        try
-        {
-            var result = await GetAddressAsync(streetName, postalCode, city);
-            if (result.StatusCode == StatusCode.NOT_FOUND)
-                result = await CreateAddressAsync(streetName, postalCode, city);
+    //public async Task<ResponseResult> GetOrCreateAddressAsync (string streetName, string postalCode, string city)
+    //{
+    //    try
+    //    {
+    //        var result = await GetAddressAsync(streetName, postalCode, city);
+    //        if (result.StatusCode == StatusCode.NOT_FOUND)
+    //            result = await CreateAddressAsync(streetName, postalCode, city);
 
-            return result;
-        }
-        catch (Exception ex)
-        {
-            return ResponseFactory.Error(ex.Message);
-        }
-    }
+    //        return result;
+    //    }
+    //    catch (Exception ex)
+    //    {
+    //        return ResponseFactory.Error(ex.Message);
+    //    }
+    //}
 
     public async Task<ResponseResult> CreateAddressAsync (string streetName, string postalCode, string city)
     {
         try
         {
-            var exists = await _repository.AlreadyExistsAsync(x => x.StreetName == streetName && x.PostalCode == postalCode && x.City == city);
-            if (exists == null)
+            //var exists = await _repository.AlreadyExistsAsync(x => x.StreetName == streetName && x.PostalCode == postalCode && x.City == city);
+            //if (exists == null)
             {
                 var result = await _repository.CreateOneAsync(AddressFactory.Create(streetName, postalCode, city));
 
@@ -40,7 +40,7 @@ public class AddressService(AddressRepository repository)
                 return result;
             }
 
-            return exists;
+            //return exists;
         }
         catch (Exception ex)
         {
@@ -48,16 +48,16 @@ public class AddressService(AddressRepository repository)
         }
     }
 
-    public async Task<ResponseResult> GetAddressAsync(string streetName, string postalCode, string city)
-    {
-        try
-        {
-            var result = await _repository.GetOneAsync(x => x.StreetName == streetName && x.PostalCode == postalCode && x.City == city);
-            return result;
-        }
-        catch (Exception ex)
-        {
-            return ResponseFactory.Error(ex.Message);
-        }
-    }
+    //public async Task<ResponseResult> GetAddressAsync(string streetName, string postalCode, string city)
+    //{
+    //    try
+    //    {
+    //        //var result = await _repository.GetOneAsync(x => x.StreetName == streetName && x.PostalCode == postalCode && x.City == city);
+    //        //return result;
+    //    }
+    //    catch (Exception ex)
+    //    {
+    //        return ResponseFactory.Error(ex.Message);
+    //    }
+    //}
 }

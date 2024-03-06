@@ -1,6 +1,7 @@
 ﻿using Infrastructure.Entities;
 using Infrastructure.Models;
 using Infrastructure.Services;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -13,11 +14,16 @@ public class AuthController(UserManager<UserEntity> userManager, SignInManager<U
     private readonly UserManager<UserEntity> _userManager = userManager;
     private readonly SignInManager<UserEntity> _signInManager = signInManager;
 
+    #region Sign Up
     [HttpGet]
     [Route("/signup")]
     public IActionResult SignUp()
     {
         var viewModel = new SignUpViewModel();
+
+        if (_signInManager.IsSignedIn(User))
+            return RedirectToAction("Details", "Account");
+
         return View(viewModel);
     }
 
@@ -54,13 +60,18 @@ public class AuthController(UserManager<UserEntity> userManager, SignInManager<U
 
         return View(viewModel);
     }
+    #endregion
 
-
+    #region Sign In
     [Route("/signin")]
     [HttpGet]
     public IActionResult SignIn()
     {
         var viewModel = new SignInViewModel();
+
+        if (_signInManager.IsSignedIn(User))
+            return RedirectToAction("Details", "Account");
+
         return View(viewModel);
     }
 
@@ -81,4 +92,17 @@ public class AuthController(UserManager<UserEntity> userManager, SignInManager<U
         ViewData["ErrorMessage"] = "Incorrect email or password";
         return View(viewModel);
     }
+    #endregion
+
+    #region Sign Out
+    [HttpGet]
+    [Route("/signout")]
+    public new async Task<IActionResult> SignOut()
+    {
+        await _signInManager.SignOutAsync();
+
+        return RedirectToAction("Index", "Home");
+    }
+    #endregion
+
 }

@@ -1,10 +1,16 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Infrastructure.Entities;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using WebApp.Models;
 using WebApp.ViewModels;
 
 namespace WebApp.Controllers;
 
-public class AccountController : Controller
+public class AccountController(SignInManager<UserEntity> signInManager, UserManager<UserEntity> userManager) : Controller
 {
+    private readonly SignInManager<UserEntity> _signInManager = signInManager;
+    private readonly UserManager<UserEntity> _userManager = userManager;
+
     //private readonly AccountService _accountService;
 
     //public AccountController(AccountService accountService)
@@ -12,25 +18,37 @@ public class AccountController : Controller
     //    _accountService = accountService;
     //}
 
+    #region Details
     [Route("/account")]
-    public IActionResult Details()
+    public async Task<IActionResult> Details()
     {
-        var viewModel = new AccountDetailsViewModel();
-        //viewModel.BasicInfo = _accountService.GetBasicInfo();
-        //viewModel.AddressInfo = _accountService.GetAddressInfo();
+        if (!_signInManager.IsSignedIn(User))
+        {
+            return RedirectToAction("SignIn", "Auth");
+        }
+
+        var viewModel = new AccountDetailsViewModel()
+        {
+            BasicInfo = await PopulateBasicInfo()
+        };
 
         return View(viewModel);
     }
+    #endregion
 
     [Route("/account")]
     [HttpPost]
-    public IActionResult BasicInfo(AccountDetailsViewModel viewModel)
+    public async Task<IActionResult> BasicInfo(AccountDetailsViewModel viewModel)
     {
-        if (!ModelState.IsValid)
-            return View(viewModel);
+        var result = await _userManager.UpdateAsync(viewModel.User);
 
-        //_accountService.SaveBasicInfo(viewModel.BasicInfo);
-        return RedirectToAction(nameof(Details));
+        if (!result.Succeeded) 
+        {
+            ModelState.AddModelError("Failed To Save Data", "Unable to save the data.");
+            ViewData["ErrorMessage"] = "Unable to save the data.";
+        }
+
+        return RedirectToAction("Details", "Account", viewModel);
     }
 
     [Route("/account")]
