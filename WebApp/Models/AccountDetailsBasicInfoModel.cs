@@ -4,6 +4,8 @@ namespace WebApp.Models;
 
 public class AccountDetailsBasicInfoModel
 {
+    public string UserId { get; set; } = null!;
+
     [DataType(DataType.ImageUrl)]
     public string? ProfileImage { get; set; }
 
@@ -25,11 +27,10 @@ public class AccountDetailsBasicInfoModel
 
     [Display(Name = "Phone", Prompt = "Enter your phone", Order = 3)]
     [DataType(DataType.PhoneNumber)]
-    [Required(ErrorMessage = "Phone is required.")]
     [RegularExpression(@"^[0-9]+$", ErrorMessage = "The phone number can only contain numbers")]
-    public string PhoneNumber { get; set; } = null!;
+    public string? PhoneNumber { get; set; }
 
     [Display(Name = "Bio", Prompt = "Add a short bio...", Order = 4)]
     [DataType(DataType.MultilineText)]
-    public string? Biography { get; set; } 
+    public string? Bio { get; set; } 
 }

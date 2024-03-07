@@ -7,15 +7,9 @@ public class AccountDetailsViewModel
 {
     public string Title { get; set; } = "Account Details";
 
-    public UserEntity User { get; set; } = null!;
+    public AccountDetailsProfileInfoModel? ProfileInfo { get; set; }
 
-    public AccountDetailsBasicInfoModel BasicInfo { get; set; } = new AccountDetailsBasicInfoModel()
-    {
-        ProfileImage = "images/images/image-account-details.svg",
-        FirstName = "John",
-        LastName = "Doe",
-        Email = "john.doe@domain.com"
-    };
+    public AccountDetailsBasicInfoModel? BasicInfo { get; set; }
 
-    public AccountDetailsAddressModel AddressInfo { get; set; } = new AccountDetailsAddressModel();
+    public AccountDetailsAddressModel? AddressInfo { get; set; }
 }

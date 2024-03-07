@@ -29,6 +29,8 @@ builder.Services.ConfigureApplicationCookie(x =>
     x.SlidingExpiration = true;
 });
 
+builder.Services.AddScoped<AddressService>();
+
 var app = builder.Build();
 app.UseHsts();
 app.UseStatusCodePagesWithReExecute("/error", "?statusCode={0}");

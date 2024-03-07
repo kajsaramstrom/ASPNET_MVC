@@ -1,63 +1,40 @@
-﻿using Infrastructure.Entities;
+﻿using Infrastructure.Context;
+using Infrastructure.Entities;
 using Infrastructure.Factories;
 using Infrastructure.Models;
 using Infrastructure.Repositories;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Services;
 
-public class AddressService(AddressRepository repository)
+public class AddressService(DataContext context)
 {
-    public readonly AddressRepository _repository = repository;
+    private readonly DataContext _context = context;
 
-    //public async Task<ResponseResult> GetOrCreateAddressAsync (string streetName, string postalCode, string city)
-    //{
-    //    try
-    //    {
-    //        var result = await GetAddressAsync(streetName, postalCode, city);
-    //        if (result.StatusCode == StatusCode.NOT_FOUND)
-    //            result = await CreateAddressAsync(streetName, postalCode, city);
-
-    //        return result;
-    //    }
-    //    catch (Exception ex)
-    //    {
-    //        return ResponseFactory.Error(ex.Message);
-    //    }
-    //}
-
-    public async Task<ResponseResult> CreateAddressAsync (string streetName, string postalCode, string city)
+    public async Task<AddressEntity> GetAddressAsync(string UserId)
     {
-        try
-        {
-            //var exists = await _repository.AlreadyExistsAsync(x => x.StreetName == streetName && x.PostalCode == postalCode && x.City == city);
-            //if (exists == null)
-            {
-                var result = await _repository.CreateOneAsync(AddressFactory.Create(streetName, postalCode, city));
-
-                if (result.StatusCode == StatusCode.OK)
-                    return ResponseFactory.Ok(AddressFactory.Create((AddressEntity)result.ContentResult!));
-
-                return result;
-            }
-
-            //return exists;
-        }
-        catch (Exception ex)
-        {
-            return ResponseFactory.Error(ex.Message);
-        }
+        var addressEntity = await _context.Addresses.FirstOrDefaultAsync(x => x.UserId == UserId);
+        return addressEntity!;
     }
 
-    //public async Task<ResponseResult> GetAddressAsync(string streetName, string postalCode, string city)
-    //{
-    //    try
-    //    {
-    //        //var result = await _repository.GetOneAsync(x => x.StreetName == streetName && x.PostalCode == postalCode && x.City == city);
-    //        //return result;
-    //    }
-    //    catch (Exception ex)
-    //    {
-    //        return ResponseFactory.Error(ex.Message);
-    //    }
-    //}
+    public async Task<bool> CreateAddressAsync(AddressEntity entity)
+    {
+        _context.Addresses.Add(entity);
+        await _context.SaveChangesAsync();
+        return true;
+    }
+
+    public async Task<bool> UpdateAddressAsync(AddressEntity entity)
+    {
+        var existing = await _context.Addresses.FirstOrDefaultAsync(x => x.UserId == entity.UserId);
+        if (existing != null)
+        {
+            _context.Entry(existing).CurrentValues.SetValues(entity);
+            await _context.SaveChangesAsync();
+
+            return true;
+        }
+
+        return false;
+    }
 }

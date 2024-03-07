@@ -30,7 +30,9 @@
 
             @if (_signInManager.IsSignedIn(User))
             {
-                <a class="btn-gray" asp-controller="Auth" asp-action="SignOut"><i class="fa-regular fa-arrow-right-from-bracket"></i><span>Sign Out</span></a>
+                <a asp-controller="Account" asp-action="Details">
+                    <img src="~/images/images/image-account-details.svg" alt="" />
+                </a>
             }
             else
             {
