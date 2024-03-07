@@ -1,4 +1,5 @@
 ﻿using Infrastructure.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using WebApp.Models;
@@ -6,6 +7,7 @@ using WebApp.ViewModels;
 
 namespace WebApp.Controllers;
 
+[Authorize]
 public class AccountController(SignInManager<UserEntity> signInManager, UserManager<UserEntity> userManager) : Controller
 {
     private readonly SignInManager<UserEntity> _signInManager = signInManager;
@@ -22,20 +24,16 @@ public class AccountController(SignInManager<UserEntity> signInManager, UserMana
     [Route("/account")]
     public async Task<IActionResult> Details()
     {
-        if (!_signInManager.IsSignedIn(User))
-        {
-            return RedirectToAction("SignIn", "Auth");
-        }
-
-        var viewModel = new AccountDetailsViewModel()
-        {
-            BasicInfo = await PopulateBasicInfo()
-        };
+        var viewModel = new AccountDetailsViewModel();
+        //{
+        //    BasicInfo = await PopulateBasicInfo()
+        //};
 
         return View(viewModel);
     }
     #endregion
 
+    #region BasicInfo
     [Route("/account")]
     [HttpPost]
     public async Task<IActionResult> BasicInfo(AccountDetailsViewModel viewModel)
@@ -50,7 +48,9 @@ public class AccountController(SignInManager<UserEntity> signInManager, UserMana
 
         return RedirectToAction("Details", "Account", viewModel);
     }
+    #endregion
 
+    #region AddressInfo
     [Route("/account")]
     [HttpPost]
     public IActionResult AddressInfo(AccountDetailsViewModel viewModel)
@@ -61,8 +61,9 @@ public class AccountController(SignInManager<UserEntity> signInManager, UserMana
         //_accountService.SaveAddressInfo(viewModel.AddressInfo);
         return RedirectToAction(nameof(Details));
     }
+    #endregion
 
-
+    #region Security
     [Route("/security")]
     public IActionResult Security()
     {
@@ -70,7 +71,9 @@ public class AccountController(SignInManager<UserEntity> signInManager, UserMana
 
         return View(viewModel);
     }
+    #endregion
 
+    #region Password
     [HttpPost]
     public IActionResult Password(AccountDetailsViewModel viewModel)
     {
@@ -80,7 +83,9 @@ public class AccountController(SignInManager<UserEntity> signInManager, UserMana
         //_accountService.SavePassword(viewModel.Password);
         return RedirectToAction(nameof(Security));
     }
+    #endregion
 
+    #region Delete
     [HttpPost]
     public IActionResult Delete(AccountDetailsViewModel viewModel)
     {
@@ -90,7 +95,9 @@ public class AccountController(SignInManager<UserEntity> signInManager, UserMana
         //_accountService.SaveDelete(viewModel.Delete);
         return RedirectToAction(nameof(Security));
     }
+    #endregion
 
+    #region Saved
     [Route("/saved")]
     public IActionResult SavedCourses()
     {
@@ -98,11 +105,14 @@ public class AccountController(SignInManager<UserEntity> signInManager, UserMana
 
         return View(viewModel);
     }
+    #endregion
 
+    #region Courses
     [HttpPost]
     public IActionResult Courses (AccountSavedCoursesViewModel viewModel)
     {
         //_accountService.SavePassword(viewModel.Password);
         return RedirectToAction(nameof(SavedCourses));
     }
+    #endregion
 }
