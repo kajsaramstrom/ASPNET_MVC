@@ -456,6 +456,12 @@ form input.input-validation-error::placeholder {
   color: #EF4444;
 }
 
+header.standard {
+  background-color: white;
+}
+header.contact {
+  background-color: #F3F6FF;
+}
 header .container {
   display: grid;
   align-items: center;
@@ -510,9 +516,6 @@ header .container #account-buttons {
   header .container #account-buttons {
     display: flex;
   }
-}
-header .container #account-buttons img {
-  width: 50%;
 }
 header .container .btn-mobile {
   grid-area: mobile;

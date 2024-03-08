@@ -1,6 +1,6 @@
 ﻿@inject SignInManager<UserEntity> _signInManager
 
-<header>
+<header class="@((ViewContext.RouteData.Values["Action"]!.ToString() == "Contact") ? "contact" : "standard")">
     <div class="container">
         <a id="logo" asp-controller="Home" asp-action="Index"><img src="~/images/logotypes/solid.svg" alt="header-logotype"></a>
 
@@ -31,7 +31,7 @@
             @if (_signInManager.IsSignedIn(User))
             {
                 <a asp-controller="Account" asp-action="Details">
-                    <img src="/images/images/image-account-details.svg" alt="" />
+                    <img src="/images/images/header-profileimage.svg" alt="" />
                 </a>
             }
             else

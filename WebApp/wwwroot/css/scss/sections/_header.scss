@@ -1,5 +1,13 @@
 header {
 
+    &.standard {
+        background-color: white;
+    }
+
+    &.contact {
+        background-color: $gray-100;
+    }
+
     .container {
         display: grid;
         align-items: center;
@@ -50,10 +58,6 @@ header {
 
             @include xl {
                 display: flex;
-            }
-
-            img {
-                width: 50%;
             }
         }
 

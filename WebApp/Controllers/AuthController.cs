@@ -33,7 +33,7 @@ public class AuthController(UserManager<UserEntity> userManager, SignInManager<U
     {
         if (ModelState.IsValid)
         {
-            var exists = await _userManager.Users.AnyAsync(x => x.Email == viewModel.Email);
+            var exists = await _userManager.Users.AnyAsync(x => x.Email == viewModel.Model.Email);
 
             if (exists)
             {
@@ -44,13 +44,13 @@ public class AuthController(UserManager<UserEntity> userManager, SignInManager<U
 
             var userEntity = new UserEntity
             {
-                FirstName = viewModel.FirstName,
-                LastName = viewModel.LastName,
-                Email = viewModel.Email,
-                UserName = viewModel.Email
+                FirstName = viewModel.Model.FirstName,
+                LastName = viewModel.Model.LastName,
+                Email = viewModel.Model.Email,
+                UserName = viewModel.Model.Email
             };
 
-            var result = await _userManager.CreateAsync(userEntity, viewModel.Password);
+            var result = await _userManager.CreateAsync(userEntity, viewModel.Model.Password);
 
             if (result.Succeeded)
             {
