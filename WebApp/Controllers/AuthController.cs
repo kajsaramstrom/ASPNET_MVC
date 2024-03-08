@@ -83,7 +83,7 @@ public class AuthController(UserManager<UserEntity> userManager, SignInManager<U
     {
         if (ModelState.IsValid)
         {
-            var result = await _signInManager.PasswordSignInAsync(viewModel.Email, viewModel.Password, viewModel.RememberMe, false);
+            var result = await _signInManager.PasswordSignInAsync(viewModel.Model.Email, viewModel.Model.Password, viewModel.Model.RememberMe, false);
             if (result.Succeeded)
             {
                 if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))

@@ -53,11 +53,11 @@ public class AccountController(SignInManager<UserEntity> signInManager, UserMana
 
                     var result = await _userManager.UpdateAsync(user);
 
-                    if (!result.Succeeded)
-                    {
-                        ModelState.AddModelError("IncorrectValues", "Something went wrong! Unable to save data.");
-                        ViewData["ErrorMessage"] = "Something went wrong! Unable to update basic information.";
-                    }
+                    //if (!result.Succeeded)
+                    //{
+                    //    ModelState.AddModelError("IncorrectValues", "Something went wrong! Unable to save data.");
+                    //    ViewData["ErrorMessage"] = "Something went wrong! Unable to update basic information.";
+                    //}
                 }
             }
         }
@@ -80,11 +80,11 @@ public class AccountController(SignInManager<UserEntity> signInManager, UserMana
                         address.City = viewModel.AddressInfo.City;
 
                         var result = await _addressService.UpdateAddressAsync(address);
-                        if (!result)
-                        {
-                            ModelState.AddModelError("IncorrectValues", "Something went wrong! Unable to update address information.");
-                            ViewData["ErrorMessage"] = "Something went wrong! Unable to update address information.";
-                        }
+                        //if (!result)
+                        //{
+                        //    ModelState.AddModelError("IncorrectValues", "Something went wrong! Unable to update address information.");
+                        //    ViewData["ErrorMessage"] = "Something went wrong! Unable to update address information.";
+                        //}
                     }
                     else
                     {
@@ -98,11 +98,11 @@ public class AccountController(SignInManager<UserEntity> signInManager, UserMana
                         };
 
                         var result = await _addressService.CreateAddressAsync(address);
-                        if (!result)
-                        {
-                            ModelState.AddModelError("IncorrectValues", "Something went wrong! Unable to update address information.");
-                            ViewData["ErrorMessage"] = "Something went wrong! Unable to update address information.";
-                        }
+                        //if (!result)
+                        //{
+                        //    ModelState.AddModelError("IncorrectValues", "Something went wrong! Unable to update address information.");
+                        //    ViewData["ErrorMessage"] = "Something went wrong! Unable to update address information.";
+                        //}
                     }
                 }
             }
