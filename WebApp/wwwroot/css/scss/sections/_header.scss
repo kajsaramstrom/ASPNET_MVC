@@ -51,6 +51,10 @@ header {
             @include xl {
                 display: flex;
             }
+
+            img {
+                width: 50%;
+            }
         }
 
         .btn-mobile {

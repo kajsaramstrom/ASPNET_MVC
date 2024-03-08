@@ -47,6 +47,7 @@ public class AccountController(SignInManager<UserEntity> signInManager, UserMana
                     user.FirstName = viewModel.BasicInfo.FirstName;
                     user.LastName = viewModel.BasicInfo.LastName;
                     user.Email = viewModel.BasicInfo.Email;
+                    user.UserName = viewModel.BasicInfo.Email;
                     user.PhoneNumber = viewModel.BasicInfo.PhoneNumber;
                     user.Bio = viewModel.BasicInfo.Bio;
 

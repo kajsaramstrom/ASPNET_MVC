@@ -8,8 +8,9 @@
     }
 
     aside {
+        width: 30%;
         border-right: 1px solid $gray-400;
-        padding: 0 20px 0 0;
+        padding: 0 5px 0 5px;
 
         .profile {
             text-align: center;
@@ -27,16 +28,17 @@
 
             .btn-theme {
                 text-decoration: none;
-                padding: 10px 15px;
+                padding: 10px 5px 10px 5px;
                 color: $gray-800;
                 font-weight: 600;
                 background-color: #FFFFFF;
                 justify-content: left;
+                width: 100%;
 
                 i {
                     color: $gray-600;
-                    margin-right: 5px;
-                }
+/*                    margin-right: 2px;
+*/                }
 
                 &.active {
                     background-color: $theme;
@@ -55,6 +57,11 @@
 
         form {
             padding: 24px;
+
+            .error {
+                text-align: center;
+                color: $danger;
+            }
 
             h2 {
                 margin: 52px 0 30px 0;
