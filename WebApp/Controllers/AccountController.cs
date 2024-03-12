@@ -167,9 +167,12 @@ public class AccountController(SignInManager<UserEntity> signInManager, UserMana
 
     #region Security
     [Route("/security")]
-    public IActionResult Security()
+    public async Task<IActionResult> Security()
     {
-        var viewModel = new AccountSecurityViewModel();
+        var viewModel = new AccountSecurityViewModel()
+        {
+            BasicInfo = await PopulateBasicInfoAsync()
+        };
 
         return View(viewModel);
     }
@@ -177,13 +180,29 @@ public class AccountController(SignInManager<UserEntity> signInManager, UserMana
 
     #region Password
     [HttpPost]
-    public IActionResult Password(AccountDetailsViewModel viewModel)
+    public async Task<IActionResult> Password(AccountSecurityViewModel viewModel)
     {
-        if (!ModelState.IsValid)
-            return View(viewModel);
+        if (viewModel.Form != null)
+        {
+            var userEntity = await _userManager.GetUserAsync(User);
 
-        //_accountService.SavePassword(viewModel.Password);
-        return RedirectToAction(nameof(Security));
+            if (userEntity != null)
+            {
+                var passwordChange = await _userManager.ChangePasswordAsync(userEntity, viewModel.Form.CurrentPassword, viewModel.Form.NewPassword);
+                if (passwordChange.Succeeded)
+                {
+                    var result = await _userManager.UpdateAsync(userEntity);
+                    if (result.Succeeded)
+                    {
+                        return RedirectToAction("Security", "Account");
+                    }
+                }
+            }
+
+            return RedirectToAction("Index", "Account");
+        }
+
+        return RedirectToAction("Index", "Account");
     }
     #endregion
 

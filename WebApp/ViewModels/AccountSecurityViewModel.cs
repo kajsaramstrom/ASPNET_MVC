@@ -10,11 +10,5 @@ public class AccountSecurityViewModel
 
     public AccountSecutiryDeleteModel Delete { get; set; } = new AccountSecutiryDeleteModel();
 
-    public AccountDetailsBasicInfoModel BasicInfo { get; set; } = new AccountDetailsBasicInfoModel()
-    {
-        ProfileImage = "images/images/image-account-details.svg",
-        FirstName = "John",
-        LastName = "Doe",
-        Email = "john.doe@domain.com"
-    };
+    public AccountDetailsBasicInfoModel BasicInfo { get; set; } = new AccountDetailsBasicInfoModel();
 }
