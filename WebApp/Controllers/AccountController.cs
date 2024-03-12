@@ -208,13 +208,33 @@ public class AccountController(SignInManager<UserEntity> signInManager, UserMana
 
     #region Delete
     [HttpPost]
-    public IActionResult Delete(AccountDetailsViewModel viewModel)
+    public async Task<IActionResult> Delete(AccountSecurityViewModel viewModel)
     {
-        if (!ModelState.IsValid)
-            return View(viewModel);
+        if (viewModel.Delete != null)
+        {
+            var userEntity = await _userManager.GetUserAsync(User);
 
-        //_accountService.SaveDelete(viewModel.Delete);
-        return RedirectToAction(nameof(Security));
+            if (userEntity != null)
+            {
+
+                if (viewModel.Delete.AcceptDelete ==  true)
+                {
+                    var address = await _addressService.RemoveAddressAsync(userEntity.Id);
+                    var result = await _userManager.DeleteAsync(userEntity);
+                    if (result.Succeeded)
+                    {
+                        await _signInManager.SignOutAsync();
+                        return RedirectToAction("Index", "Home");
+                    }
+                }
+                else
+                {
+                    return RedirectToAction("Security", "Account");
+                }
+            }
+        }
+
+        return RedirectToAction("Security", "Account");
     }
     #endregion
 

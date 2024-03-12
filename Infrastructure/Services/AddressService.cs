@@ -37,4 +37,18 @@ public class AddressService(DataContext context)
 
         return false;
     }
+
+    public async Task<bool> RemoveAddressAsync(string userId)
+    {
+        var existing = await _context.Addresses.FirstOrDefaultAsync(x => x.UserId == userId);
+        if (existing != null)
+        {
+            _context.Addresses.Remove(existing);
+            await _context.SaveChangesAsync();
+
+            return true;
+        }
+
+        return false;
+    }
 }
