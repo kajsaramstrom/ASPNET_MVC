@@ -517,15 +517,23 @@ header .container #account-buttons {
     display: flex;
   }
 }
-header .container #account-buttons .dropdown {
+header .container #account-buttons .profile-avatar {
+  display: none;
+}
+@media (min-width: 1200px) {
+  header .container #account-buttons .profile-avatar {
+    display: block;
+  }
+}
+header .container #account-buttons .profile-avatar .dropdown {
   position: relative;
 }
-header .container #account-buttons .dropdown .dropdown-toggle {
+header .container #account-buttons .profile-avatar .dropdown .dropdown-toggle {
   background: none;
   border: none;
   cursor: pointer;
 }
-header .container #account-buttons .dropdown .dropdown-menu {
+header .container #account-buttons .profile-avatar .dropdown .dropdown-menu {
   background: none;
   display: none;
   position: absolute;
@@ -534,7 +542,7 @@ header .container #account-buttons .dropdown .dropdown-menu {
   min-width: 2rem;
   border: none;
 }
-header .container #account-buttons .dropdown .dropdown-menu .dropdown-item {
+header .container #account-buttons .profile-avatar .dropdown .dropdown-menu .dropdown-item {
   display: block;
   padding: 0.3rem 2rem;
   text-decoration: none;
@@ -542,30 +550,79 @@ header .container #account-buttons .dropdown .dropdown-menu .dropdown-item {
   transition: background-color 0.3s;
   margin-top: 0.5rem;
 }
-header .container #account-buttons .dropdown .dropdown-menu .dropdown-item:hover {
+header .container #account-buttons .profile-avatar .dropdown .dropdown-menu .dropdown-item:hover {
   color: white;
 }
-header .container #account-buttons .dropdown .dropdown-menu .dropdown-item.disabled {
+header .container #account-buttons .profile-avatar .dropdown .dropdown-menu .dropdown-item.disabled {
   pointer-events: none;
   opacity: 0.5;
 }
-header .container #account-buttons .dropdown .dropdown-menu .dropdown-item i {
+header .container #account-buttons .profile-avatar .dropdown .dropdown-menu .dropdown-item i {
   margin-right: 0.5rem;
 }
-header .container #account-buttons .dropdown .dropdown-menu .dropdown-divider {
+header .container #account-buttons .profile-avatar .dropdown .dropdown-menu .dropdown-divider {
   margin: 4px 0;
 }
-header .container #account-buttons .dropdown.open .dropdown-menu {
+header .container #account-buttons .profile-avatar .dropdown.open .dropdown-menu {
   display: block;
 }
-header .container .btn-mobile {
+header .container .mobile-account-buttons {
   grid-area: mobile;
   display: block;
 }
 @media (min-width: 1200px) {
-  header .container .btn-mobile {
+  header .container .mobile-account-buttons {
     display: none;
   }
+}
+header .container .mobile-account-buttons .dropdown-mobile {
+  position: relative;
+  z-index: 1;
+}
+header .container .mobile-account-buttons .dropdown-mobile .dropdown-toggle-mobile {
+  background: white;
+  border: none;
+  cursor: pointer;
+}
+header .container .mobile-account-buttons .dropdown-mobile .dropdown-menu-mobile {
+  background: white;
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: -120px;
+  border: none;
+}
+header .container .mobile-account-buttons .dropdown-mobile .dropdown-menu-mobile .menu-link {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+header .container .mobile-account-buttons .dropdown-mobile .dropdown-menu-mobile .dropdown-item-mobile {
+  display: block;
+  padding: 0.3rem 2rem;
+  text-decoration: none;
+  color: white;
+  transition: background-color 0.3s;
+  margin-top: 0.5rem;
+}
+header .container .mobile-account-buttons .dropdown-mobile .dropdown-menu-mobile .dropdown-item-mobile:hover {
+  color: white;
+}
+header .container .mobile-account-buttons .dropdown-mobile .dropdown-menu-mobile .dropdown-item-mobile.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+header .container .mobile-account-buttons .dropdown-mobile .dropdown-menu-mobile .dropdown-item-mobile i {
+  margin-right: 0.5rem;
+}
+header .container .mobile-account-buttons .dropdown-mobile .dropdown-menu-mobile .btn-switch-mobile {
+  display: block;
+}
+header .container .mobile-account-buttons .dropdown-mobile .dropdown-menu-mobile .dropdown-divider {
+  margin: 4px 0;
+}
+header .container .mobile-account-buttons .dropdown-mobile.open .dropdown-menu {
+  display: block;
 }
 
 .contact .header {
