@@ -30,9 +30,7 @@ const emailValidator = (element) => {
 
 const passwordValidator = (element) => {
     if (element.dataset.valEqualtoOther !== undefined) {
-        let password = document.getElementsByName(element.dataset.valEqualtoOther.replace('*', 'Form'))[0].value
-        //const password = document.querySelector('#Model_ConfirmPassword')
-        //console.log(password)
+        let password = document.getElementsByName(element.dataset.valEqualtoOther.replace('*', element.id.split('_')[0]))[0].value
 
         if (element.value === password)
             formErrorHandler(element, true)
