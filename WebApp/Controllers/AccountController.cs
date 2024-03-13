@@ -125,6 +125,7 @@ public class AccountController(SignInManager<UserEntity> signInManager, UserMana
             FirstName = user!.FirstName,
             LastName = user.LastName,
             Email = user.Email!,
+            IsExternalAccount = user.IsExternalAccount,
         };
     }
 

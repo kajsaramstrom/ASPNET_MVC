@@ -29,6 +29,20 @@ builder.Services.ConfigureApplicationCookie(x =>
     x.SlidingExpiration = true;
 });
 
+builder.Services.AddAuthentication().AddFacebook(x =>
+{
+    x.AppId = "959945875649088";
+    x.AppSecret = "4b817ccdc2fced2740791702150638fa";
+    x.Fields.Add("first_name");
+    x.Fields.Add("last_name");
+});
+
+builder.Services.AddAuthentication().AddGoogle(x =>
+{
+    x.ClientId = "570547698-4n6a6gdu50eplfm4tb7tu5jia7r914p2.apps.googleusercontent.com";
+    x.ClientSecret = "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";
+});
+
 builder.Services.AddScoped<AddressService>();
 
 var app = builder.Build();
