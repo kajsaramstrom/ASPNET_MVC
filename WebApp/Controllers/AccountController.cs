@@ -190,7 +190,7 @@ public class AccountController(SignInManager<UserEntity> signInManager, UserMana
             if (userEntity != null)
             {
 
-                if (String.IsNullOrEmpty(viewModel.Form.CurrentPassword) || !String.IsNullOrEmpty(viewModel.Form.NewPassword))
+                if (String.IsNullOrEmpty(viewModel.Form.CurrentPassword) || String.IsNullOrEmpty(viewModel.Form.NewPassword))
                 {
                     TempData["PasswordError"] = "Something went wrong, please check your passwords.";
                     return RedirectToAction("Security", "Account");
