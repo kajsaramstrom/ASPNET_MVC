@@ -8,8 +8,9 @@
     }
 
     aside {
+        width: 30%;
         border-right: 1px solid $gray-400;
-        padding: 0 20px 0 0;
+        padding: 0 5px;
 
         .profile {
             text-align: center;
@@ -27,11 +28,12 @@
 
             .btn-theme {
                 text-decoration: none;
-                padding: 10px 15px;
+                padding: 10px 5px 10px 5px;
                 color: $gray-800;
                 font-weight: 600;
                 background-color: #FFFFFF;
                 justify-content: left;
+                width: 100%;
 
                 i {
                     color: $gray-600;
@@ -53,71 +55,104 @@
     .details {
         width: 100%;
 
-        form {
-            padding: 24px;
+        .password-info {
 
-            h2 {
-                margin: 52px 0 30px 0;
-            }
+            form {
+                padding: 24px;
 
-            h5 {
-                color: $theme;
-                margin-bottom: 24px;
-            }
+                .alert {
+                    background-color: #ef444452;
+                    opacity: 0.8;
+                    color: $gray-900;
+                    margin: 0;
+                    max-width: 70%;
+                    text-align: center;
+                    font-weight: 700;
+                }
 
-            .content {
-                display: grid;
-                gap: 24px;
-                grid-template-columns: 1fr;
+                .success {
+                    background-color: lightgreen;
+                    opacity: 0.8;
+                    color: $gray-900;
+                    margin: 0;
+                    max-width: 70%;
+                    text-align: center;
+                    font-weight: 700;
+                }
 
-                @include lg {
+                h2 {
+                    margin: 52px 0 30px 0;
+                }
+
+                h5 {
+                    color: $theme;
+                    margin-bottom: 24px;
+                }
+
+                .content {
                     display: grid;
                     gap: 24px;
-                    grid-template-columns: 1fr 1fr;
-                    grid-template-areas: "current current" "new confirm" "buttons buttons";
+                    grid-template-columns: 1fr;
 
-                    #form-currentpassword {
-                        grid-area: current;
-                    }
+                    @include lg {
+                        display: grid;
+                        gap: 24px;
+                        grid-template-columns: 1fr 1fr;
+                        grid-template-areas: "current current" "new confirm" "buttons buttons";
 
-                    #form-newpassword {
-                        grid-area: new;
-                    }
+                        #form-currentpassword {
+                            grid-area: current;
+                        }
 
-                    #form-confirm {
-                        grid-area: confirm;
-                    }
+                        #form-newpassword {
+                            grid-area: new;
+                        }
 
-                    .form-buttons {
-                        grid-area: buttons;
-                        margin: 24px 0 40px 0;
-                        display: flex;
-                        gap: 20px;
-                    }
-                }
-            }
+                        #form-confirm {
+                            grid-area: confirm;
+                        }
 
-            .delete {
-                margin: 40px 0 0 0;
-
-                form {
-                    padding: 24px;
-
-                    h5 {
-                        color: $theme;
-                    }
-
-                    p {
-                        margin: 10px 0 20px 0;
-                    }
-
-                    .content {
-
-                        #form-delete {
-                            margin: 24px 0;
+                        .form-buttons {
+                            grid-area: buttons;
+                            margin: 24px 0 40px 0;
+                            display: flex;
+                            gap: 20px;
                         }
                     }
                 }
+            }
+        }
+
+        .delete {
+            margin: 40px 0 0 0;
+
+            form {
+                padding: 24px;
+
+                h5 {
+                    color: $theme;
+                }
+
+                p {
+                    margin: 10px 0 20px 0;
+                }
+
+                .content {
+
+                    #form-delete {
+                        margin: 24px 0;
+                    }
+                }
+            }
+
+            .alert {
+                background-color: #ef444452;
+                opacity: 0.8;
+                color: $gray-900;
+                margin: 0;
+                max-width: 70%;
+                text-align: center;
+                font-weight: 700;
             }
         }
     }

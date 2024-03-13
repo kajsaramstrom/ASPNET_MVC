@@ -7,7 +7,7 @@
     <section id="account-security">
         <aside>
             <div class="profile">
-                <img src="@Model.BasicInfo.ProfileImage" alt="@($"{Model.BasicInfo.FirstName} {Model.BasicInfo.LastName}")" />
+                <img src="~/images/images/image-account-details.svg" alt="" />
                 <h5>@Model.BasicInfo.FirstName @Model.BasicInfo.LastName</h5>
                 <p>@Model.BasicInfo.Email</p>
             </div>
@@ -24,6 +24,19 @@
             <section class="password-info">
 
                 <form method="post" asp-controller="Account" asp-action="Password" novalidate>
+
+                    @if (!string.IsNullOrEmpty(TempData["PasswordError"]?.ToString()))
+                    {
+                        <div class="alert">
+                            @TempData["PasswordError"]
+                        </div>
+                    }
+                    @if (!string.IsNullOrEmpty(TempData["PasswordSuccess"]?.ToString()))
+                    {
+                        <div class="success">
+                            @TempData["PasswordSuccess"]
+                        </div>
+                    }
 
                     <h2>Security</h2>
                     <h5>Password</h5>
@@ -80,6 +93,13 @@
                         <button class="btn-red" type="submit">Delete</button>
                     </div>
                 </form>
+
+                @if (!string.IsNullOrEmpty(TempData["ErrorMessage"]?.ToString()))
+                {
+                    <div class="alert">
+                        @TempData["ErrorMessage"]
+                    </div>
+                }
             </section>
         </div>
     </section>

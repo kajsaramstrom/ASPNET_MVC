@@ -53,11 +53,11 @@ public class AccountController(SignInManager<UserEntity> signInManager, UserMana
 
                     var result = await _userManager.UpdateAsync(user);
 
-                    //if (!result.Succeeded)
-                    //{
-                    //    ModelState.AddModelError("IncorrectValues", "Something went wrong! Unable to save data.");
-                    //    ViewData["ErrorMessage"] = "Something went wrong! Unable to update basic information.";
-                    //}
+                    if (!result.Succeeded)
+                    {
+                        ModelState.AddModelError("IncorrectValues", "Something went wrong! Unable to save data.");
+                        ViewData["ErrorMessage"] = "Something went wrong! Unable to update basic information.";
+                    }
                 }
             }
         }
@@ -80,11 +80,11 @@ public class AccountController(SignInManager<UserEntity> signInManager, UserMana
                         address.City = viewModel.AddressInfo.City;
 
                         var result = await _addressService.UpdateAddressAsync(address);
-                        //if (!result)
-                        //{
-                        //    ModelState.AddModelError("IncorrectValues", "Something went wrong! Unable to update address information.");
-                        //    ViewData["ErrorMessage"] = "Something went wrong! Unable to update address information.";
-                        //}
+                        if (!result)
+                        {
+                            ModelState.AddModelError("IncorrectValues", "Something went wrong! Unable to update address information.");
+                            ViewData["ErrorMessage"] = "Something went wrong! Unable to update address information.";
+                        }
                     }
                     else
                     {
@@ -98,11 +98,11 @@ public class AccountController(SignInManager<UserEntity> signInManager, UserMana
                         };
 
                         var result = await _addressService.CreateAddressAsync(address);
-                        //if (!result)
-                        //{
-                        //    ModelState.AddModelError("IncorrectValues", "Something went wrong! Unable to update address information.");
-                        //    ViewData["ErrorMessage"] = "Something went wrong! Unable to update address information.";
-                        //}
+                        if (!result)
+                        {
+                            ModelState.AddModelError("IncorrectValues", "Something went wrong! Unable to update address information.");
+                            ViewData["ErrorMessage"] = "Something went wrong! Unable to update address information.";
+                        }
                     }
                 }
             }
@@ -189,21 +189,30 @@ public class AccountController(SignInManager<UserEntity> signInManager, UserMana
 
             if (userEntity != null)
             {
-                var passwordChange = await _userManager.ChangePasswordAsync(userEntity, viewModel.Form.CurrentPassword, viewModel.Form.NewPassword);
+
+                if (String.IsNullOrEmpty(viewModel.Form.CurrentPassword) || !String.IsNullOrEmpty(viewModel.Form.NewPassword))
+                {
+                    TempData["PasswordError"] = "Something went wrong, please check your passwords.";
+                    return RedirectToAction("Security", "Account");
+                }
+
+                    var passwordChange = await _userManager.ChangePasswordAsync(userEntity, viewModel.Form.CurrentPassword, viewModel.Form.NewPassword);
                 if (passwordChange.Succeeded)
                 {
                     var result = await _userManager.UpdateAsync(userEntity);
                     if (result.Succeeded)
                     {
+                        TempData["PasswordSuccess"] = "Password was successfully changed.";
                         return RedirectToAction("Security", "Account");
                     }
                 }
-            }
 
-            return RedirectToAction("Index", "Account");
+                TempData["PasswordError"] = "Something went wrong, please check your passwords.";
+                return RedirectToAction("Security", "Account");
+            }
         }
 
-        return RedirectToAction("Index", "Account");
+        return RedirectToAction("Security", "Account");
     }
     #endregion
 
@@ -230,6 +239,7 @@ public class AccountController(SignInManager<UserEntity> signInManager, UserMana
                 }
                 else
                 {
+                    TempData["PasswordError"] = "Checkbox must be confirmed.";
                     return RedirectToAction("Security", "Account");
                 }
             }

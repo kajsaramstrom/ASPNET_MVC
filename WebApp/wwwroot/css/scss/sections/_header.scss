@@ -12,38 +12,40 @@ header {
         display: grid;
         align-items: center;
         grid-template-columns: 1fr auto;
-        grid-template-areas:  "logo mobile";
+        grid-template-areas: "logo mobile";
         gap: 40px;
         padding: 15px 0;
 
         @include lg {
             grid-template-columns: 1fr auto auto;
-            grid-template-areas:  "logo switch mobile";
+            grid-template-areas: "logo switch mobile";
         }
-        
+
         @include xl {
             grid-template-columns: auto 1fr auto auto;
-            grid-template-areas:  "logo menu switch buttons";
+            grid-template-areas: "logo menu switch buttons";
         }
 
-        #logo { grid-area: logo; }
+        #logo {
+            grid-area: logo;
+        }
 
-        #menu { 
-            grid-area: menu; 
+        #menu {
+            grid-area: menu;
             display: none;
 
             @include xl {
                 display: block;
             }
-            
+
             nav {
                 display: flex;
                 gap: 15px;
             }
         }
-        
-        .btn-switch { 
-            grid-area: switch; 
+
+        .btn-switch {
+            grid-area: switch;
             display: none;
 
             @include lg {
@@ -51,18 +53,70 @@ header {
             }
         }
 
-        #account-buttons { 
-            grid-area: buttons; 
+        #account-buttons {
+            grid-area: buttons;
             display: none;
             gap: 15px;
 
             @include xl {
                 display: flex;
             }
+
+            .dropdown {
+                position: relative;
+
+                .dropdown-toggle {
+                    background: none;
+                    border: none;
+                    cursor: pointer;
+                }
+
+                .dropdown-menu {
+                    background: none;
+                    display: none;
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    min-width: 2rem;
+                    border: none;
+
+                    .dropdown-item {
+                        display: block;
+                        padding: .3rem 2rem;
+                        text-decoration: none;
+                        color: white;
+                        transition: background-color 0.3s;
+                        margin-top: .5rem;
+
+                        &:hover {
+                            color: white;
+                        }
+
+                        &.disabled {
+                            pointer-events: none;
+                            opacity: 0.5;
+                        }
+
+                        i {
+                            margin-right: .5rem;
+                        }
+                    }
+
+                    .dropdown-divider {
+                        margin: 4px 0;
+                    }
+                }
+
+                &.open {
+                    .dropdown-menu {
+                        display: block;
+                    }
+                }
+            }
         }
 
         .btn-mobile {
-            grid-area: mobile; 
+            grid-area: mobile;
             display: block;
 
             @include xl {
