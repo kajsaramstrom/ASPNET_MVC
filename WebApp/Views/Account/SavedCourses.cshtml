@@ -3,8 +3,8 @@
     ViewData["Title"] = Model.Title;
 }
 
-<div class="container">
-    <section id="account-savedcourses">
+<section id="account-savedcourses">
+    <div class="container">
         <aside>
             <div class="profile">
                 <img src="@Model.BasicInfo.ProfileImage" alt="@($"{Model.BasicInfo.FirstName} {Model.BasicInfo.LastName}")" />
@@ -101,5 +101,5 @@
                 </form>
             </section>        
         </div>
-    </section>
-</div>
+    </div>
+</section>
