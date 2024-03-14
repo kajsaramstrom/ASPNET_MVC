@@ -162,6 +162,7 @@ header {
                         color: white;
                         transition: background-color 0.3s;
                         margin-top: .5rem;
+                        margin-bottom: .5rem;
 
                         &:hover {
                             color: white;
@@ -179,6 +180,8 @@ header {
 
                     .btn-switch-mobile {
                         display: block;
+                        justify-content: center;
+                        text-align: center;
                     }
 
                     .dropdown-divider {
@@ -196,11 +199,231 @@ header {
     }
 }
 
-.contact .header {
+.dark-mode {
+
+    header {
+
+        &.standard {
+            background-color: black;
+        }
+
+        &.contact {
+            background-color: $gray-900;
+        }
+
+        .container {
+            display: grid;
+            align-items: center;
+            grid-template-columns: 1fr auto;
+            grid-template-areas: "logo mobile";
+            gap: 40px;
+            padding: 15px 0;
+
+            @include lg {
+                grid-template-columns: 1fr auto auto;
+                grid-template-areas: "logo switch mobile";
+            }
+
+            @include xl {
+                grid-template-columns: auto 1fr auto auto;
+                grid-template-areas: "logo menu switch buttons";
+            }
+
+            #logo {
+                grid-area: logo;
+            }
+
+            #menu {
+                grid-area: menu;
+                display: none;
+
+                @include xl {
+                    display: block;
+                }
+
+                nav {
+                    display: flex;
+                    gap: 15px;
+
+                    .menu-link {
+                        color: $gray-500;
+                    }
+                }
+            }
+
+            .btn-switch {
+                grid-area: switch;
+                display: none;
+
+                @include lg {
+                    display: block;
+                }
+            }
+
+            #account-buttons {
+                grid-area: buttons;
+                display: none;
+                gap: 15px;
+
+                @include xl {
+                    display: flex;
+                }
+
+                .profile-avatar {
+                    display: none;
+
+                    @include xl {
+                        display: block;
+                    }
+
+                    .dropdown {
+                        position: relative;
+
+                        .dropdown-toggle {
+                            background: none;
+                            border: none;
+                            cursor: pointer;
+                        }
+
+                        .dropdown-menu {
+                            background: none;
+                            display: none;
+                            position: absolute;
+                            top: 100%;
+                            left: 0;
+                            min-width: 2rem;
+                            border: none;
+
+                            .dropdown-item {
+                                display: block;
+                                padding: .3rem 2rem;
+                                text-decoration: none;
+                                color: black;
+                                transition: background-color 0.3s;
+                                margin-top: .5rem;
+
+                                &:hover {
+                                    color: black;
+                                }
+
+                                &.disabled {
+                                    pointer-events: none;
+                                    opacity: 0.5;
+                                }
+
+                                i {
+                                    margin-right: .5rem;
+                                }
+                            }
+
+                            .dropdown-divider {
+                                margin: 4px 0;
+                            }
+                        }
+
+                        &.open {
+                            .dropdown-menu {
+                                display: block;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .mobile-account-buttons {
+                grid-area: mobile;
+                display: block;
+
+                @include xl {
+                    display: none;
+                }
+
+                .dropdown-mobile {
+                    position: relative;
+                    z-index: 1;
+
+                    .dropdown-toggle-mobile {
+                        background: black;
+                        border: none;
+                        cursor: pointer;
+
+                        i {
+                            color: $gray-300;
+                        }
+                    }
+
+                    .dropdown-menu-mobile {
+                        background: black;
+                        display: none;
+                        position: absolute;
+                        top: 100%;
+                        left: -120px;
+                        border: none;
+
+                        .menu-link {
+                            display: flex;
+                            flex-direction: column;
+                            text-align: center;
+                            color: $gray-500;
+                        }
+
+                        .button {
+
+                            .btn-theme {
+                                color: white;
+                            }
+                        }
+
+                        .dropdown-item-mobile {
+                            display: block;
+                            padding: .3rem 2rem;
+                            text-decoration: none;
+                            color: black;
+                            transition: background-color 0.3s;
+                            margin-top: .5rem;
+                            margin-bottom: .5rem;
+
+                            &:hover {
+                                color: black;
+                            }
+
+                            &.disabled {
+                                pointer-events: none;
+                                opacity: 0.5;
+                            }
+
+                            i {
+                                margin-right: .5rem;
+                            }
+                        }
+
+                        .btn-switch-mobile {
+                            display: block;
+                            justify-content: center;
+                            text-align: center;
+                        }
+
+                        .dropdown-divider {
+                            margin: 4px 0;
+                        }
+                    }
+
+                    &.open {
+                        .dropdown-menu {
+                            display: block;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*.contact .header {
     padding: 15px 0;
     background: $gray-100;
 
     .container {
         padding: 0;
     }
-}
+}*/

@@ -135,3 +135,150 @@
         }
     }
 }
+
+.dark-mode {
+
+    .download-our-app {
+        background: $gray-900;
+
+        .container {
+
+            @include lg {
+                display: flex;
+                justify-content: center;
+                gap: 130px;
+            }
+
+            .content-left {
+                padding: 60px 0 0 50px;
+
+                @include lg {
+                    padding: 60px 0 60px 0;
+                }
+
+                img {
+                    width: 75%;
+                    height: auto;
+
+                    @include md {
+                        width: auto;
+                        height: auto;
+                    }
+
+                    @include lg {
+                        width: 100%;
+                    }
+                }
+            }
+
+            .content-right {
+                padding: 40px 0 50px 0;
+
+                @include md {
+                    width: 416px;
+                }
+
+                @include lg {
+                    padding: 120px 0 0 0;
+                }
+
+                h1 {
+                    color: $gray-300;
+                }
+
+                .app-store {
+                    display: block;
+                    padding: 20px 0 0 20px;
+
+                    @include md {
+                        display: flex;
+                        align-items: last baseline;
+                        gap: 40px;
+                        padding: 40px 0 0 0;
+                    }
+
+                    .info {
+
+                        p {
+                            color: $gray-500;
+                            margin: 0 0 5px;
+                        }
+
+                        span {
+                            color: $warning;
+                            font-size: 0.8rem;
+                        }
+
+                        h4 {
+                            color: $gray-300;
+                            margin: 10px 0 0 0;
+                        }
+
+                        p {
+                            color: $gray-500;
+                        }
+                    }
+
+                    .icon-apple {
+                        display: block;
+                        justify-content: center;
+                        align-items: center;
+                        margin: 20px 0 0 0;
+
+                        @include md {
+                            display: flex;
+                            justify-content: flex-end;
+                            margin: 0 0 0 0;
+                        }
+                    }
+                }
+
+                .google-play {
+                    display: block;
+                    align-items: center;
+                    margin: 30px 0 0 20px;
+
+                    @include md {
+                        display: flex;
+                        align-items: last baseline;
+                        gap: 40px;
+                        margin: 30px 0 20px 0;
+                    }
+
+                    .info {
+
+                        p {
+                            color: $gray-500;
+                            margin: 0 0 5px;
+                        }
+
+                        span {
+                            color: $warning;
+                            font-size: 0.8rem;
+                        }
+
+                        h4 {
+                            color: $gray-300;
+                            margin: 10px 0 0 0;
+                        }
+
+                        p {
+                            color: $gray-500;
+                        }
+                    }
+
+                    .icon-google {
+                        display: block;
+                        justify-content: center;
+
+
+                        @include md {
+                            display: flex;
+                            justify-content: flex-end;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
