@@ -533,7 +533,7 @@ form input.input-validation-error::placeholder {
   font-weight: 400;
 }
 .dark-mode form textarea {
-  background-color: black;
+  background-color: #0B0F19;
   color: #B4B7C9;
   padding: 1rem;
   border-radius: 6px !important;
@@ -568,7 +568,7 @@ form input.input-validation-error::placeholder {
   color: #EF4444 !important;
 }
 .dark-mode form input {
-  background: black;
+  background: #0B0F19;
   color: #B4B7C9;
   padding: 1rem;
   border-radius: 6px !important;

@@ -140,7 +140,7 @@ form {
         }
 
         textarea {
-            background-color: black;
+            background-color: $gray-900;
             color: $gray-500;
             padding: 1rem;
             border-radius: 6px !important;
@@ -180,7 +180,7 @@ form {
         }
 
         input {
-            background: black;
+            background: $gray-900;
             color: $gray-500;
             padding: 1rem;
             border-radius: 6px !important;
