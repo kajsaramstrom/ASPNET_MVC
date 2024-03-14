@@ -3842,6 +3842,88 @@ footer .container .social-media {
   }
 }
 
+.dark-mode #sign-up {
+  background-color: black;
+  height: 100%;
+}
+.dark-mode #sign-up .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+@media (min-width: 992px) {
+  .dark-mode #sign-up .container {
+    width: 60%;
+  }
+}
+@media (min-width: 1200px) {
+  .dark-mode #sign-up .container {
+    width: 40%;
+  }
+}
+.dark-mode #sign-up .container form {
+  padding: 24px 24px;
+}
+@media (min-width: 992px) {
+  .dark-mode #sign-up .container form {
+    padding: 139px 0 60px 0;
+  }
+}
+.dark-mode #sign-up .container form .error {
+  text-align: center;
+  color: #EF4444;
+}
+.dark-mode #sign-up .container form h1 {
+  color: #E2E5F1;
+}
+@media (min-width: 992px) {
+  .dark-mode #sign-up .container form h1 {
+    margin: 0 0 16px 0;
+  }
+}
+.dark-mode #sign-up .container form p {
+  color: #B4B7C9;
+}
+@media (min-width: 992px) {
+  .dark-mode #sign-up .container form p {
+    margin: 0 0 25px 0;
+  }
+}
+.dark-mode #sign-up .container form .content {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 768px) {
+  .dark-mode #sign-up .container form .content {
+    display: grid;
+    grid-auto-columns: 1fr 1fr;
+    grid-template-areas: "firstname lastname" "email email" "password password" "confirm confirm" "terms terms" "button button";
+  }
+  .dark-mode #sign-up .container form .content #form-firstname {
+    grid-area: firstname;
+  }
+  .dark-mode #sign-up .container form .content #form-lastname {
+    grid-area: lastname;
+  }
+  .dark-mode #sign-up .container form .content #form-email {
+    grid-area: email;
+  }
+  .dark-mode #sign-up .container form .content #form-password {
+    grid-area: password;
+  }
+  .dark-mode #sign-up .container form .content #form-confirm {
+    grid-area: confirm;
+  }
+  .dark-mode #sign-up .container form .content #form-terms {
+    grid-area: terms;
+  }
+  .dark-mode #sign-up .container form .content #form-button {
+    grid-area: button;
+  }
+}
+
 #account-details {
   padding: 0 0 70px 0;
 }
