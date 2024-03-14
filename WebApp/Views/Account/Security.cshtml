@@ -3,8 +3,8 @@
     ViewData["Title"] = Model.Title;
 }
 
-<div class="container">
-    <section id="account-security">
+<section id="account-security">
+    <div class="container">
         <aside>
             <div class="profile">
                 <img src="~/images/images/image-account-details.svg" alt="" />
@@ -102,7 +102,7 @@
                 }
             </section>
         </div>
-    </section>
-</div>
+    </div>
+</section>
 
 @await Html.PartialAsync("_ValidationScriptPartial")

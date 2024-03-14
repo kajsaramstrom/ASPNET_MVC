@@ -1,64 +1,151 @@
 #account-security {
-    display: flex;
-    gap: 50px;
-    margin: 0 0 70px 0;
+    padding: 0 0 70px 0;
 
-    @include lg {
-        gap: 150px;
-    }
+    .container {
+        display: flex;
+        gap: 50px;
 
-    aside {
-        width: 30%;
-        border-right: 1px solid $gray-400;
-        padding: 0 5px;
-
-        .profile {
-            text-align: center;
-
-            img {
-                margin: 38px 0 10px 0;
-            }
-
-            p {
-                margin: 0 0 35px 0;
-            }
+        @include lg {
+            gap: 150px;
         }
 
-        nav {
+        aside {
+            width: 30%;
+            border-right: 1px solid $gray-400;
+            padding: 0 5px;
 
-            .btn-theme {
-                text-decoration: none;
-                padding: 10px 5px 10px 5px;
-                color: $gray-800;
-                font-weight: 600;
-                background-color: #FFFFFF;
-                justify-content: left;
-                width: 100%;
+            .profile {
+                text-align: center;
 
-                i {
-                    color: $gray-600;
-                    margin-right: 5px;
+                img {
+                    margin: 38px 0 10px 0;
                 }
 
-                &.active {
-                    background-color: $theme;
-                    color: #FFFFFF;
+                p {
+                    margin: 0 0 35px 0;
+                }
+            }
+
+            nav {
+
+                .btn-theme {
+                    text-decoration: none;
+                    padding: 10px 5px 10px 5px;
+                    color: $gray-800;
+                    font-weight: 600;
+                    background-color: #FFFFFF;
+                    justify-content: left;
+                    width: 100%;
 
                     i {
+                        color: $gray-600;
+                        margin-right: 5px;
+                    }
+
+                    &.active {
+                        background-color: $theme;
                         color: #FFFFFF;
+
+                        i {
+                            color: #FFFFFF;
+                        }
                     }
                 }
             }
         }
-    }
 
-    .details {
-        width: 100%;
+        .details {
+            width: 100%;
 
-        .password-info {
+            .password-info {
 
-            form {
-                padding: 24px;
+                form {
+                    padding: 24px;
+
+                    .alert {
+                        background-color: #ef444452;
+                        opacity: 0.8;
+                        color: $gray-900;
+                        margin: 0;
+                        max-width: 70%;
+                        text-align: center;
+                        font-weight: 700;
+                    }
+
+                    .success {
+                        background-color: lightgreen;
+                        opacity: 0.8;
+                        color: $gray-900;
+                        margin: 0;
+                        max-width: 70%;
+                        text-align: center;
+                        font-weight: 700;
+                    }
+
+                    h2 {
+                        margin: 52px 0 30px 0;
+                    }
+
+                    h5 {
+                        color: $theme;
+                        margin-bottom: 24px;
+                    }
+
+                    .content {
+                        display: grid;
+                        gap: 24px;
+                        grid-template-columns: 1fr;
+
+                        @include lg {
+                            display: grid;
+                            gap: 24px;
+                            grid-template-columns: 1fr 1fr;
+                            grid-template-areas: "current current" "new confirm" "buttons buttons";
+
+                            #form-currentpassword {
+                                grid-area: current;
+                            }
+
+                            #form-newpassword {
+                                grid-area: new;
+                            }
+
+                            #form-confirm {
+                                grid-area: confirm;
+                            }
+
+                            .form-buttons {
+                                grid-area: buttons;
+                                margin: 24px 0 40px 0;
+                                display: flex;
+                                gap: 20px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .delete {
+                margin: 40px 0 0 0;
+
+                form {
+                    padding: 24px;
+
+                    h5 {
+                        color: $theme;
+                    }
+
+                    p {
+                        margin: 10px 0 20px 0;
+                    }
+
+                    .content {
+
+                        #form-delete {
+                            margin: 24px 0;
+                        }
+                    }
+                }
 
                 .alert {
                     background-color: #ef444452;
@@ -69,90 +156,180 @@
                     text-align: center;
                     font-weight: 700;
                 }
-
-                .success {
-                    background-color: lightgreen;
-                    opacity: 0.8;
-                    color: $gray-900;
-                    margin: 0;
-                    max-width: 70%;
-                    text-align: center;
-                    font-weight: 700;
-                }
-
-                h2 {
-                    margin: 52px 0 30px 0;
-                }
-
-                h5 {
-                    color: $theme;
-                    margin-bottom: 24px;
-                }
-
-                .content {
-                    display: grid;
-                    gap: 24px;
-                    grid-template-columns: 1fr;
-
-                    @include lg {
-                        display: grid;
-                        gap: 24px;
-                        grid-template-columns: 1fr 1fr;
-                        grid-template-areas: "current current" "new confirm" "buttons buttons";
-
-                        #form-currentpassword {
-                            grid-area: current;
-                        }
-
-                        #form-newpassword {
-                            grid-area: new;
-                        }
-
-                        #form-confirm {
-                            grid-area: confirm;
-                        }
-
-                        .form-buttons {
-                            grid-area: buttons;
-                            margin: 24px 0 40px 0;
-                            display: flex;
-                            gap: 20px;
-                        }
-                    }
-                }
             }
         }
+    }
+}
 
-        .delete {
-            margin: 40px 0 0 0;
+.dark-mode {
 
-            form {
-                padding: 24px;
+    #account-security {
+        background-color: black;
+        padding: 0 0 70px 0;
 
-                h5 {
-                    color: $theme;
+        .container {
+            display: flex;
+            gap: 50px;
+
+            @include lg {
+                gap: 150px;
+            }
+
+            aside {
+                width: 30%;
+                border-right: 1px solid $gray-400;
+                padding: 0 5px;
+
+                .profile {
+                    text-align: center;
+
+                    img {
+                        margin: 38px 0 10px 0;
+                    }
+
+                    h5 {
+                        color: $gray-300;
+                    }
+
+                    p {
+                        color: $gray-500;
+                        margin: 0 0 35px 0;
+                    }
                 }
 
-                p {
-                    margin: 10px 0 20px 0;
-                }
+                nav {
 
-                .content {
+                    .btn-theme {
+                        text-decoration: none;
+                        padding: 10px 5px 10px 5px;
+                        color: $gray-800;
+                        font-weight: 600;
+                        background-color: black;
+                        color: $gray-500;
+                        justify-content: left;
+                        width: 100%;
 
-                    #form-delete {
-                        margin: 24px 0;
+                        i {
+                            color: $gray-500;
+                            margin-right: 5px;
+                        }
+
+                        &.active {
+                            background-color: $theme;
+                            color: #FFFFFF;
+
+                            i {
+                                color: #FFFFFF;
+                            }
+                        }
                     }
                 }
             }
 
-            .alert {
-                background-color: #ef444452;
-                opacity: 0.8;
-                color: $gray-900;
-                margin: 0;
-                max-width: 70%;
-                text-align: center;
-                font-weight: 700;
+            .details {
+                width: 100%;
+
+                .password-info {
+
+                    form {
+                        padding: 24px;
+
+                        .alert {
+                            background-color: #ef444452;
+                            opacity: 0.8;
+                            color: $gray-900;
+                            margin: 0;
+                            max-width: 70%;
+                            text-align: center;
+                            font-weight: 700;
+                        }
+
+                        .success {
+                            background-color: lightgreen;
+                            opacity: 0.8;
+                            color: $gray-900;
+                            margin: 0;
+                            max-width: 70%;
+                            text-align: center;
+                            font-weight: 700;
+                        }
+
+                        h2 {
+                            margin: 52px 0 30px 0;
+                        }
+
+                        h5 {
+                            color: $theme;
+                            margin-bottom: 24px;
+                        }
+
+                        .content {
+                            display: grid;
+                            gap: 24px;
+                            grid-template-columns: 1fr;
+
+                            @include lg {
+                                display: grid;
+                                gap: 24px;
+                                grid-template-columns: 1fr 1fr;
+                                grid-template-areas: "current current" "new confirm" "buttons buttons";
+
+                                #form-currentpassword {
+                                    grid-area: current;
+                                }
+
+                                #form-newpassword {
+                                    grid-area: new;
+                                }
+
+                                #form-confirm {
+                                    grid-area: confirm;
+                                }
+
+                                .form-buttons {
+                                    grid-area: buttons;
+                                    margin: 24px 0 40px 0;
+                                    display: flex;
+                                    gap: 20px;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .delete {
+                    margin: 40px 0 0 0;
+
+                    form {
+                        padding: 24px;
+
+                        h5 {
+                            color: $theme;
+                        }
+
+                        p {
+                            color: $gray-500;
+                            margin: 10px 0 20px 0;
+                        }
+
+                        .content {
+
+                            #form-delete {
+                                margin: 24px 0;
+                            }
+                        }
+                    }
+
+                    .alert {
+                        background-color: #ef444452;
+                        opacity: 0.8;
+                        color: $gray-900;
+                        margin: 0;
+                        max-width: 70%;
+                        text-align: center;
+                        font-weight: 700;
+                    }
+                }
             }
         }
     }

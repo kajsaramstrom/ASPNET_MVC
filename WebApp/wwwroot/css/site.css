@@ -4068,30 +4068,32 @@ footer .container .social-media {
 }
 
 #account-security {
+  padding: 0 0 70px 0;
+}
+#account-security .container {
   display: flex;
   gap: 50px;
-  margin: 0 0 70px 0;
 }
 @media (min-width: 992px) {
-  #account-security {
+  #account-security .container {
     gap: 150px;
   }
 }
-#account-security aside {
+#account-security .container aside {
   width: 30%;
   border-right: 1px solid #D4D7E5;
   padding: 0 5px;
 }
-#account-security aside .profile {
+#account-security .container aside .profile {
   text-align: center;
 }
-#account-security aside .profile img {
+#account-security .container aside .profile img {
   margin: 38px 0 10px 0;
 }
-#account-security aside .profile p {
+#account-security .container aside .profile p {
   margin: 0 0 35px 0;
 }
-#account-security aside nav .btn-theme {
+#account-security .container aside nav .btn-theme {
   text-decoration: none;
   padding: 10px 5px 10px 5px;
   color: #33354D;
@@ -4100,24 +4102,24 @@ footer .container .social-media {
   justify-content: left;
   width: 100%;
 }
-#account-security aside nav .btn-theme i {
+#account-security .container aside nav .btn-theme i {
   color: #9397AD;
   margin-right: 5px;
 }
-#account-security aside nav .btn-theme.active {
+#account-security .container aside nav .btn-theme.active {
   background-color: #6366F1;
   color: #FFFFFF;
 }
-#account-security aside nav .btn-theme.active i {
+#account-security .container aside nav .btn-theme.active i {
   color: #FFFFFF;
 }
-#account-security .details {
+#account-security .container .details {
   width: 100%;
 }
-#account-security .details .password-info form {
+#account-security .container .details .password-info form {
   padding: 24px;
 }
-#account-security .details .password-info form .alert {
+#account-security .container .details .password-info form .alert {
   background-color: rgba(239, 68, 68, 0.3215686275);
   opacity: 0.8;
   color: #0B0F19;
@@ -4126,7 +4128,7 @@ footer .container .social-media {
   text-align: center;
   font-weight: 700;
 }
-#account-security .details .password-info form .success {
+#account-security .container .details .password-info form .success {
   background-color: lightgreen;
   opacity: 0.8;
   color: #0B0F19;
@@ -4135,57 +4137,194 @@ footer .container .social-media {
   text-align: center;
   font-weight: 700;
 }
-#account-security .details .password-info form h2 {
+#account-security .container .details .password-info form h2 {
   margin: 52px 0 30px 0;
 }
-#account-security .details .password-info form h5 {
+#account-security .container .details .password-info form h5 {
   color: #6366F1;
   margin-bottom: 24px;
 }
-#account-security .details .password-info form .content {
+#account-security .container .details .password-info form .content {
   display: grid;
   gap: 24px;
   grid-template-columns: 1fr;
 }
 @media (min-width: 992px) {
-  #account-security .details .password-info form .content {
+  #account-security .container .details .password-info form .content {
     display: grid;
     gap: 24px;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: "current current" "new confirm" "buttons buttons";
   }
-  #account-security .details .password-info form .content #form-currentpassword {
+  #account-security .container .details .password-info form .content #form-currentpassword {
     grid-area: current;
   }
-  #account-security .details .password-info form .content #form-newpassword {
+  #account-security .container .details .password-info form .content #form-newpassword {
     grid-area: new;
   }
-  #account-security .details .password-info form .content #form-confirm {
+  #account-security .container .details .password-info form .content #form-confirm {
     grid-area: confirm;
   }
-  #account-security .details .password-info form .content .form-buttons {
+  #account-security .container .details .password-info form .content .form-buttons {
     grid-area: buttons;
     margin: 24px 0 40px 0;
     display: flex;
     gap: 20px;
   }
 }
-#account-security .details .delete {
+#account-security .container .details .delete {
   margin: 40px 0 0 0;
 }
-#account-security .details .delete form {
+#account-security .container .details .delete form {
   padding: 24px;
 }
-#account-security .details .delete form h5 {
+#account-security .container .details .delete form h5 {
   color: #6366F1;
 }
-#account-security .details .delete form p {
+#account-security .container .details .delete form p {
   margin: 10px 0 20px 0;
 }
-#account-security .details .delete form .content #form-delete {
+#account-security .container .details .delete form .content #form-delete {
   margin: 24px 0;
 }
-#account-security .details .delete .alert {
+#account-security .container .details .delete .alert {
+  background-color: rgba(239, 68, 68, 0.3215686275);
+  opacity: 0.8;
+  color: #0B0F19;
+  margin: 0;
+  max-width: 70%;
+  text-align: center;
+  font-weight: 700;
+}
+
+.dark-mode #account-security {
+  background-color: black;
+  padding: 0 0 70px 0;
+}
+.dark-mode #account-security .container {
+  display: flex;
+  gap: 50px;
+}
+@media (min-width: 992px) {
+  .dark-mode #account-security .container {
+    gap: 150px;
+  }
+}
+.dark-mode #account-security .container aside {
+  width: 30%;
+  border-right: 1px solid #D4D7E5;
+  padding: 0 5px;
+}
+.dark-mode #account-security .container aside .profile {
+  text-align: center;
+}
+.dark-mode #account-security .container aside .profile img {
+  margin: 38px 0 10px 0;
+}
+.dark-mode #account-security .container aside .profile h5 {
+  color: #E2E5F1;
+}
+.dark-mode #account-security .container aside .profile p {
+  color: #B4B7C9;
+  margin: 0 0 35px 0;
+}
+.dark-mode #account-security .container aside nav .btn-theme {
+  text-decoration: none;
+  padding: 10px 5px 10px 5px;
+  color: #33354D;
+  font-weight: 600;
+  background-color: black;
+  color: #B4B7C9;
+  justify-content: left;
+  width: 100%;
+}
+.dark-mode #account-security .container aside nav .btn-theme i {
+  color: #B4B7C9;
+  margin-right: 5px;
+}
+.dark-mode #account-security .container aside nav .btn-theme.active {
+  background-color: #6366F1;
+  color: #FFFFFF;
+}
+.dark-mode #account-security .container aside nav .btn-theme.active i {
+  color: #FFFFFF;
+}
+.dark-mode #account-security .container .details {
+  width: 100%;
+}
+.dark-mode #account-security .container .details .password-info form {
+  padding: 24px;
+}
+.dark-mode #account-security .container .details .password-info form .alert {
+  background-color: rgba(239, 68, 68, 0.3215686275);
+  opacity: 0.8;
+  color: #0B0F19;
+  margin: 0;
+  max-width: 70%;
+  text-align: center;
+  font-weight: 700;
+}
+.dark-mode #account-security .container .details .password-info form .success {
+  background-color: lightgreen;
+  opacity: 0.8;
+  color: #0B0F19;
+  margin: 0;
+  max-width: 70%;
+  text-align: center;
+  font-weight: 700;
+}
+.dark-mode #account-security .container .details .password-info form h2 {
+  margin: 52px 0 30px 0;
+}
+.dark-mode #account-security .container .details .password-info form h5 {
+  color: #6366F1;
+  margin-bottom: 24px;
+}
+.dark-mode #account-security .container .details .password-info form .content {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 992px) {
+  .dark-mode #account-security .container .details .password-info form .content {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "current current" "new confirm" "buttons buttons";
+  }
+  .dark-mode #account-security .container .details .password-info form .content #form-currentpassword {
+    grid-area: current;
+  }
+  .dark-mode #account-security .container .details .password-info form .content #form-newpassword {
+    grid-area: new;
+  }
+  .dark-mode #account-security .container .details .password-info form .content #form-confirm {
+    grid-area: confirm;
+  }
+  .dark-mode #account-security .container .details .password-info form .content .form-buttons {
+    grid-area: buttons;
+    margin: 24px 0 40px 0;
+    display: flex;
+    gap: 20px;
+  }
+}
+.dark-mode #account-security .container .details .delete {
+  margin: 40px 0 0 0;
+}
+.dark-mode #account-security .container .details .delete form {
+  padding: 24px;
+}
+.dark-mode #account-security .container .details .delete form h5 {
+  color: #6366F1;
+}
+.dark-mode #account-security .container .details .delete form p {
+  color: #B4B7C9;
+  margin: 10px 0 20px 0;
+}
+.dark-mode #account-security .container .details .delete form .content #form-delete {
+  margin: 24px 0;
+}
+.dark-mode #account-security .container .details .delete .alert {
   background-color: rgba(239, 68, 68, 0.3215686275);
   opacity: 0.8;
   color: #0B0F19;
