@@ -3928,18 +3928,20 @@ footer .container .social-media {
   padding: 0 0 70px 0;
 }
 #account-details .container {
-  display: flex;
-  gap: 50px;
+  display: block;
 }
 @media (min-width: 992px) {
   #account-details .container {
+    display: flex;
     gap: 150px;
   }
 }
-#account-details .container aside {
-  width: 30%;
-  border-right: 1px solid #D4D7E5;
-  padding: 0 5px 0 5px;
+@media (min-width: 992px) {
+  #account-details .container aside {
+    width: 30%;
+    border-right: 1px solid #D4D7E5;
+    padding: 0 5px 0 5px;
+  }
 }
 #account-details .container aside .profile {
   text-align: center;
@@ -3950,6 +3952,15 @@ footer .container .social-media {
 #account-details .container aside .profile p {
   margin: 0 0 35px 0;
 }
+#account-details .container aside nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+@media (min-width: 992px) {
+  #account-details .container aside nav {
+    display: block;
+  }
+}
 #account-details .container aside nav .btn-theme {
   text-decoration: none;
   padding: 10px 5px 10px 5px;
@@ -3957,7 +3968,11 @@ footer .container .social-media {
   font-weight: 600;
   background-color: #FFFFFF;
   justify-content: left;
-  width: 100%;
+}
+@media (min-width: 992px) {
+  #account-details .container aside nav .btn-theme {
+    width: 100%;
+  }
 }
 #account-details .container aside nav .btn-theme i {
   color: #9397AD;
@@ -3994,7 +4009,7 @@ footer .container .social-media {
 #account-details .container .details form .content #BasicInfo_Biography {
   padding-bottom: 66px;
 }
-@media (min-width: 992px) {
+@media (min-width: 768px) {
   #account-details .container .details form .content {
     display: grid;
     gap: 24px;
@@ -4021,11 +4036,16 @@ footer .container .social-media {
     font-weight: 600;
   }
   #account-details .container .details form .content .form-buttons {
+    display: grid;
+    grid-auto-rows: 1fr;
     grid-area: buttons;
     margin: 24px 0 40px 0;
-    display: flex;
     gap: 20px;
   }
+}
+#account-details .container .details form .content .form-buttons {
+  display: flex;
+  gap: 20px;
 }
 #account-details .container .details form .address-info {
   margin: 40px 0 0 0;
@@ -4071,24 +4091,29 @@ footer .container .social-media {
     gap: 20px;
   }
 }
+#account-details .container .details form .address-info form .content .form-buttons {
+  display: flex;
+  gap: 20px;
+}
 
 .dark-mode #account-details {
   background-color: black;
 }
 .dark-mode #account-details .container {
-  display: flex;
-  gap: 50px;
-  margin: 0 0 70px 0;
+  display: block;
 }
 @media (min-width: 992px) {
   .dark-mode #account-details .container {
+    display: flex;
     gap: 150px;
   }
 }
-.dark-mode #account-details .container aside {
-  width: 30%;
-  border-right: 1px solid #D4D7E5;
-  padding: 0 5px 0 5px;
+@media (min-width: 992px) {
+  .dark-mode #account-details .container aside {
+    width: 30%;
+    border-right: 1px solid #D4D7E5;
+    padding: 0 5px 0 5px;
+  }
 }
 .dark-mode #account-details .container aside .profile {
   text-align: center;
@@ -4145,10 +4170,7 @@ footer .container .social-media {
   gap: 24px;
   grid-template-columns: 1fr;
 }
-.dark-mode #account-details .container .details form .content #BasicInfo_Biography {
-  padding-bottom: 66px;
-}
-@media (min-width: 992px) {
+@media (min-width: 768px) {
   .dark-mode #account-details .container .details form .content {
     display: grid;
     gap: 24px;
@@ -4180,6 +4202,10 @@ footer .container .social-media {
     display: flex;
     gap: 20px;
   }
+}
+.dark-mode #account-details .container .details form .content .form-buttons {
+  display: flex;
+  gap: 20px;
 }
 .dark-mode #account-details .container .details form .address-info {
   margin: 40px 0 0 0;
@@ -4225,23 +4251,29 @@ footer .container .social-media {
     gap: 20px;
   }
 }
+.dark-mode #account-details .container .details form .address-info form .content .form-buttons {
+  display: flex;
+  gap: 20px;
+}
 
 #account-security {
   padding: 0 0 70px 0;
 }
 #account-security .container {
-  display: flex;
-  gap: 50px;
+  display: block;
 }
 @media (min-width: 992px) {
   #account-security .container {
+    display: flex;
     gap: 150px;
   }
 }
-#account-security .container aside {
-  width: 30%;
-  border-right: 1px solid #D4D7E5;
-  padding: 0 5px;
+@media (min-width: 992px) {
+  #account-security .container aside {
+    width: 30%;
+    border-right: 1px solid #D4D7E5;
+    padding: 0 5px 0 5px;
+  }
 }
 #account-security .container aside .profile {
   text-align: center;
@@ -4251,6 +4283,15 @@ footer .container .social-media {
 }
 #account-security .container aside .profile p {
   margin: 0 0 35px 0;
+}
+#account-security .container aside nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+@media (min-width: 992px) {
+  #account-security .container aside nav {
+    display: block;
+  }
 }
 #account-security .container aside nav .btn-theme {
   text-decoration: none;
@@ -4308,7 +4349,7 @@ footer .container .social-media {
   gap: 24px;
   grid-template-columns: 1fr;
 }
-@media (min-width: 992px) {
+@media (min-width: 768px) {
   #account-security .container .details .password-info form .content {
     display: grid;
     gap: 24px;
@@ -4330,6 +4371,10 @@ footer .container .social-media {
     display: flex;
     gap: 20px;
   }
+}
+#account-security .container .details .password-info form .content .form-buttons {
+  display: flex;
+  gap: 20px;
 }
 #account-security .container .details .delete {
   margin: 40px 0 0 0;
@@ -4361,18 +4406,20 @@ footer .container .social-media {
   padding: 0 0 70px 0;
 }
 .dark-mode #account-security .container {
-  display: flex;
-  gap: 50px;
+  display: block;
 }
 @media (min-width: 992px) {
   .dark-mode #account-security .container {
+    display: flex;
     gap: 150px;
   }
 }
-.dark-mode #account-security .container aside {
-  width: 30%;
-  border-right: 1px solid #D4D7E5;
-  padding: 0 5px;
+@media (min-width: 992px) {
+  .dark-mode #account-security .container aside {
+    width: 30%;
+    border-right: 1px solid #D4D7E5;
+    padding: 0 5px 0 5px;
+  }
 }
 .dark-mode #account-security .container aside .profile {
   text-align: center;
@@ -4386,6 +4433,15 @@ footer .container .social-media {
 .dark-mode #account-security .container aside .profile p {
   color: #B4B7C9;
   margin: 0 0 35px 0;
+}
+.dark-mode #account-security .container aside nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+@media (min-width: 992px) {
+  .dark-mode #account-security .container aside nav {
+    display: block;
+  }
 }
 .dark-mode #account-security .container aside nav .btn-theme {
   text-decoration: none;
@@ -4433,6 +4489,7 @@ footer .container .social-media {
   font-weight: 700;
 }
 .dark-mode #account-security .container .details .password-info form h2 {
+  color: #E2E5F1;
   margin: 52px 0 30px 0;
 }
 .dark-mode #account-security .container .details .password-info form h5 {
@@ -4444,7 +4501,7 @@ footer .container .social-media {
   gap: 24px;
   grid-template-columns: 1fr;
 }
-@media (min-width: 992px) {
+@media (min-width: 768px) {
   .dark-mode #account-security .container .details .password-info form .content {
     display: grid;
     gap: 24px;
@@ -4466,6 +4523,10 @@ footer .container .social-media {
     display: flex;
     gap: 20px;
   }
+}
+.dark-mode #account-security .container .details .password-info form .content .form-buttons {
+  display: flex;
+  gap: 20px;
 }
 .dark-mode #account-security .container .details .delete {
   margin: 40px 0 0 0;
@@ -4497,17 +4558,20 @@ footer .container .social-media {
   padding: 0 0 70px 0;
 }
 #account-savedcourses .container {
-  display: flex;
-  gap: 50px;
+  display: block;
 }
-@media (min-width: 992px) {
+@media (min-width: 1200px) {
   #account-savedcourses .container {
+    display: flex;
     gap: 150px;
   }
 }
-#account-savedcourses .container aside {
-  border-right: 1px solid #D4D7E5;
-  padding: 0 20px 0 0;
+@media (min-width: 1200px) {
+  #account-savedcourses .container aside {
+    width: 30%;
+    border-right: 1px solid #D4D7E5;
+    padding: 0 5px 0 5px;
+  }
 }
 #account-savedcourses .container aside .profile {
   text-align: center;
@@ -4517,6 +4581,15 @@ footer .container .social-media {
 }
 #account-savedcourses .container aside .profile p {
   margin: 0 0 35px 0;
+}
+#account-savedcourses .container aside nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+@media (min-width: 1200px) {
+  #account-savedcourses .container aside nav {
+    display: block;
+  }
 }
 #account-savedcourses .container aside nav .btn-theme {
   text-decoration: none;
@@ -4559,6 +4632,7 @@ footer .container .social-media {
 #account-savedcourses .container .details form .content {
   display: grid;
   grid-template-columns: 1fr;
+  gap: 20px;
 }
 @media (min-width: 992px) {
   #account-savedcourses .container .details form .content {
@@ -4729,18 +4803,20 @@ footer .container .social-media {
   background-color: black;
 }
 .dark-mode #account-savedcourses .container {
-  display: flex;
-  gap: 50px;
-  margin: 0 0 70px 0;
+  display: block;
 }
-@media (min-width: 992px) {
+@media (min-width: 1200px) {
   .dark-mode #account-savedcourses .container {
+    display: flex;
     gap: 150px;
   }
 }
-.dark-mode #account-savedcourses .container aside {
-  border-right: 1px solid #D4D7E5;
-  padding: 0 20px 0 0;
+@media (min-width: 1200px) {
+  .dark-mode #account-savedcourses .container aside {
+    width: 30%;
+    border-right: 1px solid #D4D7E5;
+    padding: 0 5px 0 5px;
+  }
 }
 .dark-mode #account-savedcourses .container aside .profile {
   text-align: center;
@@ -4754,6 +4830,16 @@ footer .container .social-media {
 .dark-mode #account-savedcourses .container aside .profile p {
   color: #B4B7C9;
   margin: 0 0 35px 0;
+}
+.dark-mode #account-savedcourses .container aside nav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+@media (min-width: 1200px) {
+  .dark-mode #account-savedcourses .container aside nav {
+    display: block;
+  }
 }
 .dark-mode #account-savedcourses .container aside nav .btn-theme {
   text-decoration: none;

@@ -2,17 +2,20 @@
     padding: 0 0 70px 0;
 
     .container {
-        display: flex;
-        gap: 50px;
+        display: block;
 
         @include lg {
+            display: flex;
             gap: 150px;
         }
 
         aside {
-            width: 30%;
-            border-right: 1px solid $gray-400;
-            padding: 0 5px;
+
+            @include lg {
+                width: 30%;
+                border-right: 1px solid $gray-400;
+                padding: 0 5px 0 5px;
+            }
 
             .profile {
                 text-align: center;
@@ -27,6 +30,12 @@
             }
 
             nav {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+
+                @include lg {
+                    display: block;
+                }
 
                 .btn-theme {
                     text-decoration: none;
@@ -96,7 +105,7 @@
                         gap: 24px;
                         grid-template-columns: 1fr;
 
-                        @include lg {
+                        @include md {
                             display: grid;
                             gap: 24px;
                             grid-template-columns: 1fr 1fr;
@@ -120,6 +129,11 @@
                                 display: flex;
                                 gap: 20px;
                             }
+                        }
+
+                        .form-buttons {
+                            display: flex;
+                            gap: 20px;
                         }
                     }
                 }
@@ -168,17 +182,20 @@
         padding: 0 0 70px 0;
 
         .container {
-            display: flex;
-            gap: 50px;
+            display: block;
 
             @include lg {
+                display: flex;
                 gap: 150px;
             }
 
             aside {
-                width: 30%;
-                border-right: 1px solid $gray-400;
-                padding: 0 5px;
+
+                @include lg {
+                    width: 30%;
+                    border-right: 1px solid $gray-400;
+                    padding: 0 5px 0 5px;
+                }
 
                 .profile {
                     text-align: center;
@@ -198,6 +215,12 @@
                 }
 
                 nav {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+
+                    @include lg {
+                        display: block;
+                    }
 
                     .btn-theme {
                         text-decoration: none;
@@ -255,6 +278,7 @@
                         }
 
                         h2 {
+                            color: $gray-300;
                             margin: 52px 0 30px 0;
                         }
 
@@ -268,7 +292,7 @@
                             gap: 24px;
                             grid-template-columns: 1fr;
 
-                            @include lg {
+                            @include md {
                                 display: grid;
                                 gap: 24px;
                                 grid-template-columns: 1fr 1fr;
@@ -292,6 +316,11 @@
                                     display: flex;
                                     gap: 20px;
                                 }
+                            }
+
+                            .form-buttons {
+                                display: flex;
+                                gap: 20px;
                             }
                         }
                     }

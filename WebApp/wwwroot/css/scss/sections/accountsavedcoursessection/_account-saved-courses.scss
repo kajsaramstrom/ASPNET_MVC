@@ -2,16 +2,20 @@
     padding: 0 0 70px 0;
 
     .container {
-        display: flex;
-        gap: 50px;
+        display: block;
 
-        @include lg {
+        @include xl {
+            display: flex;
             gap: 150px;
         }
 
         aside {
-            border-right: 1px solid $gray-400;
-            padding: 0 20px 0 0;
+
+            @include xl {
+                width: 30%;
+                border-right: 1px solid $gray-400;
+                padding: 0 5px 0 5px;
+            }
 
             .profile {
                 text-align: center;
@@ -26,6 +30,12 @@
             }
 
             nav {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+
+                @include xl {
+                    display: block;
+                }
 
                 .btn-theme {
                     text-decoration: none;
@@ -80,6 +90,7 @@
                 .content {
                     display: grid;
                     grid-template-columns: 1fr;
+                    gap: 20px;
 
                     @include lg {
                         display: grid;
@@ -267,17 +278,20 @@
         background-color: black;
 
         .container {
-            display: flex;
-            gap: 50px;
-            margin: 0 0 70px 0;
+            display: block;
 
-            @include lg {
+            @include xl {
+                display: flex;
                 gap: 150px;
             }
 
             aside {
-                border-right: 1px solid $gray-400;
-                padding: 0 20px 0 0;
+
+                @include xl {
+                    width: 30%;
+                    border-right: 1px solid $gray-400;
+                    padding: 0 5px 0 5px;
+                }
 
                 .profile {
                     text-align: center;
@@ -297,6 +311,13 @@
                 }
 
                 nav {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 20px;
+
+                    @include xl {
+                        display: block;
+                    }
 
                     .btn-theme {
                         text-decoration: none;

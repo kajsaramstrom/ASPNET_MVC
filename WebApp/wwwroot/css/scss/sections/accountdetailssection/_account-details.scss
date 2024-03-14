@@ -2,17 +2,20 @@
     padding: 0 0 70px 0;
 
     .container {
-        display: flex;
-        gap: 50px;
+        display: block;
 
         @include lg {
+            display: flex;
             gap: 150px;
         }
 
         aside {
-            width: 30%;
-            border-right: 1px solid $gray-400;
-            padding: 0 5px 0 5px;
+
+            @include lg {
+                width: 30%;
+                border-right: 1px solid $gray-400;
+                padding: 0 5px 0 5px;
+            }
 
             .profile {
                 text-align: center;
@@ -27,6 +30,12 @@
             }
 
             nav {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+
+                @include lg {
+                    display: block;
+                }
 
                 .btn-theme {
                     text-decoration: none;
@@ -35,7 +44,10 @@
                     font-weight: 600;
                     background-color: #FFFFFF;
                     justify-content: left;
-                    width: 100%;
+
+                    @include lg {
+                        width: 100%;
+                    }
 
                     i {
                         color: $gray-600;
@@ -82,7 +94,7 @@
                         padding-bottom: 66px;
                     }
 
-                    @include lg {
+                    @include md {
                         display: grid;
                         gap: 24px;
                         grid-template-columns: 1fr 1fr;
@@ -114,11 +126,17 @@
                         }
 
                         .form-buttons {
+                            display: grid;
+                            grid-auto-rows: 1fr;
                             grid-area: buttons;
                             margin: 24px 0 40px 0;
-                            display: flex;
                             gap: 20px;
                         }
+                    }
+
+                    .form-buttons {
+                        display: flex;
+                        gap: 20px;
                     }
                 }
 
@@ -171,6 +189,11 @@
                                     gap: 20px;
                                 }
                             }
+
+                            .form-buttons {
+                                display: flex;
+                                gap: 20px;
+                            }
                         }
                     }
                 }
@@ -185,18 +208,20 @@
         background-color: black;
 
         .container {
-            display: flex;
-            gap: 50px;
-            margin: 0 0 70px 0;
+            display: block;
 
             @include lg {
+                display: flex;
                 gap: 150px;
             }
 
             aside {
-                width: 30%;
-                border-right: 1px solid $gray-400;
-                padding: 0 5px 0 5px;
+
+                @include lg {
+                    width: 30%;
+                    border-right: 1px solid $gray-400;
+                    padding: 0 5px 0 5px;
+                }
 
                 .profile {
                     text-align: center;
@@ -268,11 +293,7 @@
                         gap: 24px;
                         grid-template-columns: 1fr;
 
-                        #BasicInfo_Biography {
-                            padding-bottom: 66px;
-                        }
-
-                        @include lg {
+                        @include md {
                             display: grid;
                             gap: 24px;
                             grid-template-columns: 1fr 1fr;
@@ -309,6 +330,11 @@
                                 display: flex;
                                 gap: 20px;
                             }
+                        }
+
+                        .form-buttons {
+                            display: flex;
+                            gap: 20px;
                         }
                     }
 
@@ -360,6 +386,11 @@
                                         display: flex;
                                         gap: 20px;
                                     }
+                                }
+
+                                .form-buttons {
+                                    display: flex;
+                                    gap: 20px;
                                 }
                             }
                         }
