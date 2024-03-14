@@ -94,3 +94,111 @@ form {
         }
     }
 }
+
+
+.dark-mode {
+
+    form {
+        width: 100%;
+        display: grid;
+
+        .input-group {
+            display: grid;
+        }
+
+        .checkbox {
+
+            span {
+                display: block;
+
+                &.field-validation-error {
+                    position: static;
+                    top: 0;
+                    right: 0;
+                    @include text-s;
+                    color: $danger;
+                }
+            }
+        }
+
+        .checkbox-group {
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            gap: 0.5rem;
+
+            input[type="checkbox"] {
+                height: 1.2rem;
+                width: 1.2rem;
+                border: 1px solid red;
+            }
+
+            label {
+                margin: 0;
+                font-weight: 400;
+            }
+        }
+
+        textarea {
+            background-color: black;
+            color: $gray-500;
+            padding: 1rem;
+            border-radius: 6px !important;
+            border: 1px solid $gray-400;
+            resize: none;
+
+            &::placeholder {
+                color: $gray-600;
+                opacity: 0.4;
+            }
+
+            &.input-valid-error {
+                border: 1px solid $danger !important;
+                color: $danger;
+
+                &::placeholder {
+                    color: $danger;
+                }
+            }
+        }
+
+        label {
+            color: $gray-500;
+            margin-bottom: 0.188rem;
+            font-weight: 700;
+        }
+
+        span {
+
+            &.field-validation-error {
+                position: absolute;
+                top: 0;
+                right: 0;
+                @include text-s;
+                color: $danger !important;
+            }
+        }
+
+        input {
+            background: black;
+            color: $gray-500;
+            padding: 1rem;
+            border-radius: 6px !important;
+            border: 1px solid $gray-400;
+
+            &::placeholder {
+                color: $gray-600;
+                opacity: 0.4;
+            }
+
+            &.input-validation-error {
+                border: 1px solid $danger !important;
+                color: $danger;
+
+                &::placeholder {
+                    color: $danger;
+                }
+            }
+        }
+    }
+}

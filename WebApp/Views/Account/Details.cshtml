@@ -3,8 +3,8 @@
     ViewData["Title"] = $"{Model.ProfileInfo.FirstName} {Model.ProfileInfo.LastName}";
 }
 
-<div class="container">
-    <section id="account-details">
+<section id="account-details">
+    <div class="container">
         <aside>
             <div class="profile">
                 <img src="~/images/images/@Model.ProfileInfo.ProfileImageUrl" alt="" />
@@ -134,8 +134,8 @@
                 </form>
             </section>
         </div>
-    </section>
-</div>
+    </div>
+</section>
 
 @await Html.PartialAsync("_ValidationScriptPartial")
 

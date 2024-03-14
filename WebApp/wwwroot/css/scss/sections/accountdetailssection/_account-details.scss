@@ -1,130 +1,263 @@
 #account-details {
-    display: flex;
-    gap: 50px;
-    margin: 0 0 70px 0;
+    padding: 0 0 70px 0;
 
-    @include lg {
-        gap: 150px;
-    }
+    .container {
+        display: flex;
+        gap: 50px;
 
-    aside {
-        width: 30%;
-        border-right: 1px solid $gray-400;
-        padding: 0 5px 0 5px;
-
-        .profile {
-            text-align: center;
-
-            img {
-                margin: 38px 0 10px 0;
-            }
-
-            p {
-                margin: 0 0 35px 0;
-            }
+        @include lg {
+            gap: 150px;
         }
 
-        nav {
+        aside {
+            width: 30%;
+            border-right: 1px solid $gray-400;
+            padding: 0 5px 0 5px;
 
-            .btn-theme {
-                text-decoration: none;
-                padding: 10px 5px 10px 5px;
-                color: $gray-800;
-                font-weight: 600;
-                background-color: #FFFFFF;
-                justify-content: left;
-                width: 100%;
+            .profile {
+                text-align: center;
 
-                i {
-                    color: $gray-600;
-                    margin-right: 2px;
+                img {
+                    margin: 38px 0 10px 0;
                 }
 
-                &.active {
-                    background-color: $theme;
-                    color: #FFFFFF;
+                p {
+                    margin: 0 0 35px 0;
+                }
+            }
+
+            nav {
+
+                .btn-theme {
+                    text-decoration: none;
+                    padding: 10px 5px 10px 5px;
+                    color: $gray-800;
+                    font-weight: 600;
+                    background-color: #FFFFFF;
+                    justify-content: left;
+                    width: 100%;
 
                     i {
+                        color: $gray-600;
+                        margin-right: 2px;
+                    }
+
+                    &.active {
+                        background-color: $theme;
                         color: #FFFFFF;
+
+                        i {
+                            color: #FFFFFF;
+                        }
+                    }
+                }
+            }
+        }
+
+        .details {
+            width: 100%;
+
+            form {
+                padding: 24px;
+
+                .error {
+                    text-align: center;
+                    color: $danger;
+                }
+
+                h2 {
+                    margin: 52px 0 30px 0;
+                }
+
+                h5 {
+                    color: $theme;
+                }
+
+                .content {
+                    display: grid;
+                    gap: 24px;
+                    grid-template-columns: 1fr;
+
+                    #BasicInfo_Biography {
+                        padding-bottom: 66px;
+                    }
+
+                    @include lg {
+                        display: grid;
+                        gap: 24px;
+                        grid-template-columns: 1fr 1fr;
+                        grid-template-areas: "firstname lastname" "email phone" "bio bio" "buttons buttons";
+
+                        #form-firstname {
+                            grid-area: firstname;
+                        }
+
+                        #form-lastname {
+                            grid-area: lastname;
+                        }
+
+                        #form-email {
+                            grid-area: email;
+                        }
+
+                        #form-phone {
+                            grid-area: phone;
+                        }
+
+                        #form-bio {
+                            grid-area: bio;
+
+                            span {
+                                color: $gray-600;
+                                font-weight: 600;
+                            }
+                        }
+
+                        .form-buttons {
+                            grid-area: buttons;
+                            margin: 24px 0 40px 0;
+                            display: flex;
+                            gap: 20px;
+                        }
+                    }
+                }
+
+                .address-info {
+                    margin: 40px 0 0 0;
+
+                    form {
+                        padding: 24px;
+
+                        h5 {
+                            color: $theme;
+                        }
+
+                        .content {
+                            display: grid;
+                            gap: 24px;
+                            grid-auto-columns: 1fr;
+
+                            @include lg {
+                                display: grid;
+                                gap: 24px;
+                                grid-auto-columns: 1fr 1fr;
+                                grid-template-areas: "line_1 line_1" "line_2 line_2" "post city" "buttons buttons";
+
+                                #form-addressline-1 {
+                                    grid-area: line_1;
+                                }
+
+                                #form-addressline-2 {
+                                    grid-area: line_2;
+
+                                    span {
+                                        color: $gray-600;
+                                        font-weight: 600;
+                                    }
+                                }
+
+                                #form-postalcode {
+                                    grid-area: post;
+                                }
+
+                                #form-city {
+                                    grid-area: city;
+                                }
+
+                                .form-buttons {
+                                    grid-area: buttons;
+                                    margin: 24px 0 40px 0;
+                                    display: flex;
+                                    gap: 20px;
+                                }
+                            }
+                        }
                     }
                 }
             }
         }
     }
+}
 
-    .details {
-        width: 100%;
+.dark-mode {
 
-        form {
-            padding: 24px;
+    #account-details {
+        background-color: black;
 
-            .error {
-                text-align: center;
-                color: $danger;
+        .container {
+            display: flex;
+            gap: 50px;
+            margin: 0 0 70px 0;
+
+            @include lg {
+                gap: 150px;
             }
 
-            h2 {
-                margin: 52px 0 30px 0;
-            }
+            aside {
+                width: 30%;
+                border-right: 1px solid $gray-400;
+                padding: 0 5px 0 5px;
 
-            h5 {
-                color: $theme;
-            }
+                .profile {
+                    text-align: center;
 
-            .content {
-                display: grid;
-                gap: 24px;
-                grid-template-columns: 1fr;
+                    img {
+                        margin: 38px 0 10px 0;
+                    }
 
-                #BasicInfo_Biography {
-                    padding-bottom: 66px;
+                    h5 {
+                        color: $gray-300;
+                    }
+
+                    p {
+                        color: $gray-500;
+                        margin: 0 0 35px 0;
+                    }
                 }
 
-                @include lg {
-                    display: grid;
-                    gap: 24px;
-                    grid-template-columns: 1fr 1fr;
-                    grid-template-areas: "firstname lastname" "email phone" "bio bio" "buttons buttons";
+                nav {
 
-                    #form-firstname {
-                        grid-area: firstname;
-                    }
+                    .btn-theme {
+                        text-decoration: none;
+                        padding: 10px 5px 10px 5px;
+                        color: $gray-500;
+                        font-weight: 600;
+                        background-color: black;
+                        justify-content: left;
+                        width: 100%;
 
-                    #form-lastname {
-                        grid-area: lastname;
-                    }
+                        i {
+                            color: $gray-500;
+                            margin-right: 2px;
+                        }
 
-                    #form-email {
-                        grid-area: email;
-                    }
+                        &.active {
+                            background-color: $theme;
+                            color: #FFFFFF;
 
-                    #form-phone {
-                        grid-area: phone;
-                    }
-
-                    #form-bio {
-                        grid-area: bio;
-
-                        span {
-                            color: $gray-600;
-                            font-weight: 600;
+                            i {
+                                color: #FFFFFF;
+                            }
                         }
                     }
-
-                    .form-buttons {
-                        grid-area: buttons;
-                        margin: 24px 0 40px 0;
-                        display: flex;
-                        gap: 20px;
-                    }
                 }
             }
 
-            .address-info {
-                margin: 40px 0 0 0;
+            .details {
+                width: 100%;
 
                 form {
                     padding: 24px;
+
+                    .error {
+                        text-align: center;
+                        color: $danger;
+                    }
+
+                    h2 {
+                        color: $gray-300;
+                        margin: 52px 0 30px 0;
+                    }
 
                     h5 {
                         color: $theme;
@@ -133,20 +266,36 @@
                     .content {
                         display: grid;
                         gap: 24px;
-                        grid-auto-columns: 1fr;
+                        grid-template-columns: 1fr;
+
+                        #BasicInfo_Biography {
+                            padding-bottom: 66px;
+                        }
 
                         @include lg {
                             display: grid;
                             gap: 24px;
-                            grid-auto-columns: 1fr 1fr;
-                            grid-template-areas: "line_1 line_1" "line_2 line_2" "post city" "buttons buttons";
+                            grid-template-columns: 1fr 1fr;
+                            grid-template-areas: "firstname lastname" "email phone" "bio bio" "buttons buttons";
 
-                            #form-addressline-1 {
-                                grid-area: line_1;
+                            #form-firstname {
+                                grid-area: firstname;
                             }
 
-                            #form-addressline-2 {
-                                grid-area: line_2;
+                            #form-lastname {
+                                grid-area: lastname;
+                            }
+
+                            #form-email {
+                                grid-area: email;
+                            }
+
+                            #form-phone {
+                                grid-area: phone;
+                            }
+
+                            #form-bio {
+                                grid-area: bio;
 
                                 span {
                                     color: $gray-600;
@@ -154,19 +303,64 @@
                                 }
                             }
 
-                            #form-postalcode {
-                                grid-area: post;
-                            }
-
-                            #form-city {
-                                grid-area: city;
-                            }
-
                             .form-buttons {
                                 grid-area: buttons;
                                 margin: 24px 0 40px 0;
                                 display: flex;
                                 gap: 20px;
+                            }
+                        }
+                    }
+
+                    .address-info {
+                        margin: 40px 0 0 0;
+
+                        form {
+                            padding: 24px;
+
+                            h5 {
+                                color: $theme;
+                            }
+
+                            .content {
+                                display: grid;
+                                gap: 24px;
+                                grid-auto-columns: 1fr;
+
+                                @include lg {
+                                    display: grid;
+                                    gap: 24px;
+                                    grid-auto-columns: 1fr 1fr;
+                                    grid-template-areas: "line_1 line_1" "line_2 line_2" "post city" "buttons buttons";
+
+                                    #form-addressline-1 {
+                                        grid-area: line_1;
+                                    }
+
+                                    #form-addressline-2 {
+                                        grid-area: line_2;
+
+                                        span {
+                                            color: $gray-600;
+                                            font-weight: 600;
+                                        }
+                                    }
+
+                                    #form-postalcode {
+                                        grid-area: post;
+                                    }
+
+                                    #form-city {
+                                        grid-area: city;
+                                    }
+
+                                    .form-buttons {
+                                        grid-area: buttons;
+                                        margin: 24px 0 40px 0;
+                                        display: flex;
+                                        gap: 20px;
+                                    }
+                                }
                             }
                         }
                     }
