@@ -84,3 +84,100 @@
         }
     }
 }
+
+.dark-mode {
+    #sign-in {
+        background-color: black;
+        height: 100%;
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+
+            @include lg {
+                width: 60%;
+            }
+
+            @include xl {
+                width: 40%;
+            }
+
+            form {
+                padding: 24px 24px;
+
+                @include lg {
+                    padding: 137px 0 60px 0;
+                }
+
+                .error {
+                    text-align: center;
+                    color: $danger;
+                }
+
+                h1 {
+                    color: $gray-300;
+
+                    @include lg {
+                        color: $gray-300;
+                        margin: 0 0 16px 0;
+                    }
+                }
+
+                p {
+                    color: $gray-500;
+
+                    @include lg {
+                        color: $gray-500;
+                        margin: 0 0 25px 0;
+                    }
+                }
+
+                .content {
+                    display: grid;
+                    gap: 24px;
+                    grid-template-columns: 1fr;
+
+                    #form-email {
+                    }
+
+                    #form-password {
+                    }
+
+                    #form-remember {
+                    }
+
+                    #form-button {
+                    }
+
+                    #form-forgot-password {
+                        text-align: center;
+                    }
+                }
+
+                hr {
+                    margin: 20px 0;
+                }
+
+                .signinwithfacebook-google {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+
+                    h6 {
+                        color: $gray-300;
+                        text-align: center;
+                        margin: 0 0 24px 0;
+                    }
+
+                    .button {
+                        display: flex;
+                        gap: 24px;
+                    }
+                }
+            }
+        }
+    }
+}

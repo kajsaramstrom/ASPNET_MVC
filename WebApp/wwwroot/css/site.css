@@ -3690,6 +3690,83 @@ footer .container .social-media {
   gap: 24px;
 }
 
+.dark-mode #sign-in {
+  background-color: black;
+  height: 100%;
+}
+.dark-mode #sign-in .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+@media (min-width: 992px) {
+  .dark-mode #sign-in .container {
+    width: 60%;
+  }
+}
+@media (min-width: 1200px) {
+  .dark-mode #sign-in .container {
+    width: 40%;
+  }
+}
+.dark-mode #sign-in .container form {
+  padding: 24px 24px;
+}
+@media (min-width: 992px) {
+  .dark-mode #sign-in .container form {
+    padding: 137px 0 60px 0;
+  }
+}
+.dark-mode #sign-in .container form .error {
+  text-align: center;
+  color: #EF4444;
+}
+.dark-mode #sign-in .container form h1 {
+  color: #E2E5F1;
+}
+@media (min-width: 992px) {
+  .dark-mode #sign-in .container form h1 {
+    color: #E2E5F1;
+    margin: 0 0 16px 0;
+  }
+}
+.dark-mode #sign-in .container form p {
+  color: #B4B7C9;
+}
+@media (min-width: 992px) {
+  .dark-mode #sign-in .container form p {
+    color: #B4B7C9;
+    margin: 0 0 25px 0;
+  }
+}
+.dark-mode #sign-in .container form .content {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1fr;
+}
+.dark-mode #sign-in .container form .content #form-forgot-password {
+  text-align: center;
+}
+.dark-mode #sign-in .container form hr {
+  margin: 20px 0;
+}
+.dark-mode #sign-in .container form .signinwithfacebook-google {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.dark-mode #sign-in .container form .signinwithfacebook-google h6 {
+  color: #E2E5F1;
+  text-align: center;
+  margin: 0 0 24px 0;
+}
+.dark-mode #sign-in .container form .signinwithfacebook-google .button {
+  display: flex;
+  gap: 24px;
+}
+
 #sign-up {
   height: 100%;
 }
