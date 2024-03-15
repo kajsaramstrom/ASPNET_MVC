@@ -9,7 +9,7 @@
             justify-content: center;
             align-items: center;
 
-            img {
+            .image {
                 height: 192px;
             }
 
@@ -22,8 +22,39 @@
                 font-weight: 400;
                 margin: 0 0 30px 0;
             }
+        }
+    }
+}
 
-            a {}
+.dark-mode {
+
+    #error {
+        background-color: black;
+
+        .container {
+            padding: 223px 0 62px 0;
+
+            .content {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                .image {
+                    height: 192px;
+                }
+
+                h1 {
+                    color: $gray-300;
+                    margin: 55px 0 10px 0;
+                }
+
+                h5 {
+                    color: $gray-300;
+                    font-weight: 400;
+                    margin: 0 0 30px 0;
+                }
+            }
         }
     }
 }
