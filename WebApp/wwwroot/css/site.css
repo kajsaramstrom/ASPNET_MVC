@@ -471,7 +471,7 @@ form label {
 }
 form span.field-validation-error {
   position: absolute;
-  top: 0;
+  bottom: -20px;
   right: 0;
   line-height: 160%;
   font-weight: 400;
@@ -479,6 +479,11 @@ form span.field-validation-error {
   font-family: "Manrope", sans-serif;
   font-size: 14px !important;
   color: #EF4444 !important;
+}
+@media (min-width: 1400px) {
+  form span.field-validation-error {
+    top: 0;
+  }
 }
 form input {
   padding: 1rem;

@@ -68,10 +68,14 @@ form {
 
         &.field-validation-error {
             position: absolute;
-            top: 0;
+            bottom: -20px;
             right: 0;
             @include text-s;
             color: $danger !important;
+
+            @include xxl {
+                top: 0;
+            }
         }
     }
 
