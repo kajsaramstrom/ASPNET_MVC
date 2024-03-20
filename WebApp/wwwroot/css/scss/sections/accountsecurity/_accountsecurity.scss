@@ -72,9 +72,9 @@
                     padding: 24px;
 
                     .alert {
-                        background-color: #ef444452;
+                        text-align: center;
                         opacity: 0.8;
-                        color: $gray-900;
+                        color: $danger;
                         margin: 0;
                         max-width: 70%;
                         text-align: center;
@@ -82,9 +82,9 @@
                     }
 
                     .success {
-                        background-color: lightgreen;
+                        text-align: center;
                         opacity: 0.8;
-                        color: $gray-900;
+                        color: lightgreen;
                         margin: 0;
                         max-width: 70%;
                         text-align: center;

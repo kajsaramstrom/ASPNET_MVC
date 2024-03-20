@@ -5,22 +5,22 @@ namespace WebApp.Models;
 public class NewsletterModel
 {
     [Display(Name = "Daily Newsletter", Order = 0)]
-    public bool CheckboxOne { get; set; } = false;
+    public bool DailyNewsletter { get; set; } = false;
 
     [Display(Name = "Advertising Updates", Order = 1)]
-    public bool CheckboxTwo { get; set; } = false;
+    public bool AdvertisingUpdates { get; set; } = false;
 
     [Display(Name = "Week in Review", Order = 2)]
-    public bool CheckboxThree { get; set; } = false;
+    public bool WeekinReview { get; set; } = false;
 
     [Display(Name = "Event Updates", Order = 3)]
-    public bool CheckboxFour { get; set; } = false;
+    public bool EventUpdates { get; set; } = false;
 
-    [Display(Name = "Startups Weekly", Order = 4)]
-    public bool CheckboxFive { get; set; } = false;
+    [Display(Name = "StartupsWeekly", Order = 4)]
+    public bool StartupsWeekly { get; set; } = false;
 
     [Display(Name = "Podcasts", Order = 5)]
-    public bool CheckboxSix { get; set; } = false;
+    public bool Podcasts { get; set; } = false;
 
     [Display(Prompt = "Your Email", Order = 6)]
     [DataType(DataType.EmailAddress)]

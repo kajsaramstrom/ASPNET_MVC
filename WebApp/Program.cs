@@ -1,7 +1,6 @@
 using Infrastructure.Context;
 using Infrastructure.Entities;
 using Infrastructure.Helpers.Middlewares;
-using Infrastructure.Repositories;
 using Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<DataContext>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer")));
+builder.Services.AddHttpClient();
 builder.Services.AddDefaultIdentity<UserEntity>(x =>
 {
     x.User.RequireUniqueEmail = true;

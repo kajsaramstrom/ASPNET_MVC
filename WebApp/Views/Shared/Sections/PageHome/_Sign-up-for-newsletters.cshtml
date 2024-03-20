@@ -13,33 +13,33 @@
 
                 <div class="checkbox-group">
                     <div>
-                        <input asp-for="Newsletter.CheckboxOne" />
-                        <label asp-for="Newsletter.CheckboxOne"></label>
+                        <input asp-for="Newsletter.DailyNewsletter" />
+                        <label asp-for="Newsletter.DailyNewsletter"></label>
                     </div>
 
                     <div>
-                        <input asp-for="Newsletter.CheckboxTwo" />
-                        <label asp-for="Newsletter.CheckboxTwo"></label>
+                        <input asp-for="Newsletter.AdvertisingUpdates" />
+                        <label asp-for="Newsletter.AdvertisingUpdates"></label>
                     </div>
 
                     <div>
-                        <input asp-for="Newsletter.CheckboxThree" />
-                        <label asp-for="Newsletter.CheckboxThree"></label>
+                        <input asp-for="Newsletter.WeekinReview" />
+                        <label asp-for="Newsletter.WeekinReview"></label>
                     </div>
 
                     <div>
-                        <input asp-for="Newsletter.CheckboxFour" />
-                        <label asp-for="Newsletter.CheckboxFour"></label>
+                        <input asp-for="Newsletter.EventUpdates" />
+                        <label asp-for="Newsletter.EventUpdates"></label>
                     </div>
 
                     <div>
-                        <input asp-for="Newsletter.CheckboxFive" />
-                        <label asp-for="Newsletter.CheckboxFive"></label>
+                        <input asp-for="Newsletter.StartupsWeekly" />
+                        <label asp-for="Newsletter.StartupsWeekly"></label>
                     </div>
 
                     <div>
-                        <input asp-for="Newsletter.CheckboxSix" />
-                        <label asp-for="Newsletter.CheckboxSix"></label>
+                        <input asp-for="Newsletter.Podcasts" />
+                        <label asp-for="Newsletter.Podcasts"></label>
                     </div>
                 </div>
             </div>
@@ -56,6 +56,33 @@
                 <p><span>*</span> Yes, I agree to the <a class="blue-link" href="#">terms</a> and <a class="blue-link" href="#">privacy policy</a>.</p>
             </div>
         </form>
+
+        <span class="information">
+            @if (ViewData["Status"]?.ToString() == "Created")
+            {
+                <span class="alert alert-success">
+                    You have been subscribed
+                </span>
+            }
+            else if (ViewData["Status"]?.ToString() == "AlreadyExists")
+            {
+                <span class="alert alert-warning">
+                    You have already subscribed
+                </span>
+            }
+            else if (ViewData["Status"]?.ToString() == "Invalid")
+            {
+                <span class="alert alert-danger">
+                    You must enter an valid email address
+                </span>
+            }
+            else if (ViewData["Status"]?.ToString() == "ConnectionFailed")
+            {
+                <span class="alert alert-danger">
+                    Unable to contact the server. Please try later.
+                </span>
+            }
+        </span>
     </div>
 </section>
 

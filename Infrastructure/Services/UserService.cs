@@ -1,29 +1,28 @@
-﻿using Infrastructure.Context;
-using Infrastructure.Entities;
-using Infrastructure.Factories;
-using Infrastructure.Helpers;
-using Infrastructure.Models;
-using Infrastructure.Repositories;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using System.Runtime.CompilerServices;
+﻿//using Infrastructure.Context;
+//using Infrastructure.Entities;
+//using Infrastructure.Factories;
+//using Infrastructure.Helpers;
+//using Infrastructure.Models;
+//using Microsoft.AspNetCore.Identity;
+//using Microsoft.EntityFrameworkCore;
+//using System.Runtime.CompilerServices;
 
-namespace Infrastructure.Services;
+//namespace Infrastructure.Services;
 
-public class UserService
-{
-    public readonly UserRepository _repository;
-    public readonly AddressService _addressService;
-    private readonly DataContext _context;
-    private readonly UserManager<UserEntity> _userManager;
+//public class UserService
+//{
+//    public readonly UserRepository _repository;
+//    public readonly AddressService _addressService;
+//    private readonly DataContext _context;
+//    private readonly UserManager<UserEntity> _userManager;
 
-    public UserService(UserRepository repository, AddressService addressService, DataContext context, UserManager<UserEntity> userManager)
-    {
-        _repository = repository;
-        _addressService = addressService;
-        _context = context;
-        _userManager = userManager;
-    }
+//    public UserService(UserRepository repository, AddressService addressService, DataContext context, UserManager<UserEntity> userManager)
+//    {
+//        _repository = repository;
+//        _addressService = addressService;
+//        _context = context;
+//        _userManager = userManager;
+//    }
 
     //public async Task<bool> UpdatedUserAsync(UserEntity user)
     //{
@@ -75,4 +74,4 @@ public class UserService
     //        return ResponseFactory.Error(ex.Message);
     //    }
     //}
-}
+//}

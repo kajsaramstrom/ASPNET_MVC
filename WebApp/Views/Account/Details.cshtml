@@ -98,6 +98,10 @@
 
                 <form method="post" asp-controller="Account" asp-action="Details" novalidate>
 
+                    <div class="error">
+                        @ViewData["ErrorMessage"]
+                    </div>
+
                     <h5>Address Info</h5>
 
                     <div class="content">

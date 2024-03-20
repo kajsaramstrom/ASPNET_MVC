@@ -7,6 +7,14 @@ html, body {
   font-size: 16px;
 }
 
+body {
+  color-scheme: light;
+}
+
+body.dark-mode {
+  color-scheme: dark;
+}
+
 .text-xs {
   line-height: 160%;
   font-weight: 400;
@@ -3996,10 +4004,6 @@ footer .container .social-media {
 #account-details .container .details form {
   padding: 24px;
 }
-#account-details .container .details form .error {
-  text-align: center;
-  color: #EF4444;
-}
 #account-details .container .details form h2 {
   margin: 52px 0 30px 0;
 }
@@ -4325,18 +4329,18 @@ footer .container .social-media {
   padding: 24px;
 }
 #account-security .container .details .password-info form .alert {
-  background-color: rgba(239, 68, 68, 0.3215686275);
+  text-align: center;
   opacity: 0.8;
-  color: #0B0F19;
+  color: #EF4444;
   margin: 0;
   max-width: 70%;
   text-align: center;
   font-weight: 700;
 }
 #account-security .container .details .password-info form .success {
-  background-color: lightgreen;
+  text-align: center;
   opacity: 0.8;
-  color: #0B0F19;
+  color: lightgreen;
   margin: 0;
   max-width: 70%;
   text-align: center;

@@ -2,7 +2,6 @@
 using Infrastructure.Entities;
 using Infrastructure.Factories;
 using Infrastructure.Models;
-using Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Services;
