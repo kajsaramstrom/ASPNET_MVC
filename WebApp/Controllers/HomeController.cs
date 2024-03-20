@@ -50,7 +50,7 @@ public class HomeController(HttpClient httpClient) : Controller
                     if (json != null)
                     {
                         var content = new StringContent(json, Encoding.UTF8, "application/json");
-                        var response = await _httpClient.PostAsync("https://localhost:7183/api/subscriber", content);
+                        var response = await _httpClient.PostAsync("https://localhost:7183/api/subscriber?key=NDA0OTY0ZjQtNjcwNC00ZjIzLWI2MTMtZmRiMDgzOTA5OTQ2", content);
 
                         if (response.IsSuccessStatusCode)
                         {
@@ -58,10 +58,13 @@ public class HomeController(HttpClient httpClient) : Controller
                         }
                         else if (response.StatusCode == System.Net.HttpStatusCode.Conflict)
                         {
-                            ViewData["Status"] = "AlreadyExists.";
+                            ViewData["Status"] = "AlreadyExists";
+                        }
+                        else if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
+                        {
+                            ViewData["Status"] = "Unauthorized";
                         }
                     }
-                    Console.WriteLine("faielnd");
                 }
             }
             catch
@@ -71,7 +74,7 @@ public class HomeController(HttpClient httpClient) : Controller
         }
         else
         {
-            ViewData["Status"] = "Failed";
+            ViewData["Status"] = "Invalid";
         }
 
         return RedirectToAction("Index");

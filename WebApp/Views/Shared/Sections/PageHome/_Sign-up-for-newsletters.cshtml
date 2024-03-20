@@ -82,6 +82,12 @@
                     Unable to contact the server. Please try later.
                 </span>
             }
+            else if (ViewData["Status"]?.ToString() == "Unauthorized")
+            {
+                <span class="alert alert-danger">
+                    Something went wrong. Please contact web admin.
+                </span>
+            }
         </span>
     </div>
 </section>
