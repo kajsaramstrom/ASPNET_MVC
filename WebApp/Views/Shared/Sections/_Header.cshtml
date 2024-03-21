@@ -6,13 +6,17 @@
 
         <div id="menu" class="hide">
             <nav>
-                <a class="menu-link" asp-controller="Home" asp-action="Index">Overview</a>
-                <a class="menu-link" asp-controller="Home" asp-action="Index">Features</a>
-                <a class="menu-link" asp-controller="Contact" asp-action="Index">Contact</a>
-
                 @if (_signInManager.IsSignedIn(User))
                 {
-                    <a class="menu-link" asp-controller="Courses" asp-action="Index">Courses</a>
+                    <a class="menu-link" asp-controller="Home" asp-action="Index">Overview</a>
+                    <a class="menu-link" asp-controller="Course" asp-action="Courses">Courses</a>
+                    <a class="menu-link" asp-controller="Contact" asp-action="Index">Contact</a>
+                }
+                else
+                {
+                    <a class="menu-link" asp-controller="Home" asp-action="Index">Overview</a>
+                    <a class="menu-link" asp-controller="Home" asp-action="Index">Features</a>
+                    <a class="menu-link" asp-controller="Contact" asp-action="Index">Contact</a>
                 }
             </nav>
         </div>
@@ -64,7 +68,7 @@
                         <div id="profileDropdownMenuMobile" class="dropdown-menu-mobile" style="display: none;">
                             <div class="menu-link">
                                 <a class="menu-link" asp-controller="Home" asp-action="Index">Overview</a>
-                                <a class="menu-link" asp-controller="Courses" asp-action="Index">Courses</a>
+                                <a class="menu-link" asp-controller="Course" asp-action="Courses">Courses</a>
                                 <a class="menu-link" asp-controller="Contact" asp-action="Index">Contact</a>
                             </div>
                             <a asp-controller="Account" asp-action="Details" class="dropdown-item-mobile btn-theme"><i class="fa-regular fa-gear"></i>Details</a>

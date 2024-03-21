@@ -1,0 +1,93 @@
+﻿@model CourseViewModel
+
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+
+<section id="courses-section">
+    <div class="container">
+        <div class="links">
+            <div class="gray-link">
+                <a class="gray-link" href="home.html"><i class="fa-regular fa-house"></i> Home</a>
+            </div>
+
+            <img src="/images/icon/Vector.svg">
+
+            <div class="blue-link">
+                <a class="blue-link" href="courses.html">Courses</a>
+            </div>
+        </div>
+
+        <div class="title-with-input">
+            <div class="title">
+                <h1>Courses</h1>
+            </div>
+
+            <div class="input">
+                <form action="#">
+                    <select class="select">
+                        <option value="">All categories</option>
+                        <option value="1">All categories</option>
+                        <option value="2">All categories</option>
+                        <option value="3">All categories</option>
+                        <option value="4">All categories</option>
+                    </select>
+                    <input type="text" name="search-query" placeholder="Search courses">
+                    <a href="#"><i class="fa-regular fa-magnifying-glass"></i></a>
+                </form>
+            </div>
+        </div>
+
+        <div class="content">
+                @foreach (var course in Model.Courses)
+                {
+                    <div class="box">
+                        <a href="#">
+                            @if(course.IsBestSeller == true)
+                            {
+                                <img class="bestseller" src="/images/icon/bestseller-icon.svg">
+                            }
+
+                            <img class="icon" src="/images/icon/courses-icon.svg">
+                            <img class="image" src="@course.CourseImageUrl">
+
+                            <div class="info">
+                                <h5>@course.Title</h5>
+                                <p class="author">@course.Author</p>
+
+                                <div class="price-discount">
+                                    @if(course.DiscountPrice != null)
+                                    {
+                                        <p class="red">$@course.DiscountPrice</p>
+                                        <p class="gray">$@course.Price</p>
+                                    }
+                                    else
+                                    {
+                                        <p class="price">$@course.Price</p>
+                                    }
+                                </div>
+
+                                <div class="line"></div>
+
+                                <div class="info-under">
+                                    <p><i class="fa-regular fa-clock"></i> @course.Hours hours</p>
+                                    <p><i class="fa-regular fa-thumbs-up"></i> @String.Format("{0:0.##}%", course.LikesInPercent) @String.Format("({0:0.0#}K)", course.LikesInNumbers)</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                }
+
+        </div>
+
+        <div class="buttons">
+            <a class="white" href="#"><i class="fa-solid fa-chevron-left"></i></a>
+            <a class="white" href="#">1</a>
+            <a class="gray" href="#">2</a>
+            <a class="theme" href="#">3</a>
+            <a class="white" href="#">4</a>
+            <a class="white" href="#"><i class="fa-solid fa-chevron-right"></i></a>
+        </div>
+    </div>
+</section>

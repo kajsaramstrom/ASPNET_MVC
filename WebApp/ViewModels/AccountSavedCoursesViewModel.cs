@@ -6,7 +6,7 @@ public class AccountSavedCoursesViewModel
 {
     public string Title { get; set; } = "Account Saved Courses";
 
-    public CoursesModel Courses { get; set; } = new CoursesModel();
+    public CourseModel Courses { get; set; } = new CourseModel();
 
     public AccountDetailsBasicInfoModel BasicInfo { get; set; } = new AccountDetailsBasicInfoModel()
     {
