@@ -4,7 +4,7 @@
     <div class="container">
         <a id="logo" asp-controller="Home" asp-action="Index"></a>
 
-        <div id="menu" class="hide">
+        <div id="menu">
             <nav>
                 @if (_signInManager.IsSignedIn(User))
                 {
@@ -30,7 +30,7 @@
             <span>Dark</span>
         </div>
 
-        <div id="account-buttons" class="hide">
+        <div id="account-buttons">
 
             @if (_signInManager.IsSignedIn(User))
             {

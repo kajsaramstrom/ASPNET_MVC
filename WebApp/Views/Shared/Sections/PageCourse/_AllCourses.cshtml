@@ -9,13 +9,13 @@
     <div class="container">
         <div class="links">
             <div class="gray-link">
-                <a class="gray-link" href="home.html"><i class="fa-regular fa-house"></i> Home</a>
+                <a class="gray-link" asp-controller="Home" asp-action="Index"><i class="fa-regular fa-house"></i> Home</a>
             </div>
 
             <img src="/images/icon/Vector.svg">
 
             <div class="blue-link">
-                <a class="blue-link" href="courses.html">Courses</a>
+                <a class="blue-link" asp-controller="Course" asp-action="Courses">Courses</a>
             </div>
         </div>
 
@@ -49,7 +49,7 @@
                                 <img class="bestseller" src="/images/icon/bestseller-icon.svg">
                             }
 
-                            <img class="icon" src="/images/icon/courses-icon.svg">
+                            <button class="icon" asp-controller="Course" asp-action="SaveCourse"><i class="fa-regular fa-bookmark"></i> </button>
                             <img class="image" src="@course.CourseImageUrl">
 
                             <div class="info">

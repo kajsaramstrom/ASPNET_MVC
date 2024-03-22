@@ -864,7 +864,7 @@ header .container .mobile-account-buttons .dropdown-mobile.open .dropdown-menu {
   display: block;
   padding: 0.3rem 2rem;
   text-decoration: none;
-  color: black;
+  color: white;
   transition: background-color 0.3s;
   margin-top: 0.5rem;
 }
@@ -926,7 +926,7 @@ header .container .mobile-account-buttons .dropdown-mobile.open .dropdown-menu {
   display: block;
   padding: 0.3rem 2rem;
   text-decoration: none;
-  color: black;
+  color: white;
   transition: background-color 0.3s;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
@@ -2542,6 +2542,7 @@ footer .container .social-media {
 #courses-section .container .content .box {
   position: relative;
   margin: 45px 0 0 0;
+  border-radius: 10px;
 }
 @media (min-width: 1200px) {
   #courses-section .container .content .box {
@@ -2560,10 +2561,23 @@ footer .container .social-media {
   position: absolute;
   top: 15px;
   right: 10px;
+  background-color: white;
+  color: #0B0F19;
+  position: absolute;
+  border-radius: 4rem;
+  width: 2rem;
+  height: 2rem;
+  border: none;
+}
+#courses-section .container .content .box a .icon:hover {
+  background-color: #6366F1;
+  color: white;
 }
 #courses-section .container .content .box a .image {
   height: auto;
   width: 100%;
+  border-top-left-radius: 10px !important;
+  border-top-right-radius: 10px !important;
 }
 #courses-section .container .content .box a .info {
   width: 385px;
@@ -2773,7 +2787,7 @@ footer .container .social-media {
 }
 @media (min-width: 992px) {
   .dark-mode #courses-section .container .title-with-input .input form a {
-    top: 15px;
+    top: 10px;
     right: 18px;
   }
 }
@@ -2796,6 +2810,7 @@ footer .container .social-media {
   background-color: #0B0F19;
   position: relative;
   margin: 45px 0 0 0;
+  border-radius: 10px !important;
 }
 @media (min-width: 1200px) {
   .dark-mode #courses-section .container .content .box {
@@ -2814,10 +2829,23 @@ footer .container .social-media {
   position: absolute;
   top: 15px;
   right: 10px;
+  background-color: white;
+  color: #0B0F19;
+  position: absolute;
+  border-radius: 4rem;
+  width: 2rem;
+  height: 2rem;
+  border: none;
+}
+.dark-mode #courses-section .container .content .box a .icon:hover {
+  background-color: #6366F1;
+  color: white;
 }
 .dark-mode #courses-section .container .content .box a .image {
   height: auto;
   width: 100%;
+  border-top-left-radius: 10px !important;
+  border-top-right-radius: 10px !important;
 }
 .dark-mode #courses-section .container .content .box a .info {
   width: 385px;
@@ -2881,7 +2909,7 @@ footer .container .social-media {
 .dark-mode #courses-section .container .content .box:hover {
   transition: all 0.15s ease-in-out;
   cursor: pointer;
-  box-shadow: 0px 4px 9px -1px rgba(19, 16, 34, 0.03), 0px 4.4px 20px -1px rgba(19, 16, 34, 0.05);
+  box-shadow: 0px 8px 18px -8px rgba(99, 102, 241, 0.9);
 }
 .dark-mode #courses-section .container .buttons {
   display: flex;
@@ -2914,6 +2942,9 @@ footer .container .social-media {
   border-radius: 6px;
 }
 
+#work-with-us {
+  padding-bottom: 60px;
+}
 #work-with-us .container {
   background: #F3F6FF;
   display: block;
@@ -2984,6 +3015,7 @@ footer .container .social-media {
 
 .dark-mode #work-with-us {
   background-color: black;
+  padding-bottom: 60px;
 }
 .dark-mode #work-with-us .container {
   background-color: #0B0F19;
@@ -3051,6 +3083,8 @@ footer .container .social-media {
   justify-content: center;
   align-items: center;
   padding: 75px 0 30px 0;
+}
+.dark-mode #work-with-us .container .content-right .image {
   width: 100%;
   height: auto;
 }
