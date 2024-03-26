@@ -25,7 +25,7 @@
             </div>
 
             <div class="input">
-                <form action="#">
+                <form method="get" action="@Url.Action("Courses", "Course")">
                     <select class="select">
                         <option value="">All categories</option>
                         <option value="1">All categories</option>
@@ -33,8 +33,8 @@
                         <option value="3">All categories</option>
                         <option value="4">All categories</option>
                     </select>
-                    <input type="text" name="search-query" placeholder="Search courses">
-                    <a href="#"><i class="fa-regular fa-magnifying-glass"></i></a>
+                    <input type="text" name="searchString" placeholder="Search courses">
+                    <button type="submit"><i class="fa-regular fa-magnifying-glass"></i></button>
                 </form>
             </div>
         </div>

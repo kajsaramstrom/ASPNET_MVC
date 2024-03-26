@@ -12,17 +12,19 @@ public class CourseController(HttpClient httpClient) : Controller
     private readonly HttpClient _httpClient = httpClient;
 
     [HttpGet]
-    public async Task<IActionResult> Courses()
+    public async Task<IActionResult> Courses(string searchString)
     {
         try
         {
-
             var viewModel = new CourseViewModel();
             viewModel.Courses = await PopulateCourses();
-            if (viewModel == null || !viewModel.Courses.Any())
+
+            if (!String.IsNullOrEmpty(searchString))
             {
-                return NoContent();
+                viewModel.Courses = viewModel.Courses.Where(s => s.Title.ToLower().Contains(searchString.ToLower()));
             }
+
+
             return View(viewModel);
         }
         catch
