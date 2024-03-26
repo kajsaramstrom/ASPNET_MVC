@@ -146,13 +146,14 @@
                 margin: 10px;
 
                 p {
+                    margin: 0;
 
                     span {
                         color: $theme;
                     }
 
                     .blue-link {
-                        text-decoration: underline;
+                        text-decoration: none;
                     }
                 }
             }
@@ -321,7 +322,7 @@
                         }
 
                         .blue-link {
-                            text-decoration: underline;
+                            text-decoration: none;
                         }
                     }
                 }
