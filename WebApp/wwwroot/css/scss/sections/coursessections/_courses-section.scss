@@ -91,8 +91,10 @@
                         }
                     }
 
-                    a {
+                    button {
                         position: absolute;
+                        background-color: transparent;
+                        border: none;
                         color: $gray-800;
                         font-size: 1.2rem;
                         bottom: 7px;
@@ -104,7 +106,7 @@
                         }
 
                         @include lg {
-                            top: 15px;
+                            top: 12px;
                             right: 18px;
                         }
                     }
@@ -380,8 +382,10 @@
                             }
                         }
 
-                        a {
+                        button {
                             position: absolute;
+                            background-color: transparent;
+                            border: none;
                             color: $gray-500;
                             font-size: 1.2rem;
                             bottom: 7px;
@@ -393,7 +397,7 @@
                             }
 
                             @include lg {
-                                top: 10px;
+                                top: 12px;
                                 right: 18px;
                             }
                         }
