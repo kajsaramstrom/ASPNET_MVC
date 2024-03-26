@@ -10,7 +10,6 @@
 
         .unsubscribe-content {
 
-
             .unsubscribe-form {
                 display: flex;
                 flex-direction: column;
@@ -26,7 +25,6 @@
                     color: $gray-900;
                     font-weight: 700;
                     position: relative;
-
 
                     span {
 
@@ -226,7 +224,7 @@
                     .buttons {
                         display: flex;
                         margin-top: 2rem;
-                        margin-bottom: 2rem;
+                        padding-bottom: 12rem;
 
 
                         .btn-gray {

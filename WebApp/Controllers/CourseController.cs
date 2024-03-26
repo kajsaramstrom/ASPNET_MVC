@@ -37,7 +37,7 @@ public class CourseController(HttpClient httpClient) : Controller
     public async Task<IEnumerable<CourseModel>> PopulateCourses()
     {
 
-        string apiUrl = "https://localhost:7183/api/course";
+        string apiUrl = "https://localhost:7183/api/course?key=NDA0OTY0ZjQtNjcwNC00ZjIzLWI2MTMtZmRiMDgzOTA5OTQ2";
 
 
         var response = await _httpClient.GetAsync(apiUrl);
