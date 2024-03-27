@@ -110,8 +110,8 @@ public class HomeController(HttpClient httpClient) : Controller
                     ConfirmBox = unSubscribe.UnSubscribeModel.ConfirmBox,
                 };
 
-
-                string apiUrl = $"https://localhost:7183/api/Subscriber/email?email={unSub.Email}";
+                string apiKey = "NDA0OTY0ZjQtNjcwNC00ZjIzLWI2MTMtZmRiMDgzOTA5OTQ2";
+                string apiUrl = $"https://localhost:7183/api/Subscriber/email?email={unSub.Email}&key={apiKey}";
                 var response = await _httpClient.DeleteAsync(apiUrl);
 
 
