@@ -3622,6 +3622,13 @@ footer .container .social-media {
   gap: 20px;
   margin: 42px 0 0 0;
 }
+#contact-us .container .content-right-left .content-left .content-info .content .circle i {
+  background-color: white;
+  border: 1px solid #FFFFFF;
+  padding: 1rem;
+  border-radius: 50%;
+  color: #6366F1;
+}
 #contact-us .container .content-right-left .content-left .content-info .content .info {
   width: 306px;
 }
@@ -3767,9 +3774,6 @@ footer .container .social-media {
   color: #9397AD;
   margin-right: 4px;
 }
-.dark-mode #contact-us .container .links img {
-  margin: 0 12px 0 12px;
-}
 .dark-mode #contact-us .container .links .blue-link {
   color: #6366F1;
 }
@@ -3798,6 +3802,13 @@ footer .container .social-media {
   display: flex;
   gap: 20px;
   margin: 42px 0 0 0;
+}
+.dark-mode #contact-us .container .content-right-left .content-left .content-info .content .circle i {
+  background-color: black;
+  border: 1px solid #000000;
+  padding: 1rem;
+  border-radius: 50%;
+  color: #6366F1;
 }
 .dark-mode #contact-us .container .content-right-left .content-left .content-info .content .info {
   width: 306px;

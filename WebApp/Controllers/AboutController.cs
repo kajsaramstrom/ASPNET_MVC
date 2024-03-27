@@ -1,10 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using System.Text;
+using WebApp.Models;
 using WebApp.ViewModels;
 
 namespace WebApp.Controllers
 {
-    public class AboutController : Controller
+    public class AboutController(HttpClient httpClient) : Controller
     {
+        private readonly HttpClient _httpClient = httpClient;
+
         [Route("/contact")]
         public IActionResult Contact()
         {
@@ -15,12 +20,50 @@ namespace WebApp.Controllers
 
         [HttpPost]
         [Route("/contact")]
-        public IActionResult Contact(ContactViewModel viewModel)
+        public async Task<IActionResult> Contact(ContactViewModel viewModel)
         {
-            if (!ModelState.IsValid)
-                return View(viewModel);
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var newContactForm = new ContactModel
+                    {
+                        FullName = viewModel.Contact.FullName,
+                        Email = viewModel.Contact.Email,
+                        Service = viewModel.Contact.Service,
+                        Message = viewModel.Contact.Message
+                    };
 
-            return RedirectToAction(nameof(Contact));
+                    if (newContactForm != null)
+                    {
+                        var json = JsonConvert.SerializeObject(newContactForm);
+
+                        if (json != null)
+                        {
+                            var content = new StringContent(json, Encoding.UTF8, "application/json");
+                            var response = await _httpClient.PostAsync("https://localhost:7183/api/contact?key=NDA0OTY0ZjQtNjcwNC00ZjIzLWI2MTMtZmRiMDgzOTA5OTQ2", content);
+
+                            if (response.IsSuccessStatusCode)
+                            {
+                                TempData["Status"] = "You have succesfully sent your message";
+                                return RedirectToAction("Contact", "About");
+                            }
+                        }
+                    }
+                }
+                catch
+                {
+                    TempData["StatusFail"] = "ConnectionFailed";
+                    return RedirectToAction("Contact", "About");
+                }
+            }
+            else 
+            {
+                TempData["StatusFail"] = "Failed";
+                return RedirectToAction("Contact", "About");
+            }
+
+            return RedirectToAction("Contact", "About");
         }
     }
 }
