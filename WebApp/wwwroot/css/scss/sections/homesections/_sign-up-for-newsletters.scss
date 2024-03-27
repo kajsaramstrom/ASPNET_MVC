@@ -156,6 +156,28 @@
                         text-decoration: none;
                     }
                 }
+
+                .success {
+                    background-color: lightgreen;
+                    opacity: 0.8;
+                    color: $gray-900;
+                    margin: 0;
+                    max-width: 70%;
+                    text-align: center;
+                    font-weight: 700;
+                    min-width: 30%;
+                    min-height: 2rem;
+                }
+
+                .alert {
+                    background-color: #ef444452;
+                    opacity: 0.8;
+                    color: $gray-900;
+                    margin: 0;
+                    max-width: 70%;
+                    text-align: center;
+                    font-weight: 700;
+                }
             }
         }
     }
@@ -324,6 +346,33 @@
                         .blue-link {
                             text-decoration: none;
                         }
+                    }
+
+                    .success {
+                        display: flex;
+                        background-color: lightgreen;
+                        opacity: 0.8;
+                        color: $gray-900;
+                        margin: 0;
+                        margin-top: 20px;
+                        max-width: 70%;
+                        text-align: center;
+                        font-weight: 700;
+                        min-width: 30%;
+                        min-height: 4rem;
+                        border-radius: .3rem;
+                        justify-content: center;
+                        align-items: center;
+                    }
+
+                    .alert {
+                        background-color: #ef444452;
+                        opacity: 0.8;
+                        color: $gray-500;
+                        margin: 0;
+                        max-width: 70%;
+                        text-align: center;
+                        font-weight: 700;
                     }
                 }
             }

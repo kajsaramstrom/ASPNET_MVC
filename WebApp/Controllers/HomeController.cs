@@ -54,30 +54,30 @@ public class HomeController(HttpClient httpClient) : Controller
 
                         if (response.IsSuccessStatusCode)
                         {
-                            ViewData["Status"] = "Success";
+                            TempData["Status"] = "Success";
                         }
                         else if (response.StatusCode == System.Net.HttpStatusCode.Conflict)
                         {
-                            ViewData["Status"] = "AlreadyExists";
+                            TempData["Status"] = "AlreadyExists";
                         }
                         else if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
                         {
-                            ViewData["Status"] = "Unauthorized";
+                            TempData["Status"] = "Unauthorized";
                         }
                     }
                 }
             }
             catch
             {
-                ViewData["Status"] = "ConnectionFailed";
+                TempData["Status"] = "ConnectionFailed";
             }
         }
         else
         {
-            ViewData["Status"] = "Invalid";
+            TempData["Status"] = "Invalid";
         }
 
-        return RedirectToAction("Index");
+        return RedirectToAction("Index", "Home", null, "subscribe-action");
     }
 
     [Route("/error")]
