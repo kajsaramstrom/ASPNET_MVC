@@ -7,7 +7,7 @@
     <div class="container">
         <aside>
             <div class="profile">
-                <img src="@Model.BasicInfo.ProfileImage" alt="@($"{Model.BasicInfo.FirstName} {Model.BasicInfo.LastName}")" />
+                <img src="~/images/images/image-account-details.svg" alt="" />
                 <h5>@Model.BasicInfo.FirstName @Model.BasicInfo.LastName</h5>
                 <p>@Model.BasicInfo.Email</p>
             </div>
@@ -34,69 +34,47 @@
                     </div>
 
                     <div class="content">
+                        @foreach (var course in Model.Courses)
+                        {
+                            <div class="box">
+                                <a href="#">
+                                    @if (course.IsBestSeller == true)
+                                    {
+                                        <img class="bestseller" src="/images/icon/bestseller-icon.svg">
+                                    }
 
-                        <div class="box-remove">
-                            <a href="#">
-                                <img class="icon" src="images/icon/icon-saved-blue.svg" />
-                                <img class="icon-hand" src="~/images/icon/icon-hand.svg" />
-                                <img class="icon-remove" src="~/images/icon/remove.svg" />
-                                <img class="image" src="images/images/courses-image-7.svg" />
+                                    <form class="form" asp-controller="Course" asp-action="SaveCourse" method="post">
+                                        <input type="hidden" name="CourseId" value="@course.Id" />
+                                        <button class="icon" type="submit"><i class="fa-regular fa-bookmark"></i></button>
+                                    </form>
+                                    <img class="image" src="@course.CourseImageUrl">
 
-                                <div class="info">
-                                    <h5>Blender Character Creator v2.0 for Video Games Design</h5>
-                                    <p class="author">By Ralph Edwards</p>
-                                    <p class="price">$18.99</p>
+                                    <div class="info">
+                                        <h5>@course.Title</h5>
+                                        <p class="author">@course.Author</p>
 
-                                    <div class="line"></div>
+                                        <div class="price-discount">
+                                            @if (course.DiscountPrice != null)
+                                            {
+                                                <p class="red">$@course.DiscountPrice</p>
+                                                <p class="gray">$@course.Price</p>
+                                            }
+                                            else
+                                            {
+                                                <p class="price">$@course.Price</p>
+                                            }
+                                        </div>
 
-                                    <div class="info-under">
-                                        <p><i class="fa-regular fa-clock"></i> 160 hours</p>
-                                        <p><i class="fa-regular fa-thumbs-up"></i> 92% (3.1K)</p>
+                                        <div class="line"></div>
+
+                                        <div class="info-under">
+                                            <p><i class="fa-regular fa-clock"></i> @course.Hours hours</p>
+                                            <p><i class="fa-regular fa-thumbs-up"></i> @String.Format("{0:0.##}%", course.LikesInPercent) @String.Format("({0:0.0#}K)", course.LikesInNumbers)</p>
+                                        </div>
                                     </div>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="box">
-                            <a href="#">
-                                <img class="bestseller" src="images/icon/bestseller-icon.svg">
-                                <img class="icon" src="images/icon/courses-icon.svg">
-                                <img class="image" src="images/images/courses-image-1.svg">
-
-                                <div class="info">
-                                    <h5>Fullstack Web Developer Course from Scratch</h5>
-                                    <p class="author">By Robert Fox</p>
-                                    <p class="price">$12.50</p>
-
-                                    <div class="line"></div>
-
-                                    <div class="info-under">
-                                        <p><i class="fa-regular fa-clock"></i> 220 hours</p>
-                                        <p><i class="fa-regular fa-thumbs-up"></i> 94% (4.2K)</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="box">
-                            <a href="#">
-                                <img class="icon" src="images/icon/courses-icon.svg">
-                                <img class="image" src="images/images/courses-image-9.svg">
-
-                                <div class="info">
-                                    <h5>Learn JMETER from Scratch on Live Apps-Performance Testing</h5>
-                                    <p class="author">By Jenny Wilson</p>
-                                    <p class="price">$14.50</p>
-
-                                    <div class="line"></div>
-
-                                    <div class="info-under">
-                                        <p><i class="fa-regular fa-clock"></i> 160 hours</p>
-                                        <p><i class="fa-regular fa-thumbs-up"></i> 92% (3.1K)</p>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
+                                </a>
+                            </div>
+                        }
                     </div>
                 </form>
             </section>        

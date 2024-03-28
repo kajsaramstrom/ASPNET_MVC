@@ -3,17 +3,20 @@ using Infrastructure.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using System.Net.Http;
 using WebApp.Models;
 using WebApp.ViewModels;
 
 namespace WebApp.Controllers;
 
 [Authorize]
-public class AccountController(SignInManager<UserEntity> signInManager, UserManager<UserEntity> userManager, AddressService addressService) : Controller
+public class AccountController(SignInManager<UserEntity> signInManager, UserManager<UserEntity> userManager, AddressService addressService, HttpClient httpClient) : Controller
 {
     private readonly SignInManager<UserEntity> _signInManager = signInManager;
     private readonly UserManager<UserEntity> _userManager = userManager;
     private readonly AddressService _addressService = addressService;
+    private readonly HttpClient _httpClient = httpClient;
 
     #region Details
     [Route("/details")]
@@ -251,20 +254,59 @@ public class AccountController(SignInManager<UserEntity> signInManager, UserMana
 
     #region Saved
     [Route("/saved")]
-    public IActionResult SavedCourses()
+    public async Task<IActionResult> SavedCourses()
     {
-        var viewModel = new AccountSavedCoursesViewModel();
+        var viewmodel = new AccountSavedCoursesViewModel
+        {
+            BasicInfo = await PopulateBasicInfoAsync(),
+            Courses = await PopulateSavedCourses(),
+        };
 
-        return View(viewModel);
+        return View(viewmodel);
+    }
+
+    private async Task<IEnumerable<CourseModel>> PopulateSavedCourses()
+    {
+        string apiUrl = "https://localhost:7183/api/savedcourse/";
+        var user = await _userManager.GetUserAsync(User);
+
+        if (user != null)
+        {
+            var userDto = new UserToGetCoursesModel
+            {
+                Email = user.Email!
+            };
+
+            if (userDto.Email != null)
+            {
+                var response = await _httpClient.GetAsync($"{apiUrl}{userDto.Email}");
+
+                var json = await response.Content.ReadAsStringAsync();
+
+                var data = JsonConvert.DeserializeObject<IEnumerable<CourseModel>>(json);
+                if (data != null)
+                {
+                    return data;
+                }
+                else
+                {
+                    return Enumerable.Empty<CourseModel>();
+                }
+            }
+
+            return Enumerable.Empty<CourseModel>();
+        }
+
+        return Enumerable.Empty<CourseModel>();
     }
     #endregion
 
-    #region Courses
-    [HttpPost]
-    public IActionResult Courses(AccountSavedCoursesViewModel viewModel)
-    {
-        //_accountService.SavePassword(viewModel.Password);
-        return RedirectToAction(nameof(SavedCourses));
-    }
-    #endregion
+    //#region Courses
+    //[HttpPost]
+    //public IActionResult Courses(AccountSavedCoursesViewModel viewModel)
+    //{
+    //    //_accountService.SavePassword(viewModel.Password);
+    //    return RedirectToAction(nameof(SavedCourses));
+    //}
+    //#endregion
 }

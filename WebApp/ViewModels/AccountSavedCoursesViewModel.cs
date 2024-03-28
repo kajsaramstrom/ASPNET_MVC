@@ -6,13 +6,9 @@ public class AccountSavedCoursesViewModel
 {
     public string Title { get; set; } = "Account Saved Courses";
 
-    public CourseModel Courses { get; set; } = new CourseModel();
+    public CourseModel? Course { get; set; }
 
-    public AccountDetailsBasicInfoModel BasicInfo { get; set; } = new AccountDetailsBasicInfoModel()
-    {
-        ProfileImage = "images/images/image-account-details.svg",
-        FirstName = "John",
-        LastName = "Doe",
-        Email = "john.doe@domain.com"
-    };
+    public IEnumerable<CourseModel> Courses { get; set; } = new List<CourseModel>();
+
+    public AccountDetailsBasicInfoModel BasicInfo { get; set; } = new AccountDetailsBasicInfoModel();
 }

@@ -49,7 +49,10 @@
                                 <img class="bestseller" src="/images/icon/bestseller-icon.svg">
                             }
 
-                            <button class="icon" asp-controller="Course" asp-action="SaveCourse"><i class="fa-regular fa-bookmark"></i> </button>
+                            <form asp-controller="Course" asp-action="SaveCourse" method="post">
+                                <input type="hidden" name="CourseId" value="@course.Id" />
+                                <button class="icon" type="submit"><i class="fa-regular fa-bookmark"></i></button>
+                            </form>
                             <img class="image" src="@course.CourseImageUrl">
 
                             <div class="info">
@@ -78,7 +81,6 @@
                         </a>
                     </div>
                 }
-
         </div>
 
         <div class="buttons">

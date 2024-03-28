@@ -1,16 +1,57 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Infrastructure.Entities;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using System.Text;
 using WebApp.Models;
 using WebApp.ViewModels;
 
 namespace WebApp.Controllers;
 
 [Authorize]
-public class CourseController(HttpClient httpClient) : Controller
+public class CourseController(HttpClient httpClient, UserManager<UserEntity> userManager) : Controller
 {
     private readonly HttpClient _httpClient = httpClient;
+    private UserManager<UserEntity> _userManager = userManager;
 
+    #region SAVE COURSE
+    [HttpPost]
+    public async Task<IActionResult> SaveCourse(int CourseId)
+    {
+        string apiUrl = "https://localhost:7183/api/SavedCourse";
+
+        var user = await _userManager.GetUserAsync(User);
+
+        if (user != null)
+        {
+            var saveCourse = new SaveCourseModel
+            {
+                UserEmail = user.Email!,
+                CourseId = CourseId,
+            };
+
+            var json = JsonConvert.SerializeObject(saveCourse);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            var respsonse = await _httpClient.PostAsync(apiUrl, content);
+
+            if (respsonse.IsSuccessStatusCode)
+            {
+                TempData["Saved"] = "Course saved";
+                return Ok(respsonse);
+            }
+            else
+            {
+                TempData["Failed"] = "Something went wrong";
+                return NoContent();
+            }
+        }
+
+        return BadRequest();
+    }
+    #endregion
+
+    #region GET COURSE
     [HttpGet]
     public async Task<IActionResult> Courses(string searchString)
     {
@@ -55,4 +96,5 @@ public class CourseController(HttpClient httpClient) : Controller
             return Enumerable.Empty<CourseModel>();
         }
     }
+    #endregion
 }
