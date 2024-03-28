@@ -161,6 +161,19 @@
                             background-color: $theme;
                             color: white;
                         }
+
+                        .saved {
+                            position: absolute;
+                            top: 15px;
+                            right: 10px;
+                            background-color: $theme;
+                            color: white;
+                            position: absolute;
+                            border-radius: 4rem;
+                            width: 2rem;
+                            height: 2rem;
+                            border: none;
+                        }
                     }
 
                     .image {

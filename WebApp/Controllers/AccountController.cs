@@ -300,13 +300,4 @@ public class AccountController(SignInManager<UserEntity> signInManager, UserMana
         return Enumerable.Empty<CourseModel>();
     }
     #endregion
-
-    //#region Courses
-    //[HttpPost]
-    //public IActionResult Courses(AccountSavedCoursesViewModel viewModel)
-    //{
-    //    //_accountService.SavePassword(viewModel.Password);
-    //    return RedirectToAction(nameof(SavedCourses));
-    //}
-    //#endregion
 }

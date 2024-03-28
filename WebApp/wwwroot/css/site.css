@@ -2623,6 +2623,18 @@ footer .container .social-media {
   background-color: #6366F1;
   color: white;
 }
+#courses-section .container .content .box a .icon .saved {
+  position: absolute;
+  top: 15px;
+  right: 10px;
+  background-color: #6366F1;
+  color: white;
+  position: absolute;
+  border-radius: 4rem;
+  width: 2rem;
+  height: 2rem;
+  border: none;
+}
 #courses-section .container .content .box a .image {
   height: auto;
   width: 100%;

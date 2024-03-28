@@ -26,13 +26,10 @@
 
             <div class="input">
                 <form method="get" action="@Url.Action("Courses", "Course")">
-                    <select class="select">
-                        <option value="">All categories</option>
-                        <option value="1">Tech</option>
-                        <option value="2">Production</option>
-                        <option value="3">Code</option>
-                        <option value="4">Developement</option>
-                    </select>
+                    <select id="categorySelect" class="select" name="category">
+                        <option value="">All Categories</option>
+                        <option value="1">Best Sellers</option>
+                        <option value="2">Discounted courses</option>
                     <input type="text" name="searchString" placeholder="Search courses">
                     <button type="submit"><i class="fa-regular fa-magnifying-glass"></i></button>
                 </form>
@@ -51,7 +48,7 @@
 
                             <form asp-controller="Course" asp-action="SaveCourse" method="post">
                                 <input type="hidden" name="CourseId" value="@course.Id" />
-                                <button class="icon" type="submit"><i class="fa-regular fa-bookmark"></i></button>
+                            <button class="icon" type="submit"><i class="fa-regular fa-bookmark"></i></button>
                             </form>
                             <img class="image" src="@course.CourseImageUrl">
 
@@ -93,3 +90,5 @@
         </div>
     </div>
 </section>
+
+@await Html.PartialAsync("~/Views/Shared/_SelectCategory.cshtml")

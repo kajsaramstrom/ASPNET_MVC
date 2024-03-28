@@ -53,7 +53,7 @@ public class CourseController(HttpClient httpClient, UserManager<UserEntity> use
 
     #region GET COURSE
     [HttpGet]
-    public async Task<IActionResult> Courses(string searchString)
+    public async Task<IActionResult> Courses(string searchString, int? category)
     {
         try
         {
@@ -65,6 +65,20 @@ public class CourseController(HttpClient httpClient, UserManager<UserEntity> use
                 viewModel.Courses = viewModel.Courses.Where(s => s.Title.ToLower().Contains(searchString.ToLower()));
             }
 
+            if (category.HasValue)
+            {
+                switch (category)
+                {
+                    case 1:
+                        viewModel.Courses = viewModel.Courses.Where(c => c.IsBestSeller == true);
+                        break;
+                    case 2:
+                        viewModel.Courses = viewModel.Courses.Where(c => c.DiscountPrice != null);
+                        break;
+                    default:
+                        break;
+                }
+            }
 
             return View(viewModel);
         }

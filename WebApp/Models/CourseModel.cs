@@ -21,4 +21,6 @@ public class CourseModel
     public string? Author { get; set; }
 
     public string? CourseImageUrl { get; set; }
+
+    public bool IsSaved { get; set; } = false;
 }
