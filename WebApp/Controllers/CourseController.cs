@@ -62,7 +62,10 @@ public class CourseController(HttpClient httpClient, UserManager<UserEntity> use
 
             if (!String.IsNullOrEmpty(searchString))
             {
-                viewModel.Courses = viewModel.Courses.Where(s => s.Title.ToLower().Contains(searchString.ToLower()));
+                searchString = searchString.ToLower();
+                viewModel.Courses = viewModel.Courses.Where(s =>
+                    s.Title.ToLower().Contains(searchString) ||
+                    s.Author!.ToLower().Contains(searchString));
             }
 
             if (category.HasValue)
