@@ -122,4 +122,31 @@ public class CourseController(HttpClient httpClient, UserManager<UserEntity> use
         }
     }
     #endregion
+
+    #region SINGLE COURSE
+    [HttpGet]
+    public async Task<IActionResult> SingleCourse(int id)
+    {
+        string apiUrl = "https://localhost:7183/api/course/" + id;
+
+        var response = await _httpClient.GetAsync(apiUrl);
+
+        if (response.IsSuccessStatusCode)
+        {
+            var json = await response.Content.ReadAsStringAsync();
+            var courseModel = JsonConvert.DeserializeObject<CourseModel>(json);
+
+            if (courseModel != null)
+            {
+                var viewModel = new CourseViewModel
+                {
+                    Course = courseModel
+                };
+                return View(viewModel);
+            }
+        }
+
+        return RedirectToAction("Index", "Course");
+    }
+    #endregion
 }

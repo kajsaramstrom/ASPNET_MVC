@@ -40,7 +40,7 @@
                 @foreach (var course in Model.Courses)
                 {
                     <div class="box">
-                        <a href="#">
+                        <a asp-controller="Course" asp-action="SingleCourse" asp-route-id="@course.Id">
                             @if(course.IsBestSeller == true)
                             {
                                 <img class="bestseller" src="/images/icon/bestseller-icon.svg">
