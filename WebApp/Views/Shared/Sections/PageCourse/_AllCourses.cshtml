@@ -80,13 +80,18 @@
                 }
         </div>
 
-        <div class="buttons">
-            <a class="white" href="#"><i class="fa-solid fa-chevron-left"></i></a>
-            <a class="white" href="#">1</a>
-            <a class="gray" href="#">2</a>
-            <a class="theme" href="#">3</a>
-            <a class="white" href="#">4</a>
-            <a class="white" href="#"><i class="fa-solid fa-chevron-right"></i></a>
+        <div class="pagination">
+            <ul class="pagination-list">
+                @if (Model.Pagination.TotalPages > 1)
+                {
+                    @for (int i = 1; i <= Model.Pagination.TotalPages; i++)
+                    {
+                        <li class="pagination-item @(i == Model.Pagination.CurrentPage ? "active" : "")">
+                            <a href="@Url.Action("Courses", "Course", new { pageNumber = i, pageSize = Model.Pagination.PageSize })">@i</a>
+                        </li>
+                    }
+                }
+            </ul>
         </div>
     </div>
 </section>

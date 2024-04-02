@@ -2707,35 +2707,34 @@ footer .container .social-media {
   cursor: pointer;
   box-shadow: 0px 4px 9px -1px rgba(19, 16, 34, 0.03), 0px 4.4px 20px -1px rgba(19, 16, 34, 0.05);
 }
-#courses-section .container .buttons {
+#courses-section .container .pagination {
   display: flex;
   justify-content: center;
   text-align: center;
-  gap: 10px;
   padding: 40px 0 95px 0;
 }
-#courses-section .container .buttons .white {
-  color: #33354D;
+#courses-section .container .pagination .pagination-list {
+  display: flex;
+  list-style: none;
+  gap: 10px;
+}
+#courses-section .container .pagination .pagination-list .pagination-item a {
+  background: #B4B7C9;
+  color: white;
   font-size: 12px;
   font-weight: 600;
   padding: 10px 13px;
   border-radius: 6px;
 }
-#courses-section .container .buttons .gray {
-  background: #EFF2FC;
-  color: #33354D;
-  font-size: 12px;
-  font-weight: 600;
-  padding: 10px 13px;
-  border-radius: 6px;
+#courses-section .container .pagination .pagination-list .pagination-item a:hover {
+  transition: all 0.15s ease-in-out;
+  background: #E2E5F1;
+  color: #0B0F19;
+  text-decoration: none;
 }
-#courses-section .container .buttons .theme {
+#courses-section .container .pagination .pagination-list .pagination-item.active a {
   background: #6366F1;
-  color: #ffffff;
-  font-size: 12px;
-  font-weight: 600;
-  padding: 10px 13px;
-  border-radius: 6px;
+  color: white;
 }
 
 .dark-mode #courses-section {
@@ -2991,35 +2990,34 @@ footer .container .social-media {
   cursor: pointer;
   box-shadow: 0px 8px 18px -8px rgba(99, 102, 241, 0.9);
 }
-.dark-mode #courses-section .container .buttons {
+.dark-mode #courses-section .container .pagination {
   display: flex;
   justify-content: center;
   text-align: center;
-  gap: 10px;
   padding: 40px 0 95px 0;
 }
-.dark-mode #courses-section .container .buttons .white {
-  color: white;
+.dark-mode #courses-section .container .pagination .pagination-list {
+  display: flex;
+  list-style: none;
+  gap: 10px;
+}
+.dark-mode #courses-section .container .pagination .pagination-list .pagination-item a {
+  background: #33354D;
+  color: #F3F6FF;
   font-size: 12px;
   font-weight: 600;
   padding: 10px 13px;
   border-radius: 6px;
 }
-.dark-mode #courses-section .container .buttons .gray {
-  background: #0B0F19;
-  color: #B4B7C9;
-  font-size: 12px;
-  font-weight: 600;
-  padding: 10px 13px;
-  border-radius: 6px;
+.dark-mode #courses-section .container .pagination .pagination-list .pagination-item a:hover {
+  transition: all 0.15s ease-in-out;
+  background: #E2E5F1;
+  color: #0B0F19;
+  text-decoration: none;
 }
-.dark-mode #courses-section .container .buttons .theme {
+.dark-mode #courses-section .container .pagination .pagination-list .pagination-item.active a {
   background: #6366F1;
-  color: #ffffff;
-  font-size: 12px;
-  font-weight: 600;
-  padding: 10px 13px;
-  border-radius: 6px;
+  color: white;
 }
 
 #work-with-us {

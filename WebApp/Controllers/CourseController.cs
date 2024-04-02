@@ -53,7 +53,7 @@ public class CourseController(HttpClient httpClient, UserManager<UserEntity> use
 
     #region GET COURSE
     [HttpGet]
-    public async Task<IActionResult> Courses(string searchString, int? category)
+    public async Task<IActionResult> Courses(string searchString, int? category, int pageNumber = 1, int pageSize = 6)
     {
         try
         {
@@ -82,6 +82,14 @@ public class CourseController(HttpClient httpClient, UserManager<UserEntity> use
                         break;
                 }
             }
+
+            viewModel.Pagination.CurrentPage = pageNumber;
+            viewModel.Pagination.PageSize = pageSize;
+            viewModel.Pagination.TotalItems = viewModel.Courses.Count();
+
+            viewModel.Courses = viewModel.Courses.Skip((pageNumber - 1) * pageSize)
+                                                 .Take(pageSize)
+                                                 .ToList();
 
             return View(viewModel);
         }
