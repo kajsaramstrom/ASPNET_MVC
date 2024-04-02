@@ -47,7 +47,7 @@
 
                                     <form class="form" asp-controller="Account" asp-action="DeleteOneCourse" method="post">
                                         <input type="hidden" name="CourseId" value="@course.Id" />
-                                        <button class="icon" type="submit"><i class="fa-regular fa-trash"></i></button>
+                                        <button class="icon" title="Remove course" type="submit"><i class="fa-regular fa-trash"></i></button>
                                     </form>
                                     <img class="image" src="@course.CourseImageUrl">
 

@@ -131,6 +131,21 @@
                                 background-color: $theme;
                                 color: white;
                             }
+
+                            &:hover::before {
+                                content: attr(title);
+                                position: absolute;
+                                bottom: 50%;
+                                left: -190%;
+                                transform: translateX(-50%);
+                                background-color: black;
+                                color: $gray-500;
+                                padding: 5px 10px;
+                                border-radius: 5px;
+                                font-size: 12px;
+                                font-weight: 700;
+                                white-space: nowrap;
+                            }
                         }
 
                         .image {
@@ -362,6 +377,21 @@
                                     &:hover {
                                         background-color: $theme;
                                         color: white;
+                                    }
+
+                                    &:hover::before {
+                                        content: attr(title);
+                                        position: absolute;
+                                        bottom: 50%;
+                                        left: -190%;
+                                        transform: translateX(-50%);
+                                        background-color: black;
+                                        color: $gray-500;
+                                        padding: 5px 10px;
+                                        border-radius: 5px;
+                                        font-size: 12px;
+                                        font-weight: 700;
+                                        white-space: nowrap;
                                     }
                                 }
                             }
