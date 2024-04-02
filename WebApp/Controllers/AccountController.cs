@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Net.Http;
+using System.Text;
 using WebApp.Models;
 using WebApp.ViewModels;
 
@@ -298,6 +299,79 @@ public class AccountController(SignInManager<UserEntity> signInManager, UserMana
         }
 
         return Enumerable.Empty<CourseModel>();
+    }
+    #endregion
+
+    #region Delete Courses
+    [HttpPost]
+    public async Task<IActionResult> DeleteOneCourse(int courseId)
+    {
+        string apiUrl = "https://localhost:7183/api/savedcourse/";
+
+        var user = await _userManager.GetUserAsync(User);
+
+        if (user != null)
+        {
+            var saveCourse = new SaveCourseModel
+            {
+                UserEmail = user.Email!,
+                CourseId = courseId,
+            };
+
+            var json = JsonConvert.SerializeObject(saveCourse);
+
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            using (var request = new HttpRequestMessage(HttpMethod.Delete, $"{apiUrl}{user.Email}"))
+            {
+                request.Content = content;
+                var response = await _httpClient.SendAsync(request);
+                if (response.IsSuccessStatusCode)
+                {
+                    TempData["Deleted"] = "Course deleted";
+                    return RedirectToAction("SavedCourses", "Account");
+                }
+                else
+                {
+                    TempData["Failed"] = "Something went wrong";
+                    return RedirectToAction("SavedCourses", "Account");
+                }
+            }
+        }
+        return RedirectToAction("SavedCourses", "Account");
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> DeleteAllCourses()
+    {
+        string apiUrl = "https://localhost:7183/api/savedcourse/";
+
+        var user = await _userManager.GetUserAsync(User);
+
+        if (user != null)
+        {
+            var saveCourse = new SaveCourseModel
+            {
+                UserEmail = user.Email!,
+            };
+            var json = JsonConvert.SerializeObject(saveCourse);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            using (var request = new HttpRequestMessage(HttpMethod.Delete, $"{apiUrl}{user.Email}/courses"))
+            {
+                request.Content = content;
+                var response = await _httpClient.SendAsync(request);
+                if (response.IsSuccessStatusCode)
+                {
+                    TempData["Deleted"] = "All courses deleted";
+                    return RedirectToAction("SavedCourses", "Account");
+                }
+                else
+                {
+                    TempData["Failed"] = "Something went wrong";
+                    return RedirectToAction("SavedCourses", "Account");
+                }
+            }
+        }
+        return RedirectToAction("SavedCourses", "Account");
     }
     #endregion
 }

@@ -23,13 +23,15 @@
         <div class="details">
             <section class="basic-info">
 
-                <form method="post" asp-controller="Account" asp-action="SavedCourses" novalidate>
-
                     <div class="title-button">
                         <h2>Saved Items</h2>
 
-                        <div class="button">
-                            <button class="btn-red" type="submit"><i class="fa-regular fa-trash"></i> Delete all</button>
+                        <div class="formbutton">
+                            <form method="post" asp-controller="Account" asp-action="DeleteAllCourses" novalidate>
+                                <div class="button">
+                                    <button class="btn-red" type="submit"><i class="fa-regular fa-trash"></i> Delete all</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
 
@@ -43,7 +45,7 @@
                                         <img class="bestseller" src="/images/icon/bestseller-icon.svg">
                                     }
 
-                                    <form class="form" asp-controller="Account" asp-action="DeleteCourse" method="post">
+                                    <form class="form" asp-controller="Account" asp-action="DeleteOneCourse" method="post">
                                         <input type="hidden" name="CourseId" value="@course.Id" />
                                         <button class="icon" type="submit"><i class="fa-regular fa-trash"></i></button>
                                     </form>
@@ -76,7 +78,6 @@
                             </div>
                         }
                     </div>
-                </form>
             </section>        
         </div>
     </div>
