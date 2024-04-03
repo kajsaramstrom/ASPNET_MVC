@@ -3586,9 +3586,8 @@ footer .container .social-media {
   color: #6366F1;
 }
 #course-description .container .content-right {
-  background-color: #0B0F19;
   box-shadow: 0px 4px 9px -1px rgba(19, 16, 34, 0.03), 0px 4.4px 20px -1px rgba(19, 16, 34, 0.05);
-  border: 1px solid #33354D;
+  border: 1px solid #E2E5F1;
   border-radius: 6px;
   width: 416px;
   height: 458px;
@@ -3698,8 +3697,9 @@ footer .container .social-media {
   color: #6366F1;
 }
 .dark-mode #course-description .container .content-right {
-  box-shadow: 0px 4px 9px -1px rgba(19, 16, 34, 0.03), 0px 4.4px 20px -1px rgba(19, 16, 34, 0.05);
-  border: 1px solid #E2E5F1;
+  background-color: #0B0F19;
+  box-shadow: 0px 8px 18px -8px rgba(99, 102, 241, 0.9);
+  border: 1px solid #33354D;
   border-radius: 6px;
   width: 416px;
   height: 458px;
