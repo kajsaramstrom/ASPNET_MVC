@@ -14,19 +14,19 @@
     .container {
 
         .links {
-            display: none; 
+            display: none;
 
             @include md {
                 display: flex;
                 gap: 10px;
-                justify-content: baseline;
-                margin: 20px 0 0 10px;    
+                align-items: center;
+                margin: 20px 0 0 10px;
             }
 
             @include lg {
                 display: flex;
                 gap: 10px;
-                justify-content: baseline;
+                align-items: center;
                 margin: 40px 0 0 0;
             }
 
@@ -127,7 +127,7 @@
             }
 
             .right {
-                border-right: 1px solid $gray-200; 
+                border-right: 1px solid $gray-200;
             }
         }
 
@@ -152,7 +152,7 @@
                     color: $gray-200;
                     margin: 0;
                 }
-    
+
                 .name {
                     margin: 0 0 20px 0;
                     font-weight: 600;
@@ -187,14 +187,14 @@
                 @include md {
                     display: flex;
                     gap: 10px;
-                    justify-content: baseline;
+                    align-items: center;
                     margin: 20px 0 0 10px;
                 }
 
                 @include lg {
                     display: flex;
                     gap: 10px;
-                    justify-content: baseline;
+                    align-items: center;
                     margin: 40px 0 0 0;
                 }
 
@@ -261,7 +261,7 @@
 
                 @include md {
                     display: flex;
-                    align-items: baseline;
+                    align-items: center;
                     gap: 20px;
                 }
 
