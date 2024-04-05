@@ -386,7 +386,6 @@ public class AccountController(SignInManager<UserEntity> signInManager, UserMana
         };
         return View(viewModel);
     }
-    #endregion
 
     private async Task<IEnumerable<CourseModel>> PopulateMyCourses()
     {
@@ -531,4 +530,5 @@ public class AccountController(SignInManager<UserEntity> signInManager, UserMana
         }
         return RedirectToAction("SubCourse", "Account");
     }
+    #endregion
 }
