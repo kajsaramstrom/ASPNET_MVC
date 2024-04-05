@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Newtonsoft.Json;
 using System.Text;
 using WebApp.Models;
@@ -127,7 +128,7 @@ public class CourseController(HttpClient httpClient, UserManager<UserEntity> use
     [HttpGet]
     public async Task<IActionResult> SingleCourse(int id)
     {
-        string apiUrl = "https://localhost:7183/api/course/" + id;
+        string apiUrl = "https://localhost:7183/api/course/" + id + "?key=NDA0OTY0ZjQtNjcwNC00ZjIzLWI2MTMtZmRiMDgzOTA5OTQ2";
 
         var response = await _httpClient.GetAsync(apiUrl);
 
