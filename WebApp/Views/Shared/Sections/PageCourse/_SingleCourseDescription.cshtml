@@ -82,8 +82,13 @@
                     }
                 </div>
 
-                <button class="btn-theme">Join course</button>
+                <form id="join-course-form" method="post" asp-controller="Account" asp-action="SubCourse">
+                    <input type="hidden" name="CourseId" value="@Model.Course.Id" />
+                    <button type="submit" onclick="joinCourse()" class="btn-theme">Join course</button>
+                </form>
             </div>
         </div>
     </div>
 </section>
+
+@await Html.PartialAsync("~/Views/Shared/_JoinCourseScriptPartial.cshtml")

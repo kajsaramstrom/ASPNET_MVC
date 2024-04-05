@@ -1,5 +1,5 @@
 #showcase-singlecourse {
-    padding: 40px 0 270px 0;
+    padding: 40px 0 50px 0;
 
     div {
         position: relative;
@@ -7,7 +7,9 @@
         .background-image {
             position: absolute;
             width: 100%;
-            height: auto;
+            max-height: 677px;
+            object-fit: cover;
+
         }
     }
 
@@ -166,8 +168,12 @@
 .dark-mode {
 
     #showcase-singlecourse {
-        padding: 40px 0 270px 0;
+        padding: 40px 0 130px 0;
         background-color: black;
+
+        @include md {
+            padding: 40px 0 200px 0;
+        }
 
         div {
             position: relative;

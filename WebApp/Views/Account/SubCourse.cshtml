@@ -1,0 +1,85 @@
+﻿@model AccountMyCourseViewModel
+@{
+    ViewData["Title"] = Model.Title;
+}
+
+<section id="account-subcourse">
+    <div class="container">
+        <aside>
+            <div class="profile">
+                <img src="~/images/images/image-account-details.svg" alt="" />
+                <h5>@Model.BasicInfo.FirstName @Model.BasicInfo.LastName</h5>
+                <p>@Model.BasicInfo.Email</p>
+            </div>
+
+            <nav>
+                <a class="btn-theme" asp-controller="Account" asp-action="Details"><i class="fa-regular fa-gear"></i> Account Details</a>
+                <a class="btn-theme" asp-controller="Account" asp-action="Security"><i class="fa-regular fa-lock"></i> Security</a>
+                <a class="btn-theme" asp-controller="Account" asp-action="SavedCourses"><i class="fa-regular fa-bookmark"></i> Saved Courses</a>
+                <a class="btn-theme active" asp-controller="Account" asp-action="SubCourse"><i class="fa-regular fa-cart-arrow-down"></i> My Courses</a>
+                <a class="btn-theme" asp-controller="Account" asp-action="SignOut"><i class="fa-regular fa-arrow-right-from-bracket"></i> Sign out</a>
+            </nav>
+        </aside>
+
+        <div class="details">
+            <section class="basic-info">
+
+                <div class="title-button">
+                    <h2>My Courses</h2>
+
+                    <div class="formbutton">
+                        <form method="post" asp-controller="Account" asp-action="DeleteAllMyCourses" novalidate>
+                            <div class="button">
+                                <button class="btn-red" type="submit"><i class="fa-regular fa-trash"></i> Delete all</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="content">
+                    @foreach (var course in Model.Courses)
+                    {
+                        <div class="box">
+                            <a asp-controller="Course" asp-action="SingleCourse" asp-route-id="@course.Id">
+                                @if (course.IsBestSeller == true)
+                                {
+                                    <img class="bestseller" src="/images/icon/bestseller-icon.svg">
+                                }
+
+                                <form class="form" asp-controller="Account" asp-action="DeleteOneMyCourse" method="post">
+                                    <input type="hidden" name="CourseId" value="@course.Id" />
+                                    <button class="icon" title="Remove course" type="submit"><i class="fa-regular fa-trash"></i></button>
+                                </form>
+                                <img class="image" src="@course.CourseImageUrl">
+
+                                <div class="info">
+                                    <h5>@course.Title</h5>
+                                    <p class="author">@course.Author</p>
+
+                                    <div class="price-discount">
+                                        @if (course.DiscountPrice != null)
+                                        {
+                                            <p class="red">$@course.DiscountPrice</p>
+                                            <p class="gray">$@course.Price</p>
+                                        }
+                                        else
+                                        {
+                                            <p class="price">$@course.Price</p>
+                                        }
+                                    </div>
+
+                                    <div class="line"></div>
+
+                                    <div class="info-under">
+                                        <p><i class="fa-regular fa-clock"></i> @course.Hours hours</p>
+                                        <p><i class="fa-regular fa-thumbs-up"></i> @String.Format("{0:0.##}%", course.LikesInPercent) @String.Format("({0:0.0#}K)", course.LikesInNumbers)</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    }
+                </div>
+            </section>
+        </div>
+    </div>
+</section>
