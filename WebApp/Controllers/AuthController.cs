@@ -5,15 +5,21 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
+using System.Net.Http;
 using System.Security.Claims;
+using System.Text;
+using WebApp.Models;
 using WebApp.ViewModels;
 
 namespace WebApp.Controllers;
 
-public class AuthController(UserManager<UserEntity> userManager, SignInManager<UserEntity> signInManager) : Controller
+public class AuthController(UserManager<UserEntity> userManager, SignInManager<UserEntity> signInManager, HttpClient httpClient) : Controller
 {
     private readonly UserManager<UserEntity> _userManager = userManager;
     private readonly SignInManager<UserEntity> _signInManager = signInManager;
+    private readonly HttpClient _httpClient = httpClient;
+
 
     #region Individual account - Sign Up
     [HttpGet]
@@ -87,10 +93,40 @@ public class AuthController(UserManager<UserEntity> userManager, SignInManager<U
             var result = await _signInManager.PasswordSignInAsync(viewModel.Model.Email, viewModel.Model.Password, viewModel.Model.RememberMe, false);
             if (result.Succeeded)
             {
-                if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
-                    return Redirect(returnUrl);
+                var userDto = new ApiUserModel
+                {
+                    Email = viewModel.Model.Email,
+                };
 
-                return RedirectToAction("Details", "Account");
+                var json = JsonConvert.SerializeObject(userDto);
+                var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                var response = await _httpClient.PostAsync("https://localhost:7183/api/Auth?key=NDA0OTY0ZjQtNjcwNC00ZjIzLWI2MTMtZmRiMDgzOTA5OTQ2", content);
+                if (response.IsSuccessStatusCode)
+                {
+                    var responseContent = await response.Content.ReadAsStringAsync();
+                    var tokenResponse = JsonConvert.DeserializeObject<Dictionary<string, string>>(responseContent);
+
+                    if (tokenResponse != null && tokenResponse.TryGetValue("token", out var token) && !string.IsNullOrEmpty(token))
+                    {
+
+                        var cookieOptions = new CookieOptions
+                        {
+                            HttpOnly = true,
+                            Secure = true,
+                            Expires = DateTime.UtcNow.AddDays(1)
+                        };
+
+                        Response.Cookies.Append("AccessToken", token, cookieOptions);
+
+                        if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
+                            return Redirect(returnUrl);
+
+                        return RedirectToAction("Details", "Account");
+                    }
+
+                    return Unauthorized("Novalid token found");
+                }
             }
         }
 
@@ -105,6 +141,7 @@ public class AuthController(UserManager<UserEntity> userManager, SignInManager<U
     [Route("/signout")]
     public new async Task<IActionResult> SignOut()
     {
+        Response.Cookies.Delete("AccessToken");
         await _signInManager.SignOutAsync();
 
         return RedirectToAction("Index", "Home");
@@ -157,12 +194,43 @@ public class AuthController(UserManager<UserEntity> userManager, SignInManager<U
                 await _signInManager.SignInAsync(user, isPersistent: false);
 
                 if (HttpContext.User != null)
-                    return RedirectToAction("Details", "Account");
+                {
+                    var userDto = new ApiUserModel
+                    {
+                        Email = user.Email,
+                    };
+
+                    var json = JsonConvert.SerializeObject(userDto);
+                    var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                    var response = await _httpClient.PostAsync("https://localhost:7183/api/Auth?key=NDA0OTY0ZjQtNjcwNC00ZjIzLWI2MTMtZmRiMDgzOTA5OTQ2", content);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var responseContent = await response.Content.ReadAsStringAsync();
+                        var tokenResponse = JsonConvert.DeserializeObject<Dictionary<string, string>>(responseContent);
+
+                        if (tokenResponse != null && tokenResponse.TryGetValue("token", out var token) && !string.IsNullOrEmpty(token))
+                        {
+
+                            var cookieOptions = new CookieOptions
+                            {
+                                HttpOnly = true,
+                                Secure = true,
+                                Expires = DateTime.UtcNow.AddDays(1)
+                            };
+
+                            Response.Cookies.Append("AccessToken", token, cookieOptions);
+                            return RedirectToAction("Details", "Account");
+                        }
+                    }
+                }
+
+                ModelState.AddModelError("InvalidFacebookAuthentication", "Failed to authentication with Faccebook.");
+                ViewData["StatusMessage"] = "Failed to authentication with Facebook.";
+                return RedirectToAction("SignIn", "Auth");
             }
         }
 
-        ModelState.AddModelError("InvalidFacebookAuthentication", "Failed to authentication with Faccebook.");
-        ViewData["StatusMessage"] = "Failed to authentication with Facebook.";
         return RedirectToAction("SignIn", "Auth");
     }
     #endregion
@@ -213,7 +281,36 @@ public class AuthController(UserManager<UserEntity> userManager, SignInManager<U
                 await _signInManager.SignInAsync(user, isPersistent: false);
 
                 if (HttpContext.User != null)
-                    return RedirectToAction("Details", "Account");
+                {
+                    var userDto = new ApiUserModel
+                    {
+                        Email = user.Email,
+                    };
+
+                    var json = JsonConvert.SerializeObject(userDto);
+                    var content = new StringContent(json, Encoding.UTF8, "application/json");
+
+                    var response = await _httpClient.PostAsync("https://localhost:7183/api/Auth?key=NDA0OTY0ZjQtNjcwNC00ZjIzLWI2MTMtZmRiMDgzOTA5OTQ2", content);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        var responseContent = await response.Content.ReadAsStringAsync();
+                        var tokenResponse = JsonConvert.DeserializeObject<Dictionary<string, string>>(responseContent);
+
+                        if (tokenResponse != null && tokenResponse.TryGetValue("token", out var token) && !string.IsNullOrEmpty(token))
+                        {
+
+                            var cookieOptions = new CookieOptions
+                            {
+                                HttpOnly = true,
+                                Secure = true,
+                                Expires = DateTime.UtcNow.AddDays(1)
+                            };
+
+                            Response.Cookies.Append("AccessToken", token, cookieOptions);
+                            return RedirectToAction("Details", "Account");
+                        }
+                    }
+                }
             }
         }
 
@@ -222,5 +319,4 @@ public class AuthController(UserManager<UserEntity> userManager, SignInManager<U
         return RedirectToAction("SignIn", "Auth");
     }
     #endregion
-
 }
