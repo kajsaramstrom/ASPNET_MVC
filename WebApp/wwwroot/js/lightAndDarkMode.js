@@ -72,10 +72,8 @@ var logoImage = isDarkMode ? "/images/images/logo-header-darkmode.svg" : "/image
 var notFoundElement = document.getElementById("errorImage");
 var notFoundImage = isDarkMode ? "/images/images/404darkmode.svg" : "/images/images/error404.svg";
 var desktopSwitch = document.getElementById("switch");
-var mobileSwitch = document.getElementById("switch-mobile");
 logoElement.innerHTML = "<img src='" + logoImage + "' alt='Silicon Logo'>";
 desktopSwitch.checked = isDarkMode;
-mobileSwitch.checked = isDarkMode;
 
 
 function toggleBothSwitches() {
@@ -83,7 +81,6 @@ function toggleBothSwitches() {
     localStorage.setItem("darkMode", isDarkMode);
 
     desktopSwitch.checked = isDarkMode;
-    mobileSwitch.checked = isDarkMode;
 
     if (isDarkMode) {
         activateDarkMode();
@@ -117,7 +114,6 @@ function update404() {
     notFoundElement.innerHTML = "<img src='" + notFoundImage + "' alt='404 Not Found'>";
 }
 
-// Körs när sidan laddas för att sätta temaläget och uppdatera logotypen
 window.onload = function () {
     if (isDarkMode) {
         activateDarkMode();

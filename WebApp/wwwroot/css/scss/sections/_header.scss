@@ -12,7 +12,7 @@ header {
         display: grid;
         align-items: center;
         grid-template-columns: 1fr auto;
-        grid-template-areas: "logo mobile";
+        grid-template-areas: "logo switch mobile";
         gap: 40px;
         padding: 15px 0;
 
@@ -46,11 +46,6 @@ header {
 
         .btn-switch {
             grid-area: switch;
-            display: none;
-
-            @include lg {
-                display: block;
-            }
         }
 
         #account-buttons {
@@ -215,7 +210,7 @@ header {
             display: grid;
             align-items: center;
             grid-template-columns: 1fr auto;
-            grid-template-areas: "logo mobile";
+            grid-template-areas: "logo switch mobile";
             gap: 40px;
             padding: 15px 0;
 
@@ -253,10 +248,9 @@ header {
 
             .btn-switch {
                 grid-area: switch;
-                display: none;
 
-                @include lg {
-                    display: block;
+                span {
+                    color: $gray-300;
                 }
             }
 
