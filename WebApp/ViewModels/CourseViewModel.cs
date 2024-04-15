@@ -8,4 +8,5 @@ public class CourseViewModel
     public CourseModel? Course { get; set; }
     public PaginationModel Pagination { get; set; } = new PaginationModel();
     public IEnumerable<CourseModel> Courses { get; set; } = new List<CourseModel>();
+    public IEnumerable<CourseModel> SavedCourses { get; set; } = new List<CourseModel>();
 }

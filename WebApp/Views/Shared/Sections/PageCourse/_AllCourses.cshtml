@@ -46,10 +46,26 @@
                                 <img class="bestseller" src="/images/icon/bestseller-icon.svg">
                             }
 
+@*                             <form asp-controller="Course" asp-action="SaveCourse" method="post">
+                                <input type="hidden" name="CourseId" value="@course.Id" />
+                                <button class="icon" title="Save course" type="submit"><i class="fa-regular fa-bookmark"></i></button>
+                            </form> *@
+
+                        @if (Model.SavedCourses.Select(x => x.Id).Contains(course.Id))
+                        {
                             <form asp-controller="Course" asp-action="SaveCourse" method="post">
                                 <input type="hidden" name="CourseId" value="@course.Id" />
-                            <button class="icon" title="Save course" type="submit"><i class="fa-regular fa-bookmark"></i></button>
+                                <button class="icon saved" type="submit" title="Course saved"><i class="fa-regular fa-bookmark"></i></button>
                             </form>
+                        }
+
+                        else
+                        {
+                            <form asp-controller="Course" asp-action="SaveCourse" method="post">
+                                <input type="hidden" name="CourseId" value="@course.Id" />
+                                <button class="icon" type="submit" title="Save course"><i class="fa-regular fa-bookmark"></i></button>
+                            </form>
+                        }
                             <img class="image" src="@course.CourseImageUrl">
 
                             <div class="info">

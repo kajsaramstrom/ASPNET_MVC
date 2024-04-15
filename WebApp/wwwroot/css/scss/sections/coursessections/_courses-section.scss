@@ -178,6 +178,11 @@
                         }
                     }
 
+                    .icon.saved {
+                        background-color: $theme;
+                        color: white;
+                    }
+
                     .image {
                         height: auto;
                         width: 100%;
@@ -489,6 +494,11 @@
                                 font-weight: 700;
                                 white-space: nowrap;
                             }
+                        }
+
+                        .icon.saved {
+                            background-color: $theme;
+                            color: white;
                         }
 
                         .image {

@@ -31,25 +31,66 @@ public class CourseController(HttpClient httpClient, UserManager<UserEntity> use
             {
                 UserEmail = user.Email!,
                 CourseId = CourseId,
+
             };
 
             var json = JsonConvert.SerializeObject(saveCourse);
-            var content = new StringContent(json, Encoding.UTF8, "application/json");
-            var respsonse = await _httpClient.PostAsync(apiUrl, content);
 
-            if (respsonse.IsSuccessStatusCode)
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            var response = await _httpClient.PostAsync(apiUrl, content);
+
+            if (response.IsSuccessStatusCode)
             {
                 TempData["Saved"] = "Course saved";
-                return Ok(respsonse);
+                return RedirectToAction("Courses", "Course");
             }
+
             else
             {
                 TempData["Failed"] = "Something went wrong";
-                return NoContent();
+                return RedirectToAction("Courses", "Course");
             }
         }
+        TempData["Failed"] = "Something went wrong";
+        return RedirectToAction("Courses", "Course");
+    }
 
-        return BadRequest();
+    private async Task<IEnumerable<CourseModel>> CheckForSavedCourse()
+    {
+        string apiUrl = "https://localhost:7183/api/savedcourse/";
+        var user = await _userManager.GetUserAsync(User);
+
+        if (user != null)
+        {
+            var userDto = new UserToGetCoursesModel
+            {
+                Email = user.Email!
+            };
+
+            if (userDto.Email != null)
+            {
+
+
+                var response = await _httpClient.GetAsync($"{apiUrl}{userDto.Email}");
+
+                var json = await response.Content.ReadAsStringAsync();
+
+                var data = JsonConvert.DeserializeObject<IEnumerable<CourseModel>>(json);
+                if (data != null)
+                {
+                    return data;
+                }
+
+
+                else
+                {
+                    return Enumerable.Empty<CourseModel>();
+                }
+            }
+
+            return Enumerable.Empty<CourseModel>();
+        }
+        return Enumerable.Empty<CourseModel>();
     }
     #endregion
 
@@ -61,6 +102,7 @@ public class CourseController(HttpClient httpClient, UserManager<UserEntity> use
         {
             var viewModel = new CourseViewModel();
             viewModel.Courses = await PopulateCourses();
+            viewModel.SavedCourses = await CheckForSavedCourse();
 
             if (!String.IsNullOrEmpty(searchString))
             {

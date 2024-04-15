@@ -2628,6 +2628,10 @@ footer .container .social-media {
   font-weight: 700;
   white-space: nowrap;
 }
+#courses-section .container .content .box a .icon.saved {
+  background-color: #6366F1;
+  color: white;
+}
 #courses-section .container .content .box a .image {
   height: auto;
   width: 100%;
@@ -2910,6 +2914,10 @@ footer .container .social-media {
   font-size: 12px;
   font-weight: 700;
   white-space: nowrap;
+}
+.dark-mode #courses-section .container .content .box a .icon.saved {
+  background-color: #6366F1;
+  color: white;
 }
 .dark-mode #courses-section .container .content .box a .image {
   height: auto;
