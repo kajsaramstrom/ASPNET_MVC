@@ -4181,12 +4181,10 @@ footer .container .social-media {
 }
 .dark-mode #author .container .author-info .buttons .btn-theme {
   background: #EF4444;
-  padding: 10px 0;
   margin-bottom: 20px;
 }
 @media (min-width: 768px) {
   .dark-mode #author .container .author-info .buttons .btn-theme {
-    padding: 0;
     margin-bottom: 0;
   }
 }

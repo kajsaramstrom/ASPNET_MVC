@@ -1,7 +1,5 @@
 ﻿using Infrastructure.Context;
 using Infrastructure.Entities;
-using Infrastructure.Factories;
-using Infrastructure.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Services;

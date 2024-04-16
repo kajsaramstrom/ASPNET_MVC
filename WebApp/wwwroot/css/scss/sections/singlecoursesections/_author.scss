@@ -176,11 +176,9 @@
 
                     .btn-theme {
                         background: $danger;
-                        padding: 10px 0;
                         margin-bottom: 20px;
 
                         @include md {
-                            padding: 0;
                             margin-bottom: 0;
                         }
                     }
