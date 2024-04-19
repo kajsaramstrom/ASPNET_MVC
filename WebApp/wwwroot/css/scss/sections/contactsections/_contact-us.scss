@@ -208,6 +208,28 @@
                                 max-width: 237px;
                             }
                         }
+
+                        .success {
+                            background-color: lightgreen;
+                            opacity: 0.8;
+                            color: $gray-900;
+                            margin: 0;
+                            max-width: 70%;
+                            text-align: center;
+                            font-weight: 700;
+                            min-width: 30%;
+                            min-height: 2rem;
+                        }
+
+                        .alert {
+                            background-color: #ef444452;
+                            opacity: 0.8;
+                            color: $gray-900;
+                            margin: 0;
+                            max-width: 70%;
+                            text-align: center;
+                            font-weight: 700;
+                        }
                     }
                 }
             }
@@ -443,6 +465,28 @@
                                 .btn-theme-s {
                                     max-width: 237px;
                                 }
+                            }
+
+                            .success {
+                                background-color: lightgreen;
+                                opacity: 0.8;
+                                color: $gray-900;
+                                margin: 10px 0;
+                                max-width: 70%;
+                                text-align: center;
+                                font-weight: 700;
+                                min-width: 30%;
+                                min-height: 2rem;
+                            }
+
+                            .alert {
+                                background-color: #ef444452;
+                                opacity: 0.8;
+                                color: $gray-900;
+                                margin: 0;
+                                max-width: 70%;
+                                text-align: center;
+                                font-weight: 700;
                             }
                         }
                     }
